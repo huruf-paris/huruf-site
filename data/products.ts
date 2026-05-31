@@ -113,7 +113,7 @@ export const products: Product[] = [
       '/images/products/salam-2.png',
       '/images/products/salam-3.png',
     ],
-    featured: false,
+    featured: true,
     prices: {
       '30x40': { single: 27.99, lot3: 57.0 },
       '40x50': { single: 37.99, lot3: 75.99 },
@@ -136,7 +136,7 @@ export const products: Product[] = [
       '/images/products/allah-akbar-1.png',
       '/images/products/allah-akbar-2.png',
     ],
-    featured: false,
+    featured: true,
     prices: {
       '30x40': { single: 27.99, lot3: 57.0 },
       '40x50': { single: 37.99, lot3: 75.99 },
@@ -156,7 +156,7 @@ export const products: Product[] = [
     calligraphyDescription:
       "Tracé en style Naskh raffiné, la formule s'inscrit en une ligne noble et équilibrée, riche en points diacritiques.",
     images: ['/images/products/subhanallah.png'],
-    featured: false,
+    featured: true,
     prices: {
       '30x40': { single: 27.99, lot3: 57.0 },
       '40x50': { single: 37.99, lot3: 75.99 },

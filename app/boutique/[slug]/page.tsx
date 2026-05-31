@@ -150,6 +150,23 @@ export default function ProductPage({ params }: PageProps) {
 
               <div className="section-divider mb-8" />
 
+              {/* Sens spirituel du mot — storytelling avant le prix */}
+              {!product.isBundle && (
+                <motion.div
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.25, ease: 'easeOut' }}
+                  className="mb-7 bg-gold/5 border-l-2 border-gold/40 pl-5 py-4 pr-4"
+                >
+                  <p className="font-cormorant text-gold/60 text-xs tracking-[0.3em] uppercase mb-2">
+                    Signification
+                  </p>
+                  <p className="font-cormorant text-pearl/75 text-lg leading-relaxed italic">
+                    {product.description.split('.')[0]}.
+                  </p>
+                </motion.div>
+              )}
+
               {/* ── Prix sur demande (duo) ── */}
               {product.prixSurDemande ? (
                 <div className="mb-8 bg-night-deep border border-gold/15 p-6">

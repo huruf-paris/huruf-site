@@ -54,17 +54,17 @@ export default function BoutiquePage() {
       </section>
 
       {/* Filtres */}
-      <div className="sticky top-[60px] z-30 bg-night/95 backdrop-blur-md border-b border-gold/10 py-4">
+      <div className="sticky top-[60px] z-30 bg-night/95 backdrop-blur-md border-b border-gold/10 py-3">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="flex items-center gap-3 overflow-x-auto pb-1">
-            <span className="font-cormorant text-pearl/40 text-sm tracking-widest uppercase flex-shrink-0 mr-2">
+          <div className="flex items-center gap-2 overflow-x-auto scrollbar-none pb-0.5 -mx-1 px-1">
+            <span className="font-cormorant text-pearl/35 text-xs tracking-widest uppercase flex-shrink-0 mr-1 hidden sm:block">
               Format :
             </span>
             {ALL_FORMATS.map(({ value, label }) => (
               <button
                 key={value}
                 onClick={() => setActiveFormat(value)}
-                className={`flex-shrink-0 px-5 py-2 font-cormorant text-sm tracking-wider uppercase border transition-all duration-300 ${
+                className={`flex-shrink-0 px-4 py-2 font-cormorant text-sm tracking-wide uppercase border transition-all duration-300 whitespace-nowrap ${
                   activeFormat === value
                     ? 'border-gold bg-gold/10 text-gold'
                     : 'border-gold/20 text-pearl/50 hover:border-gold/40 hover:text-pearl/80'
