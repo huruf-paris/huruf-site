@@ -78,17 +78,38 @@ export default function BoutiquePage() {
       </div>
 
       {/* ───── Tableaux simples ───── */}
-      <section className="pt-14 pb-6 px-6 bg-night">
+      <section className="pt-14 pb-6 bg-night">
         <div className="max-w-7xl mx-auto">
           <motion.h2
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: 'easeOut' }}
-            className="font-playfair text-pearl text-2xl font-light mb-8 border-b border-gold/10 pb-4"
+            className="font-playfair text-pearl text-2xl font-light mb-8 border-b border-gold/10 pb-4 px-6"
           >
             Tableaux individuels
           </motion.h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+
+          {/* Mobile : carrousel swipe */}
+          <div className="sm:hidden">
+            <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-none pl-6 pr-6 pb-4">
+              {singles.map((product, i) => (
+                <div key={product.id} className="flex-none w-[78vw] snap-center">
+                  <ProductCard product={product} index={i} />
+                </div>
+              ))}
+            </div>
+            <div className="flex justify-center gap-1.5 mt-3 px-6">
+              {singles.map((_, i) => (
+                <div key={i} className={`h-px transition-all duration-300 ${i === 0 ? 'w-6 bg-gold/60' : 'w-3 bg-gold/20'}`} />
+              ))}
+            </div>
+            <p className="text-center font-cormorant text-pearl/25 text-xs tracking-widest uppercase mt-3 px-6">
+              Glisser pour découvrir →
+            </p>
+          </div>
+
+          {/* Tablette / Desktop : grille */}
+          <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 px-6">
             {singles.map((product, i) => (
               <ProductCard key={product.id} product={product} index={i} />
             ))}
@@ -99,14 +120,14 @@ export default function BoutiquePage() {
       <SectionDivider />
 
       {/* ───── Packs / Bundles ───── */}
-      <section className="py-14 px-6 bg-night">
+      <section className="py-14 bg-night">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, ease: 'easeOut' }}
-            className="mb-8 border-b border-gold/10 pb-4"
+            className="mb-8 border-b border-gold/10 pb-4 px-6"
           >
             <h2 className="font-playfair text-pearl text-2xl font-light">
               Packs &amp; Collections
@@ -115,7 +136,28 @@ export default function BoutiquePage() {
               Des associations choisies pour créer une composition murale harmonieuse.
             </p>
           </motion.div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          {/* Mobile : carrousel swipe */}
+          <div className="sm:hidden">
+            <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-none pl-6 pr-6 pb-4">
+              {bundles.map((product, i) => (
+                <div key={product.id} className="flex-none w-[78vw] snap-center">
+                  <ProductCard product={product} index={i} />
+                </div>
+              ))}
+            </div>
+            <div className="flex justify-center gap-1.5 mt-3 px-6">
+              {bundles.map((_, i) => (
+                <div key={i} className={`h-px transition-all duration-300 ${i === 0 ? 'w-6 bg-gold/60' : 'w-3 bg-gold/20'}`} />
+              ))}
+            </div>
+            <p className="text-center font-cormorant text-pearl/25 text-xs tracking-widest uppercase mt-3 px-6">
+              Glisser pour découvrir →
+            </p>
+          </div>
+
+          {/* Tablette / Desktop : grille */}
+          <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-6 px-6">
             {bundles.map((product, i) => (
               <ProductCard key={product.id} product={product} index={i} />
             ))}
