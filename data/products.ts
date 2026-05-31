@@ -174,7 +174,7 @@ export const products: Product[] = [
     transliteration: 'Bismillah · Subhanallah',
     meaning: 'Au nom de Dieu · Gloire à Dieu',
     description:
-      "Ce duo associe deux des formules les plus emblématiques de la calligraphie islamique : Bismillah (au nom de Dieu) et Subhanallah (gloire à Dieu). Ensemble, ils forment un diptyque équilibré et harmonieux, conçu pour être exposé côte à côte. Prix disponible sur demande.",
+      "Ce duo associe deux des formules les plus emblématiques de la calligraphie islamique : Bismillah (au nom de Dieu) et Subhanallah (gloire à Dieu). Ensemble, ils forment un diptyque équilibré et harmonieux, conçu pour être exposé côte à côte.",
     calligraphyDescription:
       "Les deux tableaux ont été calligraphiés dans le même style et avec les mêmes proportions pour garantir une cohérence visuelle parfaite.",
     images: [
@@ -185,11 +185,10 @@ export const products: Product[] = [
     featured: true,
     isBundle: true,
     bundleSize: 2,
-    prixSurDemande: true,
     prices: {
-      '30x40': { single: 0, lot3: 0 },
-      '40x50': { single: 0, lot3: 0 },
-      '50x70': { single: 0, lot3: 0 },
+      '30x40': { single: 64.99, lot3: 64.99 },
+      '40x50': { single: 79.99, lot3: 79.99 },
+      '50x70': { single: 99.99, lot3: 99.99 },
     },
   },
 
