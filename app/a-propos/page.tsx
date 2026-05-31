@@ -91,15 +91,17 @@ export default function AProposPage() {
           >
             <div className="relative aspect-[3/4] border border-gold/20 overflow-hidden group">
               <Image
-                src="/images/products/hubb.png"
-                alt="Tableau de calligraphie arabe Hurûf — Hubb (Amour)"
+                src="https://images.unsplash.com/photo-1486303954368-398fea0e72cd?w=800&q=85"
+                alt="Atelier de calligraphie — Hurûf Paris"
                 fill
-                className="object-cover product-image"
+                className="object-cover object-center"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-night/90 to-transparent py-5 px-5 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
-                <p className="font-cormorant text-pearl/70 text-sm italic text-center">
-                  Tableau « Hubb » (Amour) — collection Hurûf 2025
+              <div className="absolute inset-0 bg-night/35 mix-blend-multiply" />
+              <div className="absolute inset-0 bg-gradient-to-t from-night/80 via-transparent to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 py-5 px-5">
+                <p className="font-cormorant text-pearl/65 text-sm italic text-center">
+                  L'atelier — chaque tracé naît d'un geste précis, répété jusqu'à la perfection
                 </p>
               </div>
             </div>

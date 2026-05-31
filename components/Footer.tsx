@@ -75,9 +75,9 @@ export default function Footer() {
             {/* Réseaux sociaux */}
             <div className="flex gap-4 mt-6">
               {[
-                { label: 'Instagram', href: '#', icon: 'IG' },
-                { label: 'Pinterest', href: '#', icon: 'PT' },
-                { label: 'Facebook', href: '#', icon: 'FB' },
+                { label: 'Instagram', href: 'https://www.instagram.com/huruf.paris', icon: 'IG' },
+                { label: 'Pinterest', href: 'https://www.pinterest.fr/hurufparis', icon: 'PT' },
+                { label: 'Facebook', href: 'https://www.facebook.com/huruf.paris', icon: 'FB' },
               ].map(({ label, href, icon }) => (
                 <a
                   key={label}

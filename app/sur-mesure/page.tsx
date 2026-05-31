@@ -1,11 +1,12 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Clock, Pen, CheckCircle } from 'lucide-react'
+import { Clock, Pen, CheckCircle, Feather, Frame, Star } from 'lucide-react'
 import Button from '@/components/Button'
 import { SectionDivider } from '@/components/IslamicOrnament'
 
@@ -42,6 +43,13 @@ const STEPS = [
   },
 ]
 
+const GUARANTEES = [
+  { icon: <Feather size={18} strokeWidth={1.5} className="text-gold/70" />, label: 'Tracé 100% à la main' },
+  { icon: <Frame size={18} strokeWidth={1.5} className="text-gold/70" />, label: 'Cadre noble inclus' },
+  { icon: <Star size={18} strokeWidth={1.5} className="text-gold/70" />, label: 'Oeuvre unique certifiée' },
+  { icon: <Clock size={18} strokeWidth={1.5} className="text-gold/70" />, label: 'Devis gratuit sous 48h' },
+]
+
 export default function SurMesurePage() {
   const [sent, setSent] = useState(false)
 
@@ -56,8 +64,6 @@ export default function SurMesurePage() {
 
   const onSubmit = async (data: FormData) => {
     try {
-      // TODO: Envoyer l'email via Resend ou EmailJS
-      // await fetch('/api/sur-mesure', { method: 'POST', body: JSON.stringify(data) })
       console.log('Demande sur mesure :', data)
       await new Promise((r) => setTimeout(r, 1000))
       setSent(true)
@@ -67,186 +73,263 @@ export default function SurMesurePage() {
   }
 
   return (
-    <div className="min-h-screen bg-night pt-24 pb-20">
-      {/* Header */}
-      <section className="py-16 px-6 text-center">
-        <div className="max-w-3xl mx-auto">
+    <div className="min-h-screen bg-night">
+
+      {/* ── Hero visuel pleine largeur ── */}
+      <section className="relative h-[55vh] min-h-[420px] overflow-hidden">
+        <Image
+          src="https://images.unsplash.com/photo-1546638008-efbe0b62c730?w=1400&q=85"
+          alt="Calligraphie sur mesure — Hurûf Paris"
+          fill
+          className="object-cover object-center"
+          priority
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-night/60 via-night/50 to-night" />
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 pt-20">
           <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="font-cormorant text-gold/60 text-sm tracking-[0.3em] uppercase mb-4"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="font-cormorant text-gold/70 text-sm tracking-[0.4em] uppercase mb-4"
           >
             Service exclusif
           </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: 'easeOut' }}
-            className="font-playfair text-pearl text-5xl md:text-6xl font-light mb-4"
+            transition={{ duration: 0.7, delay: 0.1 }}
+            className="font-playfair text-pearl text-5xl md:text-7xl font-light mb-5 leading-tight"
           >
             Commande sur mesure
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="font-cormorant text-pearl/55 text-xl italic leading-relaxed"
+            transition={{ duration: 0.6, delay: 0.25 }}
+            className="font-cormorant text-pearl/65 text-xl md:text-2xl italic leading-relaxed max-w-2xl"
           >
             Un mot qui vous tient à coeur, calligraphié à la main pour vous.
-            <br />
+            <br className="hidden md:block" />
             Une oeuvre unique, dans le format de votre choix.
           </motion.p>
         </div>
       </section>
 
-      {/* Étapes */}
-      <section className="py-12 px-6 bg-night-deep">
-        <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-px bg-gold/10">
-          {STEPS.map(({ num, title, desc }, i) => (
-            <motion.div
-              key={num}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1, ease: 'easeOut' }}
-              className="bg-night-deep p-7"
-            >
-              <span className="font-playfair text-gold/30 text-3xl block mb-3">{num}</span>
-              <h3 className="font-playfair text-pearl text-base mb-2">{title}</h3>
-              <p className="font-cormorant text-pearl/45 text-sm leading-relaxed">{desc}</p>
-            </motion.div>
+      {/* ── Garanties ── */}
+      <section className="py-10 px-6 bg-night-deep border-b border-gold/10">
+        <div className="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
+          {GUARANTEES.map(({ icon, label }) => (
+            <div key={label} className="flex items-center gap-3">
+              <div className="w-9 h-9 border border-gold/20 flex items-center justify-center flex-shrink-0">
+                {icon}
+              </div>
+              <span className="font-cormorant text-pearl/65 text-sm leading-tight">{label}</span>
+            </div>
           ))}
         </div>
+      </section>
 
-        <div className="max-w-5xl mx-auto mt-5 flex items-center gap-3 px-2">
-          <Clock size={16} strokeWidth={1.5} className="text-teal/60 flex-shrink-0" />
-          <p className="font-cormorant text-pearl/40 text-sm italic">
-            Délai de création estimé :{' '}
-            <strong className="text-pearl/60 font-normal">3 à 4 semaines</strong> — chaque oeuvre
-            est tracée à la main, sans compromis.
-          </p>
+      {/* ── Étapes ── */}
+      <section className="py-16 px-6">
+        <div className="max-w-5xl mx-auto">
+          <motion.h2
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="font-playfair text-pearl text-3xl font-light text-center mb-12"
+          >
+            Comment ça fonctionne
+          </motion.h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-gold/10">
+            {STEPS.map(({ num, title, desc }, i) => (
+              <motion.div
+                key={num}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="bg-night p-8 group hover:bg-night-deep transition-colors duration-300"
+              >
+                <span className="font-playfair text-gold/25 text-4xl block mb-4 group-hover:text-gold/40 transition-colors duration-300">
+                  {num}
+                </span>
+                <div className="w-6 h-px bg-gold/30 mb-4" />
+                <h3 className="font-playfair text-pearl text-base mb-3">{title}</h3>
+                <p className="font-cormorant text-pearl/50 text-base leading-relaxed">{desc}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
       <SectionDivider />
 
-      {/* Formulaire */}
-      <section className="py-12 px-6">
-        <div className="max-w-2xl mx-auto">
-          {sent ? (
-            <motion.div
-              initial={{ opacity: 0, scale: 0.97 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5 }}
-              className="text-center py-16"
-            >
-              <CheckCircle size={48} strokeWidth={1} className="text-gold mx-auto mb-6" />
-              <h2 className="font-playfair text-pearl text-3xl font-light mb-3">
-                Demande envoyée
-              </h2>
-              <p className="font-cormorant text-pearl/55 text-xl italic leading-relaxed">
-                Nous avons bien reçu votre demande. Vous recevrez une réponse sous 48h avec un
-                aperçu et un devis personnalisé.
-              </p>
-            </motion.div>
-          ) : (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: 'easeOut' }}
-            >
-              <div className="flex items-center gap-3 mb-8">
-                <Pen size={18} strokeWidth={1.5} className="text-gold" />
-                <h2 className="font-playfair text-pearl text-2xl font-light">Votre demande</h2>
-              </div>
+      {/* ── Section principale : formulaire + image ── */}
+      <section className="py-16 px-6 bg-night-deep">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
 
-              <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-                <div>
-                  <label className="font-cormorant text-pearl/60 text-sm tracking-widest uppercase block mb-2">
-                    Prénom *
-                  </label>
-                  <input {...register('prenom')} placeholder="Votre prénom" className="luxury-input" />
-                  {errors.prenom && (
-                    <p className="font-cormorant text-red-400/80 text-sm mt-1">
-                      {errors.prenom.message}
-                    </p>
-                  )}
-                </div>
-
-                <div>
-                  <label className="font-cormorant text-pearl/60 text-sm tracking-widest uppercase block mb-2">
-                    Email *
-                  </label>
-                  <input
-                    {...register('email')}
-                    type="email"
-                    placeholder="votre@email.fr"
-                    className="luxury-input"
-                  />
-                  {errors.email && (
-                    <p className="font-cormorant text-red-400/80 text-sm mt-1">
-                      {errors.email.message}
-                    </p>
-                  )}
-                </div>
-
-                <div>
-                  <label className="font-cormorant text-pearl/60 text-sm tracking-widest uppercase block mb-2">
-                    Mot souhaité *
-                  </label>
-                  <input
-                    {...register('mot')}
-                    placeholder="Ex : Gratitude, Espoir, le nom de votre enfant…"
-                    className="luxury-input"
-                  />
-                  {errors.mot && (
-                    <p className="font-cormorant text-red-400/80 text-sm mt-1">
-                      {errors.mot.message}
-                    </p>
-                  )}
-                </div>
-
-                <div>
-                  <label className="font-cormorant text-pearl/60 text-sm tracking-widest uppercase block mb-2">
-                    Format désiré *
-                  </label>
-                  <select {...register('format')} className="luxury-input bg-night-deep">
-                    <option value="30x40">30 × 40 cm</option>
-                    <option value="40x50">40 × 50 cm (le plus populaire)</option>
-                    <option value="50x70">50 × 70 cm</option>
-                    <option value="duo">Format Duo (deux tableaux assortis)</option>
-                    <option value="autre">Autre (à préciser dans le message)</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="font-cormorant text-pearl/60 text-sm tracking-widest uppercase block mb-2">
-                    Message (facultatif)
-                  </label>
-                  <textarea
-                    {...register('message')}
-                    rows={5}
-                    placeholder="Style calligraphique souhaité, occasion, contraintes particulières…"
-                    className="luxury-input resize-none"
-                  />
-                </div>
-
-                <Button
-                  type="submit"
-                  variant="primary"
-                  size="lg"
-                  fullWidth
-                  loading={isSubmitting}
-                >
-                  Envoyer ma demande
-                </Button>
-
-                <p className="font-cormorant text-pearl/25 text-sm text-center">
-                  Réponse garantie sous 48h · Devis gratuit et sans engagement
+          {/* Formulaire */}
+          <div>
+            {sent ? (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.97 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5 }}
+                className="text-center py-20"
+              >
+                <CheckCircle size={52} strokeWidth={1} className="text-gold mx-auto mb-6" />
+                <h2 className="font-playfair text-pearl text-3xl font-light mb-4">
+                  Demande envoyée
+                </h2>
+                <p className="font-cormorant text-pearl/55 text-xl italic leading-relaxed">
+                  Nous avons bien reçu votre demande.<br />
+                  Vous recevrez une réponse sous 48h avec un aperçu et un devis personnalisé.
                 </p>
-              </form>
-            </motion.div>
-          )}
+              </motion.div>
+            ) : (
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
+                <div className="flex items-center gap-3 mb-8">
+                  <Pen size={18} strokeWidth={1.5} className="text-gold" />
+                  <h2 className="font-playfair text-pearl text-2xl font-light">Votre demande</h2>
+                </div>
+
+                <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                      <label className="font-cormorant text-pearl/60 text-sm tracking-widest uppercase block mb-2">
+                        Prénom *
+                      </label>
+                      <input {...register('prenom')} placeholder="Votre prénom" className="luxury-input" />
+                      {errors.prenom && (
+                        <p className="font-cormorant text-red-400/80 text-sm mt-1">{errors.prenom.message}</p>
+                      )}
+                    </div>
+                    <div>
+                      <label className="font-cormorant text-pearl/60 text-sm tracking-widest uppercase block mb-2">
+                        Email *
+                      </label>
+                      <input {...register('email')} type="email" placeholder="votre@email.fr" className="luxury-input" />
+                      {errors.email && (
+                        <p className="font-cormorant text-red-400/80 text-sm mt-1">{errors.email.message}</p>
+                      )}
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="font-cormorant text-pearl/60 text-sm tracking-widest uppercase block mb-2">
+                      Mot ou phrase souhaité *
+                    </label>
+                    <input
+                      {...register('mot')}
+                      placeholder="Ex : Gratitude, Espoir, le nom de votre enfant…"
+                      className="luxury-input"
+                    />
+                    {errors.mot && (
+                      <p className="font-cormorant text-red-400/80 text-sm mt-1">{errors.mot.message}</p>
+                    )}
+                  </div>
+
+                  <div>
+                    <label className="font-cormorant text-pearl/60 text-sm tracking-widest uppercase block mb-2">
+                      Format désiré *
+                    </label>
+                    <select {...register('format')} className="luxury-input bg-night">
+                      <option value="30x40">30 × 40 cm — Format intimiste</option>
+                      <option value="40x50">40 × 50 cm — Le plus demandé</option>
+                      <option value="50x70">50 × 70 cm — Format imposant</option>
+                      <option value="duo">Format Duo (deux tableaux assortis)</option>
+                      <option value="autre">Autre format (à préciser ci-dessous)</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="font-cormorant text-pearl/60 text-sm tracking-widets uppercase block mb-2">
+                      Message (facultatif)
+                    </label>
+                    <textarea
+                      {...register('message')}
+                      rows={5}
+                      placeholder="Style calligraphique souhaité, occasion particulière, couleurs, contraintes d'accrochage…"
+                      className="luxury-input resize-none"
+                    />
+                  </div>
+
+                  <Button
+                    type="submit"
+                    variant="primary"
+                    size="lg"
+                    fullWidth
+                    loading={isSubmitting}
+                  >
+                    Envoyer ma demande
+                  </Button>
+
+                  <p className="font-cormorant text-pearl/25 text-sm text-center">
+                    Devis gratuit et sans engagement · Réponse sous 48h
+                  </p>
+                </form>
+              </motion.div>
+            )}
+          </div>
+
+          {/* Colonne visuelle droite */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="space-y-6"
+          >
+            {/* Image calligraphe */}
+            <div className="relative aspect-[4/3] overflow-hidden border border-gold/15">
+              <Image
+                src="https://images.unsplash.com/photo-1573844851308-2a3ac2622258?w=800&q=85"
+                alt="Calligraphe au travail — Hurûf"
+                fill
+                className="object-cover object-center"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+              <div className="absolute inset-0 bg-night/30" />
+              <div className="absolute inset-0 bg-gradient-to-t from-night/70 via-transparent to-transparent" />
+              <div className="absolute bottom-5 left-5 right-5">
+                <p className="font-amiri text-gold text-3xl mb-1">بِسْمِ اللهِ</p>
+                <p className="font-cormorant text-pearl/50 text-xs tracking-widest uppercase">
+                  Chaque oeuvre débute par ces mots
+                </p>
+              </div>
+            </div>
+
+            {/* Citation du calligraphe */}
+            <div className="bg-night border border-gold/10 p-7">
+              <div className="w-6 h-px bg-gold/40 mb-5" />
+              <blockquote className="font-cormorant text-pearl/70 text-lg italic leading-relaxed mb-4">
+                "Avant de poser le qalam, je dois être calme. La lettre porte l'état d'esprit de celui qui l'a tracée — le collectionneur le ressent, même sans le savoir."
+              </blockquote>
+              <p className="font-playfair text-gold/60 text-sm">Rachid Al-Khattat</p>
+              <p className="font-cormorant text-pearl/35 text-xs tracking-wide mt-0.5">
+                Calligraphe Hurûf · 15 ans de pratique
+              </p>
+            </div>
+
+            {/* Délai */}
+            <div className="flex items-center gap-4 px-1">
+              <div className="w-10 h-10 border border-gold/20 flex items-center justify-center flex-shrink-0">
+                <Clock size={18} strokeWidth={1.5} className="text-gold/60" />
+              </div>
+              <div>
+                <p className="font-playfair text-pearl text-sm">Délai de création estimé</p>
+                <p className="font-cormorant text-pearl/45 text-base">
+                  3 à 4 semaines · Chaque oeuvre est tracée à la main, sans compromis
+                </p>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
     </div>

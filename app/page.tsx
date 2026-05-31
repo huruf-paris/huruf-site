@@ -39,12 +39,12 @@ export default function HomePage() {
       {/* ═══════════════════════ HERO ═══════════════════════ */}
       <section
         ref={heroRef}
-        className="relative h-screen flex overflow-hidden bg-night"
+        className="relative min-h-screen flex flex-col lg:flex-row overflow-hidden bg-night"
       >
         <GoldenParticles />
 
         {/* ── Colonne gauche : contenu brand ── */}
-        <div className="relative z-10 flex flex-col justify-center w-full lg:w-[54%] px-8 sm:px-14 lg:px-20 xl:px-28">
+        <div className="relative z-10 flex flex-col justify-center w-full lg:w-[54%] px-8 sm:px-14 lg:px-20 xl:px-28 pt-32 pb-10 lg:pt-0 lg:pb-0 lg:min-h-screen">
 
           {/* Ligne verticale dorée décorative */}
           <div className="hidden lg:block absolute left-0 top-1/2 -translate-y-1/2 h-40 w-px bg-gradient-to-b from-transparent via-gold/30 to-transparent" />
@@ -138,12 +138,12 @@ export default function HomePage() {
           </motion.div>
         </div>
 
-        {/* ── Colonne droite : image nette ── */}
+        {/* ── Colonne droite : image ── */}
         <motion.div
           initial={{ opacity: 0, x: 40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="hidden lg:block lg:w-[46%] relative"
+          className="w-full aspect-[4/3] lg:aspect-auto lg:w-[46%] lg:min-h-screen relative"
         >
           <Image
             src="/images/products/duo-bismi-3.png"
