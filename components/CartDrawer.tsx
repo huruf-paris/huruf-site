@@ -1,15 +1,49 @@
 'use client'
 
+import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
-import Link from 'next/link'
-import { X, Trash2, ShoppingBag } from 'lucide-react'
+import { X, Trash2, ShoppingBag, Lock } from 'lucide-react'
 import { useCart } from '@/context/CartContext'
 import { FORMATS } from '@/data/products'
 import Button from './Button'
 
 export default function CartDrawer() {
   const { items, isOpen, closeCart, removeItem, updateQuantity, subtotal, itemCount } = useCart()
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
+
+  const handleCheckout = async () => {
+    setLoading(true)
+    setError('')
+    try {
+      const payload = items.map((item) => ({
+        name: item.product.nameFr,
+        format: FORMATS[item.format],
+        isLot: item.isLot,
+        quantity: item.quantity,
+        unitPrice: item.unitPrice,
+        image: item.product.images[0],
+      }))
+
+      const res = await fetch('/api/checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ items: payload }),
+      })
+
+      const data = await res.json()
+      if (data.url) {
+        window.location.href = data.url
+      } else {
+        setError('Une erreur est survenue. Veuillez réessayer.')
+      }
+    } catch {
+      setError('Une erreur est survenue. Veuillez réessayer.')
+    } finally {
+      setLoading(false)
+    }
+  }
 
   return (
     <>
@@ -169,13 +203,26 @@ export default function CartDrawer() {
                   </span>
                 </div>
                 <p className="font-cormorant text-pearl/30 text-sm">
-                  Frais de port calculés à la commande
+                  Livraison offerte · Cadre inclus
                 </p>
-                <Link href="/panier" onClick={closeCart}>
-                  <Button variant="primary" fullWidth size="lg">
-                    Voir le panier & payer
-                  </Button>
-                </Link>
+                {error && (
+                  <p className="font-cormorant text-red-400 text-sm text-center">{error}</p>
+                )}
+                <Button
+                  variant="primary"
+                  fullWidth
+                  size="lg"
+                  onClick={handleCheckout}
+                  loading={loading}
+                >
+                  <span className="flex items-center justify-center gap-2">
+                    <Lock size={14} strokeWidth={1.5} />
+                    {loading ? 'Redirection...' : 'Payer en sécurité'}
+                  </span>
+                </Button>
+                <p className="font-cormorant text-pearl/20 text-xs text-center tracking-wide">
+                  Paiement sécurisé par Stripe · CB / Visa / Mastercard
+                </p>
               </div>
             )}
           </motion.aside>
