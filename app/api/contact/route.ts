@@ -2,9 +2,8 @@ import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
 import { rateLimit } from '@/lib/rateLimit'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
-
 export async function POST(req: NextRequest) {
+  const resend = new Resend(process.env.RESEND_API_KEY || 'placeholder')
   // Rate limiting : 3 messages / 10 minutes par IP
   const ip =
     req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ??

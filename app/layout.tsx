@@ -33,21 +33,61 @@ const amiri = Amiri({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Hurûf — حروف | Calligraphie arabe encadrée',
-    template: '%s | Hurûf — حروف',
+    default: 'Hurûf Paris — Tableaux de Calligraphie Arabe Encadrés',
+    template: '%s | Hurûf Paris',
   },
   description:
-    "Hurûf propose des tableaux de calligraphie arabe encadrés, tracés à la main. Chaque œuvre apporte l'élégance de l'écriture arabe dans votre intérieur. Livraison en France.",
-  keywords: ['calligraphie arabe', 'tableau arabe', 'décoration islamique', 'art arabe', 'cadeau oriental'],
-  authors: [{ name: 'Hurûf' }],
+    "Hurûf Paris : tableaux de calligraphie arabe tracés à la main, encadrés et livrés en France. Salam, Sabr, Hubb, Subhanallah — des œuvres uniques pour votre intérieur. Livraison offerte.",
+  keywords: [
+    'calligraphie arabe',
+    'tableau calligraphie arabe',
+    'décoration islamique',
+    'art islamique',
+    'tableau arabe encadré',
+    'cadeau islamique',
+    'calligraphie islamique',
+    'tableau musulman',
+    'art arabe Paris',
+    'décoration murale arabe',
+    'tableau Salam',
+    'tableau Sabr',
+    'tableau Hubb',
+    'tableau Subhanallah',
+    'calligraphie tracée à la main',
+  ],
+  authors: [{ name: 'Hurûf Paris' }],
+  creator: 'Hurûf Paris',
+  publisher: 'Hurûf Paris',
+  metadataBase: new URL('https://www.huruf-paris.fr'),
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
-    title: 'Hurûf — حروف | Calligraphie arabe encadrée',
-    description: "L'art de la calligraphie arabe, encadré pour votre intérieur.",
+    title: 'Hurûf Paris — Tableaux de Calligraphie Arabe Encadrés',
+    description: "Tableaux de calligraphie arabe tracés à la main, encadrés et livrés en France. Livraison offerte.",
     locale: 'fr_FR',
     type: 'website',
-    siteName: 'Hurûf',
+    siteName: 'Hurûf Paris',
+    url: 'https://www.huruf-paris.fr',
   },
-  robots: { index: true, follow: true },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Hurûf Paris — Calligraphie Arabe Encadrée',
+    description: 'Tableaux de calligraphie arabe tracés à la main. Livraison offerte en France.',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    google: '',
+  },
 }
 
 export const viewport = {
@@ -55,10 +95,41 @@ export const viewport = {
   initialScale: 1,
 }
 
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Hurûf Paris',
+  url: 'https://www.huruf-paris.fr',
+  logo: 'https://www.huruf-paris.fr/images/logo.png',
+  description: "Maison de calligraphie arabe artisanale. Tableaux tracés à la main, encadrés et livrés en France.",
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '60 Rue François Ier',
+    addressLocality: 'Paris',
+    postalCode: '75008',
+    addressCountry: 'FR',
+  },
+  contactPoint: {
+    '@type': 'ContactPoint',
+    email: 'fashiontrendyfemme@gmail.com',
+    contactType: 'customer service',
+    availableLanguage: 'French',
+  },
+  sameAs: [
+    'https://www.instagram.com/huruf.paris',
+    'https://www.pinterest.fr/hurufparis',
+    'https://www.facebook.com/huruf.paris',
+  ],
+}
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fr" className={`${playfair.variable} ${cormorant.variable} ${amiri.variable}`}>
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
         <CartProvider>
           <CustomCursor />
           <Navbar />
