@@ -195,14 +195,43 @@ export default function HomePage() {
       <SectionDivider />
 
       {/* ═══════════════════════ TABLEAUX PHARES ═══════════════════════ */}
-      <section className="py-20 px-6 bg-night">
+      <section className="py-20 bg-night">
         <div className="max-w-7xl mx-auto">
-          <SectionTitle
-            frenchTitle="Oeuvres phares"
-            subtitle="Une sélection de nos tableaux les plus demandés"
-          />
+          <div className="px-6">
+            <SectionTitle
+              frenchTitle="Oeuvres phares"
+              subtitle="Une sélection de nos tableaux les plus demandés"
+            />
+          </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* ── Mobile : carrousel horizontal snap ── */}
+          <div className="sm:hidden">
+            <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-none pl-6 pr-6 pb-4">
+              {featured.map((product, i) => (
+                <div
+                  key={product.id}
+                  className="flex-none w-[78vw] snap-center"
+                >
+                  <ProductCard product={product} index={i} />
+                </div>
+              ))}
+            </div>
+            {/* Indicateur de swipe */}
+            <div className="flex justify-center gap-1.5 mt-4 px-6">
+              {featured.map((_, i) => (
+                <div
+                  key={i}
+                  className={`h-px transition-all duration-300 ${i === 0 ? 'w-6 bg-gold/60' : 'w-3 bg-gold/20'}`}
+                />
+              ))}
+            </div>
+            <p className="text-center font-cormorant text-pearl/25 text-xs tracking-widest uppercase mt-3 px-6">
+              Glisser pour découvrir →
+            </p>
+          </div>
+
+          {/* ── Tablette / Desktop : grille ── */}
+          <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-6 px-6">
             {featured.map((product, i) => (
               <ProductCard key={product.id} product={product} index={i} />
             ))}
@@ -213,7 +242,7 @@ export default function HomePage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, ease: 'easeOut' }}
-            className="text-center mt-14"
+            className="text-center mt-14 px-6"
           >
             <Link href="/boutique">
               <Button variant="outline" size="lg">
