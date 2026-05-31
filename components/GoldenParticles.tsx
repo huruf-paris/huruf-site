@@ -18,6 +18,8 @@ export default function GoldenParticles() {
   useEffect(() => {
     const canvas = canvasRef.current
     if (!canvas) return
+    // Désactivé sur mobile pour préserver les performances
+    if (canvas.offsetWidth < 768) return
     const ctx = canvas.getContext('2d')
     if (!ctx) return
 

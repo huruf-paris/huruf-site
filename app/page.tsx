@@ -1,9 +1,8 @@
 'use client'
 
-import { useRef } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion } from 'framer-motion'
 import GoldenParticles from '@/components/GoldenParticles'
 import { SectionDivider } from '@/components/IslamicOrnament'
 import SectionTitle from '@/components/SectionTitle'
@@ -28,17 +27,12 @@ const VALUES = [
 
 
 export default function HomePage() {
-  const heroRef = useRef<HTMLDivElement>(null)
-  const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] })
-  const heroY = useTransform(scrollYProgress, [0, 1], ['0%', '25%'])
-
   const featured = getFeaturedProducts()
 
   return (
     <>
       {/* ═══════════════════════ HERO ═══════════════════════ */}
       <section
-        ref={heroRef}
         className="relative min-h-screen flex flex-col lg:flex-row overflow-hidden bg-night"
       >
         <GoldenParticles />
@@ -139,20 +133,15 @@ export default function HomePage() {
         </div>
 
         {/* ── Colonne droite : image ── */}
-        <motion.div
-          initial={{ opacity: 0, x: 40 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="w-full aspect-[4/3] lg:aspect-auto lg:w-[46%] lg:min-h-screen relative"
-        >
+        <div className="w-full aspect-[4/3] lg:aspect-auto lg:w-[46%] lg:min-h-screen relative">
           <Image
             src="/images/products/duo-bismi-3.png"
             alt="Tableaux Hurûf dans un intérieur contemporain"
             fill
             className="object-cover object-center"
             priority
-            sizes="46vw"
-            quality={90}
+            sizes="(max-width: 1024px) 100vw, 46vw"
+            quality={75}
           />
           {/* Fondu gauche pour fusionner avec le fond dark */}
           <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-night to-transparent z-10" />
@@ -160,7 +149,7 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-night/15" />
           {/* Cadre subtil doré en bas à droite */}
           <div className="absolute bottom-12 right-12 w-24 h-24 border border-gold/20 z-10 pointer-events-none" />
-        </motion.div>
+        </div>
       </section>
 
       {/* ═══════════════════════ NOS VALEURS ═══════════════════════ */}
