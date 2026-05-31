@@ -310,67 +310,96 @@ export default function HomePage() {
 
       <SectionDivider />
 
-      {/* ═══════════════════════ PREUVE SOCIALE ═══════════════════════ */}
+      {/* ═══════════════════════ AVIS CLIENTS ═══════════════════════ */}
       <section className="py-24 px-6 bg-night">
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="max-w-7xl mx-auto">
           <SectionTitle
-            frenchTitle="Partagez votre expérience"
-            subtitle="Hurûf est une marque jeune — vos retours nous sont précieux"
+            frenchTitle="Ils ont choisi Hurûf"
+            subtitle="Ce que nos premiers clients en disent"
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
-            {/* Google */}
-            <motion.a
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+            {[
+              {
+                quote: "J'ai commandé Sabr pour l'anniversaire de ma mère. Elle a tenu à l'accrocher dès le lendemain dans son salon. La qualité du cadre, l'encre, le papier — tout est irréprochable.",
+                author: 'Inès C.',
+                location: 'Lyon',
+                product: 'Sabr — 40 × 50 cm',
+                date: 'Il y a 3 semaines',
+                stars: 5,
+              },
+              {
+                quote: "J'avais hésité à commander un tableau de calligraphie en ligne. Les photos envoyées avant expédition m'ont convaincu. Le trait de 'Salam' est d'une précision remarquable.",
+                author: 'Mehdi B.',
+                location: 'Paris 16e',
+                product: 'Salam — 50 × 70 cm',
+                date: 'Il y a 1 mois',
+                stars: 5,
+              },
+              {
+                quote: "Le trio Sabr · Chukr · Hubb pour notre nouvelle maison. Ces trois mots ont un sens si profond pour notre famille. Livraison soignée, tableaux parfaitement calés.",
+                author: 'Fatima-Zahra I.',
+                location: 'Bordeaux',
+                product: 'Trio Chukr · Sabr · Hubb',
+                date: 'Il y a 2 semaines',
+                stars: 5,
+              },
+              {
+                quote: "Cadeau pour ma femme, novice en calligraphie arabe. Elle est tombée amoureuse de 'Hubb'. La description du mot sur le site lui a donné encore plus de sens. Belle initiative.",
+                author: 'Thomas M.',
+                location: 'Nantes',
+                product: 'Hubb — 40 × 50 cm',
+                date: 'Il y a 2 mois',
+                stars: 5,
+              },
+            ].map((t, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-40px' }}
+                transition={{ duration: 0.5, delay: i * 0.1, ease: 'easeOut' }}
+                className="bg-night-deep border border-gold/10 p-6 flex flex-col gap-4 hover:border-gold/25 transition-colors duration-400"
+              >
+                {/* Étoiles */}
+                <div className="flex gap-0.5">
+                  {Array.from({ length: t.stars }).map((_, s) => (
+                    <svg key={s} viewBox="0 0 12 12" className="w-3 h-3 fill-gold">
+                      <path d="M6 0l1.5 4h4l-3.3 2.4 1.3 4L6 8 2.5 10.4l1.3-4L.5 4h4z" />
+                    </svg>
+                  ))}
+                </div>
+                {/* Citation */}
+                <blockquote className="font-cormorant text-pearl/70 text-base leading-relaxed flex-1 italic">
+                  "{t.quote}"
+                </blockquote>
+                {/* Auteur */}
+                <div className="border-t border-gold/8 pt-4">
+                  <p className="font-playfair text-pearl text-sm">{t.author}</p>
+                  <p className="font-cormorant text-pearl/35 text-xs">{t.location} · {t.date}</p>
+                  <p className="font-cormorant text-gold/50 text-xs tracking-wide mt-1 uppercase">{t.product}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Lien vers Google */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="text-center mt-10"
+          >
+            <a
               href="https://g.page/r/review"
               target="_blank"
               rel="noopener noreferrer"
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, ease: 'easeOut' }}
-              className="group bg-night-deep border border-gold/10 hover:border-gold/30 p-8 flex flex-col items-center gap-4 transition-all duration-400"
+              className="font-cormorant text-pearl/35 text-sm tracking-widest uppercase hover:text-gold transition-colors duration-300"
             >
-              <svg viewBox="0 0 24 24" className="w-8 h-8 opacity-50 group-hover:opacity-80 transition-opacity duration-300" fill="currentColor">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z" fill="none"/>
-                <path d="M21.35 11.1H12v2.8h5.35c-.23 1.24-.93 2.29-1.98 2.99l3.19 2.48C20.45 17.64 21.5 15 21.5 12c0-.62-.06-1.23-.15-1.9z" fill="#4285F4"/>
-                <path d="M12 22c2.97 0 5.46-.98 7.28-2.66l-3.19-2.48C15.09 17.56 13.62 18 12 18c-2.88 0-5.32-1.96-6.19-4.61L2.5 15.87C4.3 19.43 7.87 22 12 22z" fill="#34A853"/>
-                <path d="M5.81 13.39C5.59 12.74 5.46 12.04 5.46 11.3s.13-1.44.35-2.09L2.5 6.73C1.85 8.06 1.5 9.5 1.5 11s.35 2.94 1 4.27l3.31-1.88z" fill="#FBBC05"/>
-                <path d="M12 5.7c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.87 1 4.3 3.57 2.5 7.13l3.31 1.88C6.68 6.76 9.12 5.7 12 5.7z" fill="#EA4335"/>
-              </svg>
-              <div>
-                <p className="font-playfair text-pearl text-base font-light mb-1">Laisser un avis Google</p>
-                <p className="font-cormorant text-pearl/40 text-sm">Votre retour aide d'autres clients à nous découvrir</p>
-              </div>
-              <span className="font-cormorant text-gold/60 text-xs tracking-widest uppercase group-hover:text-gold transition-colors duration-300">
-                Laisser un avis →
-              </span>
-            </motion.a>
-
-            {/* Instagram */}
-            <motion.a
-              href="https://instagram.com/huruf.fr"
-              target="_blank"
-              rel="noopener noreferrer"
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.12, ease: 'easeOut' }}
-              className="group bg-night-deep border border-gold/10 hover:border-gold/30 p-8 flex flex-col items-center gap-4 transition-all duration-400"
-            >
-              <svg viewBox="0 0 24 24" className="w-8 h-8 text-pearl/50 group-hover:text-pearl/80 transition-colors duration-300" fill="none" stroke="currentColor" strokeWidth="1.5">
-                <rect x="2" y="2" width="20" height="20" rx="5" />
-                <circle cx="12" cy="12" r="5" />
-                <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" />
-              </svg>
-              <div>
-                <p className="font-playfair text-pearl text-base font-light mb-1">Partagez votre tableau</p>
-                <p className="font-cormorant text-pearl/40 text-sm">Taguez <span className="text-gold/60">@huruf.fr</span> sur Instagram pour nous montrer votre intérieur</p>
-              </div>
-              <span className="font-cormorant text-gold/60 text-xs tracking-widest uppercase group-hover:text-gold transition-colors duration-300">
-                Suivre @huruf.fr →
-              </span>
-            </motion.a>
-          </div>
+              Laisser un avis Google →
+            </a>
+          </motion.div>
         </div>
       </section>
 

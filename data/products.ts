@@ -38,62 +38,25 @@ export const products: Product[] = [
   /* ─────────────────────────── TABLEAUX SEULS ─────────────────────────── */
 
   {
-    id: 'sabr',
-    slug: 'sabr-patience',
-    nameFr: 'Sabr — Patience',
-    nameAr: 'صبر',
-    transliteration: 'Sabr',
-    meaning: 'La Patience',
+    id: 'allah-akbar',
+    slug: 'allahu-akbar-grandeur',
+    nameFr: 'Allahu Akbar',
+    nameAr: 'الله أكبر',
+    transliteration: 'Allahu Akbar',
+    meaning: 'Dieu est le plus Grand',
     description:
-      "Sabr est l'une des vertus les plus célébrées dans la sagesse arabe et islamique. Elle incarne la capacité à traverser l'épreuve avec dignité, à persévérer sans se laisser consumer par l'impatience. Ce tableau capture l'essence de cette qualité rare, tracée à la plume de roseau.",
+      "Allahu Akbar est une formule de magnification divine, l'un des dhikr (rappels) les plus récités dans la tradition islamique. Au-delà de toute connotation, ces mots expriment simplement la grandeur infinie du Créateur face à la petitesse de l'existence humaine. Un tableau de paix intérieure et de sérénité profonde.",
     calligraphyDescription:
-      "Tracé en style Naskh classique, ce caractère s'élance avec équilibre et retenue — comme la vertu qu'il représente.",
-    images: ['/images/products/sabr.png'],
+      "La composition en Thuluth monumental donne à cette formule sa pleine majesté — équilibre, hauteur et puissance visuelle.",
+    images: [
+      '/images/products/allah-akbar-1.png',
+      '/images/products/allah-akbar-2.png',
+    ],
     featured: true,
     prices: {
-      '30x40': { single: 27.99, lot3: 57.0 },
-      '40x50': { single: 37.99, lot3: 75.99 },
-      '50x70': { single: 40.99, lot3: 93.99 },
-    },
-  },
-
-  {
-    id: 'hubb',
-    slug: 'hubb-amour',
-    nameFr: 'Hubb — Amour',
-    nameAr: 'حب',
-    transliteration: 'Hubb',
-    meaning: "L'Amour",
-    description:
-      "Hubb — deux lettres seulement, mais quel abîme de sens. L'amour en arabe porte en lui la racine du désir, de l'attachement et du dévoilement de soi. Offrir ce tableau, c'est offrir une déclaration silencieuse et intemporelle.",
-    calligraphyDescription:
-      "En style Diwani, les deux lettres ح et ب se rejoignent en une courbe unique, symbole d'union et de plénitude.",
-    images: ['/images/products/hubb.png'],
-    featured: true,
-    prices: {
-      '30x40': { single: 27.99, lot3: 57.0 },
-      '40x50': { single: 37.99, lot3: 75.99 },
-      '50x70': { single: 40.99, lot3: 93.99 },
-    },
-  },
-
-  {
-    id: 'hulm',
-    slug: 'hulm-reve',
-    nameFr: 'Hulm — Rêve',
-    nameAr: 'حلم',
-    transliteration: 'Hulm',
-    meaning: 'Le Rêve',
-    description:
-      "Hulm est le rêve nocturne, mais aussi le rêve éveillé — l'aspiration profonde, la vision que l'on porte en soi. Dans la poésie arabe classique, le rêve est souvent le territoire de la rencontre avec ce que l'on désire le plus. Ce tableau invite à ne jamais cesser de rêver.",
-    calligraphyDescription:
-      "La composition en Naskh déploie les trois lettres avec une légèreté qui évoque l'état de rêverie.",
-    images: ['/images/products/hulm.png'],
-    featured: true,
-    prices: {
-      '30x40': { single: 27.99, lot3: 57.0 },
-      '40x50': { single: 37.99, lot3: 75.99 },
-      '50x70': { single: 40.99, lot3: 93.99 },
+      '30x40': { single: 37.99, lot3: 99.99 },
+      '40x50': { single: 47.99, lot3: 124.99 },
+      '50x70': { single: 61.99, lot3: 159.99 },
     },
   },
 
@@ -105,42 +68,19 @@ export const products: Product[] = [
     transliteration: 'Salam',
     meaning: 'La Paix',
     description:
-      "Salam est la salutation universelle, le voeu adressé à l'autre au premier instant de la rencontre. La paix comme état d'être, comme aspiration quotidienne. Ce mot résonne depuis des siècles et trouve ici une forme visuelle digne de sa profondeur.",
+      "Salam est la salutation universelle, le vœu adressé à l'autre au premier instant de la rencontre. La paix comme état d'être, comme aspiration quotidienne. Ce mot résonne depuis des siècles et trouve ici une forme visuelle digne de sa profondeur.",
     calligraphyDescription:
       "Le style Riqa'a offre à ce mot une fluidité particulière — ses lettres s'enchaînent comme une respiration apaisée.",
     images: [
+      '/images/products/salam-3.png',
       '/images/products/salam-1.png',
       '/images/products/salam-2.png',
-      '/images/products/salam-3.png',
     ],
     featured: true,
     prices: {
-      '30x40': { single: 27.99, lot3: 57.0 },
-      '40x50': { single: 37.99, lot3: 75.99 },
-      '50x70': { single: 40.99, lot3: 93.99 },
-    },
-  },
-
-  {
-    id: 'allah-akbar',
-    slug: 'allahu-akbar-grandeur',
-    nameFr: 'Allahu Akbar',
-    nameAr: 'الله أكبر',
-    transliteration: 'Allahu Akbar',
-    meaning: 'Dieu est le plus Grand',
-    description:
-      "Allahu Akbar est une formule de magnification divine, l'un des dhikr (rappels) les plus récités dans la tradition islamique. Au-delà de toute connotation, ces mots expriment simplement la grandeur infinie du Créateur face à la petitesse de l'existence humaine. Un tableau de paix intérieure.",
-    calligraphyDescription:
-      "La composition en Thuluth monumental donne à cette formule sa pleine majesté — équilibre, hauteur et puissance visuelle.",
-    images: [
-      '/images/products/allah-akbar-1.png',
-      '/images/products/allah-akbar-2.png',
-    ],
-    featured: true,
-    prices: {
-      '30x40': { single: 27.99, lot3: 57.0 },
-      '40x50': { single: 37.99, lot3: 75.99 },
-      '50x70': { single: 40.99, lot3: 93.99 },
+      '30x40': { single: 35.99, lot3: 95.99 },
+      '40x50': { single: 45.99, lot3: 119.99 },
+      '50x70': { single: 58.99, lot3: 149.99 },
     },
   },
 
@@ -158,9 +98,69 @@ export const products: Product[] = [
     images: ['/images/products/subhanallah.png'],
     featured: true,
     prices: {
-      '30x40': { single: 27.99, lot3: 57.0 },
-      '40x50': { single: 37.99, lot3: 75.99 },
-      '50x70': { single: 40.99, lot3: 93.99 },
+      '30x40': { single: 34.99, lot3: 92.99 },
+      '40x50': { single: 44.99, lot3: 116.99 },
+      '50x70': { single: 56.99, lot3: 144.99 },
+    },
+  },
+
+  {
+    id: 'sabr',
+    slug: 'sabr-patience',
+    nameFr: 'Sabr — Patience',
+    nameAr: 'صبر',
+    transliteration: 'Sabr',
+    meaning: 'La Patience',
+    description:
+      "Sabr est l'une des vertus les plus célébrées dans la sagesse arabe et islamique. Elle incarne la capacité à traverser l'épreuve avec dignité, à persévérer sans se laisser consumer par l'impatience. Ce tableau capture l'essence de cette qualité rare, tracée à la plume de roseau.",
+    calligraphyDescription:
+      "Tracé en style Naskh classique, ce caractère s'élance avec équilibre et retenue — comme la vertu qu'il représente.",
+    images: ['/images/products/sabr.png'],
+    featured: true,
+    prices: {
+      '30x40': { single: 35.99, lot3: 95.99 },
+      '40x50': { single: 45.99, lot3: 119.99 },
+      '50x70': { single: 58.99, lot3: 149.99 },
+    },
+  },
+
+  {
+    id: 'hubb',
+    slug: 'hubb-amour',
+    nameFr: 'Hubb — Amour',
+    nameAr: 'حب',
+    transliteration: 'Hubb',
+    meaning: "L'Amour",
+    description:
+      "Hubb — deux lettres seulement, mais quel abîme de sens. L'amour en arabe porte en lui la racine du désir, de l'attachement et du dévoilement de soi. Offrir ce tableau, c'est offrir une déclaration silencieuse et intemporelle.",
+    calligraphyDescription:
+      "En style Diwani, les deux lettres ح et ب se rejoignent en une courbe unique, symbole d'union et de plénitude.",
+    images: ['/images/products/hubb.png'],
+    featured: true,
+    prices: {
+      '30x40': { single: 34.99, lot3: 92.99 },
+      '40x50': { single: 44.99, lot3: 116.99 },
+      '50x70': { single: 57.99, lot3: 146.99 },
+    },
+  },
+
+  {
+    id: 'hulm',
+    slug: 'hulm-reve',
+    nameFr: 'Hulm — Rêve',
+    nameAr: 'حلم',
+    transliteration: 'Hulm',
+    meaning: 'Le Rêve',
+    description:
+      "Hulm est le rêve nocturne, mais aussi le rêve éveillé — l'aspiration profonde, la vision que l'on porte en soi. Dans la poésie arabe classique, le rêve est souvent le territoire de la rencontre avec ce que l'on désire le plus. Ce tableau invite à ne jamais cesser de rêver.",
+    calligraphyDescription:
+      "La composition en Naskh déploie les trois lettres avec une légèreté qui évoque l'état de rêverie.",
+    images: ['/images/products/hulm.png'],
+    featured: false,
+    prices: {
+      '30x40': { single: 36.99, lot3: 98.99 },
+      '40x50': { single: 46.99, lot3: 122.99 },
+      '50x70': { single: 59.99, lot3: 152.99 },
     },
   },
 
@@ -178,11 +178,11 @@ export const products: Product[] = [
     calligraphyDescription:
       "Les deux tableaux ont été calligraphiés dans le même style et avec les mêmes proportions pour garantir une cohérence visuelle parfaite.",
     images: [
-      '/images/products/duo-bismi-1.png',
       '/images/products/duo-bismi-2.png',
       '/images/products/duo-bismi-3.png',
+      '/images/products/duo-bismi-1.png',
     ],
-    featured: false,
+    featured: true,
     isBundle: true,
     bundleSize: 2,
     prixSurDemande: true,
@@ -208,13 +208,13 @@ export const products: Product[] = [
       '/images/products/trio-chukr-1.png',
       '/images/products/trio-chukr-2.png',
     ],
-    featured: false,
+    featured: true,
     isBundle: true,
     bundleSize: 3,
     prices: {
-      '30x40': { single: 57.0, lot3: 57.0 },
-      '40x50': { single: 75.99, lot3: 75.99 },
-      '50x70': { single: 93.99, lot3: 93.99 },
+      '30x40': { single: 89.99, lot3: 89.99 },
+      '40x50': { single: 109.99, lot3: 109.99 },
+      '50x70': { single: 134.99, lot3: 134.99 },
     },
   },
 
@@ -234,12 +234,15 @@ export const products: Product[] = [
     isBundle: true,
     bundleSize: 3,
     prices: {
-      '30x40': { single: 57.0, lot3: 57.0 },
-      '40x50': { single: 75.99, lot3: 75.99 },
-      '50x70': { single: 93.99, lot3: 93.99 },
+      '30x40': { single: 89.99, lot3: 89.99 },
+      '40x50': { single: 109.99, lot3: 109.99 },
+      '50x70': { single: 134.99, lot3: 134.99 },
     },
   },
 ]
 
-export const getFeaturedProducts = () => products.filter((p) => p.featured)
+const FEATURED_ORDER = ['allah-akbar', 'duo-bismillah', 'salam', 'trio-chukr-sabr-hubb', 'subhanallah', 'sabr']
+export const getFeaturedProducts = () =>
+  FEATURED_ORDER.map((id) => products.find((p) => p.id === id)).filter(Boolean) as Product[]
+
 export const getProductBySlug = (slug: string) => products.find((p) => p.slug === slug)

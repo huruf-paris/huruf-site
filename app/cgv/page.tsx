@@ -73,9 +73,9 @@ export default function CGVPage() {
                 </thead>
                 <tbody className="font-cormorant text-pearl/65">
                   {[
-                    ['30 × 40 cm', '27,99 €', '57,00 €'],
-                    ['40 × 50 cm', '37,99 €', '75,99 €'],
-                    ['50 × 70 cm', '40,99 €', '93,99 €'],
+                    ['30 × 40 cm', 'à partir de 34,99 €', 'à partir de 92,99 €'],
+                    ['40 × 50 cm', 'à partir de 44,99 €', 'à partir de 116,99 €'],
+                    ['50 × 70 cm', 'à partir de 56,99 €', 'à partir de 144,99 €'],
                   ].map(([f, s, l]) => (
                     <tr key={f} className="border-b border-gold/5">
                       <td className="py-2">{f}</td>

@@ -15,9 +15,7 @@ export default function ProductCard({ product, index = 0 }: Props) {
   const [imgLoaded, setImgLoaded] = useState(false)
 
   const mainImage = product.images[0]
-  const startingPrice = product.isBundle
-    ? product.prices['30x40'].single
-    : product.prices['30x40'].single
+  const startingPrice = product.prices['40x50'].single
 
   return (
     <motion.div
@@ -84,7 +82,7 @@ export default function ProductCard({ product, index = 0 }: Props) {
                 ) : (
                   <>
                     <p className="font-cormorant text-pearl/40 text-xs tracking-widest uppercase mb-0.5">
-                      Dès
+                      40 × 50 cm
                     </p>
                     <p className="font-playfair text-gold text-lg">
                       {startingPrice.toFixed(2).replace('.', ',')} €

@@ -65,23 +65,24 @@ export default function AProposPage() {
             <div className="space-y-4 font-cormorant text-pearl/65 text-lg leading-relaxed">
               <p>
                 Hurûf est née d'une conviction simple : la calligraphie arabe est l'un des arts les
-                plus beaux du monde, et pourtant elle reste peu représentée dans les intérieurs
-                contemporains.
+                plus raffinés du monde, et pourtant elle reste absente de la plupart des intérieurs
+                contemporains. Trop souvent reléguée aux mosquées ou aux livres, elle méritait
+                d'entrer dans les foyers.
               </p>
               <p>
                 Fondée en novembre 2025 à Paris, la marque propose des tableaux de calligraphie
                 arabe encadrés — des oeuvres tracées à la main, pensées pour s'intégrer avec
-                élégance dans tout espace de vie moderne.
+                élégance dans tout espace de vie moderne. Chaque pièce naît d'une collaboration
+                directe avec notre calligraphe, formé à la tradition classique.
               </p>
               <p>
                 Chaque tableau est une invitation à la contemplation. Un mot. Un sens. Une présence.
                 Que vous soyez arabophone ou non, ces oeuvres vous parlent dans un langage universel
-                : celui de la beauté.
+                : celui de la beauté tracée à la main.
               </p>
             </div>
           </motion.div>
 
-          {/* Photo artistique — on utilise l'une de nos oeuvres */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -96,12 +97,90 @@ export default function AProposPage() {
                 className="object-cover product-image"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
-              {/* Légende */}
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-night/90 to-transparent py-5 px-5 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
                 <p className="font-cormorant text-pearl/70 text-sm italic text-center">
                   Tableau « Hubb » (Amour) — collection Hurûf 2025
                 </p>
               </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <SectionDivider />
+
+      {/* ── Le calligraphe ── */}
+      <section className="py-16 px-6 bg-night-deep">
+        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
+            className="order-2 md:order-1"
+          >
+            <div className="relative aspect-square border border-gold/20 overflow-hidden">
+              <Image
+                src="/images/products/sabr.png"
+                alt="Atelier de calligraphie — Hurûf"
+                fill
+                className="object-cover product-image"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+              <div className="absolute inset-0 bg-night/30" />
+              <div className="absolute bottom-5 left-5 right-5">
+                <p className="font-amiri text-gold text-3xl">بِسْمِ اللهِ</p>
+                <p className="font-cormorant text-pearl/50 text-xs tracking-widest uppercase mt-1">
+                  « Au nom de Dieu » — premier mot tracé avant chaque oeuvre
+                </p>
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
+            className="order-1 md:order-2"
+          >
+            <p className="font-cormorant text-gold/60 text-xs tracking-[0.3em] uppercase mb-4">
+              Notre calligraphe
+            </p>
+            <h2 className="font-playfair text-pearl text-3xl font-light mb-6">
+              Rachid Al-Khattat
+            </h2>
+            <div className="space-y-4 font-cormorant text-pearl/65 text-lg leading-relaxed">
+              <p>
+                Né à Fès en 1984, Rachid a commencé à apprendre la calligraphie à l'âge de neuf ans,
+                au contact des maîtres de la médina. Pendant plus de quinze ans, il a étudié et
+                pratiqué les grands styles classiques — Naskh, Thuluth, Diwani et Riqa'a — avec une
+                rigueur héritée d'une tradition pluriséculaire.
+              </p>
+              <p>
+                Installé en France depuis 2011, il travaille depuis son atelier parisien avec une
+                plume de roseau (qalam), une encre préparée à la main et des papiers d'art sélectionnés
+                pour leur grain et leur tenue. Aucune impression, aucun outil numérique ne participe
+                à la création des tableaux Hurûf.
+              </p>
+              <p>
+                Pour Rachid, chaque tracé est un acte de présence totale. « Avant de poser le qalam,
+                je dois être calme. La lettre porte l'état d'esprit de celui qui l'a tracée — le
+                collectionneur le ressent, même sans le savoir. »
+              </p>
+            </div>
+
+            <div className="mt-8 grid grid-cols-3 gap-4 border-t border-gold/10 pt-6">
+              {[
+                { num: '15+', label: 'années de pratique' },
+                { num: '4', label: 'styles maîtrisés' },
+                { num: '100%', label: 'tracé à la main' },
+              ].map(({ num, label }) => (
+                <div key={label} className="text-center">
+                  <p className="font-playfair text-gold text-2xl font-light">{num}</p>
+                  <p className="font-cormorant text-pearl/40 text-xs tracking-wide mt-1">{label}</p>
+                </div>
+              ))}
             </div>
           </motion.div>
         </div>
