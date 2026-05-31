@@ -1,12 +1,12 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { Suspense, useEffect, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { CheckCircle, Package, Mail, ArrowRight } from 'lucide-react'
 
-export default function CommandeConfirmeePage() {
+function CommandeConfirmeeContent() {
   const searchParams = useSearchParams()
   const sessionId = searchParams.get('session_id')
   const [visible, setVisible] = useState(false)
@@ -23,7 +23,6 @@ export default function CommandeConfirmeePage() {
         transition={{ duration: 0.7, ease: 'easeOut' }}
         className="max-w-xl w-full text-center"
       >
-        {/* Icône succès */}
         <motion.div
           initial={{ scale: 0.5, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
@@ -35,7 +34,6 @@ export default function CommandeConfirmeePage() {
           </div>
         </motion.div>
 
-        {/* Titre */}
         <p className="font-cormorant text-gold/60 text-sm tracking-[0.3em] uppercase mb-3">
           Commande confirmée
         </p>
@@ -47,7 +45,6 @@ export default function CommandeConfirmeePage() {
           Votre tableau sera soigneusement emballé et expédié sous 3 à 5 jours ouvrés.
         </p>
 
-        {/* Informations livraison */}
         <div className="bg-night-deep border border-gold/10 p-6 mb-8 text-left space-y-4">
           {[
             {
@@ -71,7 +68,6 @@ export default function CommandeConfirmeePage() {
           ))}
         </div>
 
-        {/* CTA */}
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <Link
             href="/boutique"
@@ -88,7 +84,6 @@ export default function CommandeConfirmeePage() {
           </Link>
         </div>
 
-        {/* Référence commande */}
         {sessionId && (
           <p className="mt-8 font-cormorant text-pearl/20 text-xs tracking-wider">
             Réf. {sessionId.slice(-12).toUpperCase()}
@@ -96,5 +91,17 @@ export default function CommandeConfirmeePage() {
         )}
       </motion.div>
     </div>
+  )
+}
+
+export default function CommandeConfirmeePage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-night flex items-center justify-center">
+        <div className="w-8 h-8 border border-gold/30 animate-spin rounded-full border-t-gold" />
+      </div>
+    }>
+      <CommandeConfirmeeContent />
+    </Suspense>
   )
 }
