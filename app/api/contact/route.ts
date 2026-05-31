@@ -33,7 +33,7 @@ export async function POST(req: NextRequest) {
 
     const { error } = await resend.emails.send({
       from: 'Hurûf Contact <onboarding@resend.dev>',
-      to: ['fashiontrendyfemme@gmail.com'],
+      to: ['benaisse97sita@gmail.com'],
       replyTo: email,
       subject: `[Hurûf] ${sujet}`,
       html: `
