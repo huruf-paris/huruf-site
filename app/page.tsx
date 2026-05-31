@@ -44,64 +44,30 @@ export default function HomePage() {
           <div className="hidden lg:block absolute left-0 top-1/2 -translate-y-1/2 h-40 w-px bg-gradient-to-b from-transparent via-gold/30 to-transparent" />
 
           {/* Catégorie */}
-          <motion.p
-            initial={{ opacity: 0, x: -16 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
-            className="font-cormorant text-gold/50 text-xs tracking-[0.4em] uppercase mb-6"
-          >
+          <p className="hero-tag font-cormorant text-gold/50 text-xs tracking-[0.4em] uppercase mb-6">
             Calligraphie arabe encadrée · Paris
-          </motion.p>
+          </p>
 
-          {/* Titre */}
-          <div className="overflow-hidden mb-3">
-            <motion.div
-              initial={{ y: '100%' }}
-              animate={{ y: 0 }}
-              transition={{ duration: 0.85, ease: [0.25, 0.46, 0.45, 0.94] }}
-            >
-              <h1 className="font-playfair text-pearl text-6xl sm:text-7xl lg:text-8xl xl:text-9xl font-light tracking-tight leading-none">
-                Hurûf
-              </h1>
-            </motion.div>
-          </div>
+          {/* Titre — LCP element, rendu immédiatement */}
+          <h1 className="hero-title font-playfair text-pearl text-6xl sm:text-7xl lg:text-8xl xl:text-9xl font-light tracking-tight leading-none mb-3">
+            Hurûf
+          </h1>
 
           {/* Nom arabe de marque */}
-          <motion.div
-            initial={{ opacity: 0, x: -12 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, delay: 0.55, ease: 'easeOut' }}
-            className="mb-8"
-          >
+          <div className="hero-ar mb-8">
             <span className="font-amiri text-gold text-3xl sm:text-4xl">حروف</span>
-          </motion.div>
+          </div>
 
           {/* Ligne dorée */}
-          <motion.div
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            transition={{ duration: 0.8, delay: 0.75, ease: 'easeOut' }}
-            style={{ originX: 0 }}
-            className="w-16 h-px bg-gold/50 mb-8"
-          />
+          <div className="hero-line w-16 h-px bg-gold/50 mb-8" />
 
           {/* Sous-titre */}
-          <motion.p
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.9, ease: 'easeOut' }}
-            className="font-cormorant text-pearl/65 text-xl sm:text-2xl font-light italic mb-10 max-w-sm leading-relaxed"
-          >
+          <p className="hero-sub font-cormorant text-pearl/65 text-xl sm:text-2xl font-light italic mb-10 max-w-sm leading-relaxed">
             L'art de la calligraphie arabe,<br className="hidden sm:block" /> encadré pour votre intérieur.
-          </motion.p>
+          </p>
 
           {/* CTA */}
-          <motion.div
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 1.1, ease: 'easeOut' }}
-            className="flex flex-col sm:flex-row gap-3"
-          >
+          <div className="hero-cta flex flex-col sm:flex-row gap-3">
             <Link href="/boutique">
               <Button variant="primary" size="lg">
                 Découvrir la collection
@@ -112,24 +78,15 @@ export default function HomePage() {
                 Commande sur mesure
               </Button>
             </Link>
-          </motion.div>
+          </div>
 
           {/* Indicateur scroll */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.6 }}
-            className="absolute bottom-10 left-8 sm:left-14 lg:left-20 xl:left-28 flex items-center gap-3"
-          >
-            <motion.div
-              animate={{ y: [0, 5, 0] }}
-              transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
-              className="w-px h-8 bg-gradient-to-b from-gold/40 to-transparent"
-            />
+          <div className="hero-scroll absolute bottom-10 left-8 sm:left-14 lg:left-20 xl:left-28 flex items-center gap-3">
+            <div className="w-px h-8 bg-gradient-to-b from-gold/40 to-transparent" />
             <span className="font-cormorant text-pearl/25 text-xs tracking-widest uppercase">
               Défiler
             </span>
-          </motion.div>
+          </div>
         </div>
 
         {/* ── Colonne droite : image ── */}
