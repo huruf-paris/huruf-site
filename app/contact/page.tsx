@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Mail, MapPin, Clock, CheckCircle } from 'lucide-react'
+import { Mail, MapPin, Clock, CheckCircle, Instagram, Facebook } from 'lucide-react'
 import Button from '@/components/Button'
 
 const schema = z.object({
@@ -19,6 +19,7 @@ type FormData = z.infer<typeof schema>
 
 export default function ContactPage() {
   const [sent, setSent] = useState(false)
+  const [submitError, setSubmitError] = useState('')
 
   const {
     register,
@@ -29,14 +30,21 @@ export default function ContactPage() {
   })
 
   const onSubmit = async (data: FormData) => {
+    setSubmitError('')
     try {
-      // TODO: Envoyer l'email via Resend ou EmailJS
-      // await fetch('/api/contact', { method: 'POST', body: JSON.stringify(data) })
-      console.log('Contact :', data)
-      await new Promise((r) => setTimeout(r, 900))
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      })
+      if (!res.ok) {
+        const json = await res.json()
+        setSubmitError(json.error || 'Une erreur est survenue, veuillez réessayer.')
+        return
+      }
       setSent(true)
-    } catch (err) {
-      console.error(err)
+    } catch {
+      setSubmitError('Erreur réseau, veuillez réessayer.')
     }
   }
 
@@ -77,10 +85,10 @@ export default function ContactPage() {
             <div>
               <p className="font-playfair text-pearl text-sm mb-1">Email</p>
               <a
-                href="mailto:contact@huruf.fr"
+                href="mailto:fashiontrendyfemme@gmail.com"
                 className="font-cormorant text-pearl/55 hover:text-gold transition-colors text-lg"
               >
-                contact@huruf.fr
+                fashiontrendyfemme@gmail.com
               </a>
             </div>
           </div>
@@ -106,15 +114,30 @@ export default function ContactPage() {
           <div>
             <p className="font-playfair text-pearl text-sm mb-3">Réseaux sociaux</p>
             <div className="flex gap-3">
-              {['Instagram', 'Pinterest', 'Facebook'].map((r) => (
-                <a
-                  key={r}
-                  href="#"
-                  className="font-cormorant text-pearl/40 hover:text-gold border border-gold/15 hover:border-gold/40 px-3 py-1.5 text-sm tracking-wide transition-all duration-300"
-                >
-                  {r}
-                </a>
-              ))}
+              <a
+                href="https://www.instagram.com/huruf.paris"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-cormorant text-pearl/40 hover:text-gold border border-gold/15 hover:border-gold/40 px-3 py-1.5 text-sm tracking-wide transition-all duration-300"
+              >
+                Instagram
+              </a>
+              <a
+                href="https://www.pinterest.fr/hurufparis"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-cormorant text-pearl/40 hover:text-gold border border-gold/15 hover:border-gold/40 px-3 py-1.5 text-sm tracking-wide transition-all duration-300"
+              >
+                Pinterest
+              </a>
+              <a
+                href="https://www.facebook.com/huruf.paris"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-cormorant text-pearl/40 hover:text-gold border border-gold/15 hover:border-gold/40 px-3 py-1.5 text-sm tracking-wide transition-all duration-300"
+              >
+                Facebook
+              </a>
             </div>
           </div>
         </motion.aside>
@@ -200,6 +223,12 @@ export default function ContactPage() {
                   </p>
                 )}
               </div>
+
+              {submitError && (
+                <p className="font-cormorant text-red-400/80 text-base text-center">
+                  {submitError}
+                </p>
+              )}
 
               <Button type="submit" variant="primary" size="lg" fullWidth loading={isSubmitting}>
                 Envoyer le message

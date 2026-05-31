@@ -24,7 +24,7 @@ export function middleware(req: NextRequest) {
   }
 
   // ── Protection des routes API : interdire les méthodes non autorisées ──
-  if (pathname.startsWith('/api/checkout')) {
+  if (pathname.startsWith('/api/checkout') || pathname.startsWith('/api/contact')) {
     if (req.method !== 'POST') {
       return new NextResponse('Method Not Allowed', { status: 405 })
     }

@@ -1,172 +1,134 @@
-import type { Metadata } from 'next'
+import { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Conditions Générales de Vente',
-  robots: { index: false },
+  title: 'Conditions Générales de Vente — Hurûf',
+  description: 'Conditions générales de vente du site Hurûf.',
 }
 
 export default function CGVPage() {
   return (
-    <div className="min-h-screen bg-night pt-28 pb-20">
+    <div className="min-h-screen bg-night pt-24 pb-20">
       <div className="max-w-3xl mx-auto px-6">
-        <div className="mb-12 border-b border-gold/10 pb-8">
-          <p className="font-cormorant text-gold/60 text-sm tracking-[0.3em] uppercase mb-3">
-            Conditions contractuelles
+        <div className="py-16 text-center">
+          <p className="font-cormorant text-gold/50 text-xs tracking-[0.4em] uppercase mb-4">
+            Informations légales
           </p>
-          <h1 className="font-playfair text-pearl text-4xl font-light">
+          <h1 className="font-playfair text-pearl text-5xl font-light mb-4">
             Conditions Générales de Vente
           </h1>
-          <p className="font-cormorant text-pearl/40 text-base mt-2 italic">
-            En vigueur au 1er janvier 2026
-          </p>
+          <div className="w-12 h-px bg-gold/30 mx-auto" />
+          <p className="font-cormorant text-pearl/30 text-sm mt-4">Dernière mise à jour : juin 2025</p>
         </div>
 
         <div className="space-y-10 font-cormorant text-pearl/70 text-lg leading-relaxed">
-          {/* Article 1 */}
+
           <section>
-            <h2 className="font-playfair text-pearl text-xl mb-4">Article 1 — Identité du vendeur</h2>
+            <h2 className="font-playfair text-pearl text-xl mb-4">1. Objet</h2>
             <p>
-              Les présentes Conditions Générales de Vente (CGV) régissent les ventes effectuées
-              sur le site huruf.fr par :
+              Les présentes Conditions Générales de Vente (CGV) régissent l'ensemble des ventes conclues entre Hurûf (ci-après "le Vendeur") et tout client (ci-après "l'Acheteur") passant commande sur le site huruf-site.vercel.app.
             </p>
-            <ul className="mt-3 space-y-1.5 pl-4 border-l border-gold/15">
-              <li><span className="text-pearl/40">Raison sociale :</span> Hurûf — حروف</li>
-              <li><span className="text-pearl/40">SIRET :</span> 993 653 393 00013</li>
-              <li><span className="text-pearl/40">Adresse :</span> 60 Rue François Ier, 75008 Paris</li>
-              <li><span className="text-pearl/40">Email :</span> contact@huruf.fr</li>
-              <li><span className="text-pearl/40">Activité :</span> 47.91B — Vente à distance sur catalogue spécialisé</li>
-            </ul>
           </section>
 
-          {/* Article 2 */}
           <section>
-            <h2 className="font-playfair text-pearl text-xl mb-4">Article 2 — Produits</h2>
+            <h2 className="font-playfair text-pearl text-xl mb-4">2. Produits</h2>
             <p>
-              Les produits proposés à la vente sont des tableaux de calligraphie arabe encadrés,
-              tracés à la main sur papier d'art. Chaque tableau comprend le cadre.
-              Les caractéristiques essentielles des produits sont décrites sur les pages produits.
+              Les tableaux de calligraphie arabe proposés à la vente sont des oeuvres artisanales tracées à la main. Chaque oeuvre est unique — de légères variations par rapport aux photos peuvent exister, ce qui constitue la richesse de l'artisanat.
             </p>
             <p className="mt-3">
-              Les photographies sont présentées à titre illustratif. En raison de la nature artisanale
-              des œuvres, de légères variations entre le rendu photographié et le produit livré
-              sont possibles et ne constituent pas un défaut.
+              Les tableaux sont livrés encadrés, prêts à être accrochés. Les formats disponibles sont : 30 × 40 cm, 40 × 50 cm et 50 × 70 cm.
             </p>
           </section>
 
-          {/* Article 3 */}
           <section>
-            <h2 className="font-playfair text-pearl text-xl mb-4">Article 3 — Prix</h2>
+            <h2 className="font-playfair text-pearl text-xl mb-4">3. Prix</h2>
             <p>
-              Les prix sont indiqués en euros TTC (TVA incluse le cas échéant, ou non assujetti
-              selon le régime fiscal applicable). Hurûf se réserve le droit de modifier ses prix
-              à tout moment, sans que cela affecte les commandes déjà passées et confirmées.
+              Les prix sont indiqués en euros (€) toutes taxes comprises (TTC). Le Vendeur se réserve le droit de modifier ses prix à tout moment, mais les produits sont facturés sur la base du tarif en vigueur au moment de la validation de la commande.
             </p>
-            <div className="mt-4 bg-night-deep border border-gold/10 p-5">
-              <p className="font-playfair text-pearl text-sm mb-3 tracking-wide">Grille tarifaire en vigueur :</p>
-              <table className="w-full text-sm">
-                <thead>
-                  <tr className="border-b border-gold/10">
-                    <th className="text-left py-2 font-cormorant text-pearl/40 tracking-widest uppercase text-xs">Format</th>
-                    <th className="text-right py-2 font-cormorant text-pearl/40 tracking-widest uppercase text-xs">Affiche seule</th>
-                    <th className="text-right py-2 font-cormorant text-pearl/40 tracking-widest uppercase text-xs">Lot de 3</th>
-                  </tr>
-                </thead>
-                <tbody className="font-cormorant text-pearl/65">
-                  {[
-                    ['30 × 40 cm', 'à partir de 34,99 €', 'à partir de 92,99 €'],
-                    ['40 × 50 cm', 'à partir de 44,99 €', 'à partir de 116,99 €'],
-                    ['50 × 70 cm', 'à partir de 56,99 €', 'à partir de 144,99 €'],
-                  ].map(([f, s, l]) => (
-                    <tr key={f} className="border-b border-gold/5">
-                      <td className="py-2">{f}</td>
-                      <td className="py-2 text-right">{s}</td>
-                      <td className="py-2 text-right">{l}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+          </section>
+
+          <section>
+            <h2 className="font-playfair text-pearl text-xl mb-4">4. Commande et paiement</h2>
+            <p>
+              La commande est définitivement validée après confirmation du paiement. Le paiement est sécurisé via Stripe (chiffrement SSL). Nous acceptons les cartes Visa, Mastercard, American Express et toutes les cartes bancaires standard.
+            </p>
+            <p className="mt-3">
+              Un email de confirmation est envoyé à l'Acheteur dès validation du paiement.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="font-playfair text-pearl text-xl mb-4">5. Livraison</h2>
+            <div className="bg-night-deep border border-gold/10 p-6 space-y-3">
+              <p><span className="text-pearl/40 uppercase text-sm tracking-wider block mb-1">Zones de livraison</span>France métropolitaine, Belgique, Suisse, Luxembourg, Monaco</p>
+              <p><span className="text-pearl/40 uppercase text-sm tracking-wider block mb-1">Délai d'expédition</span>Sous 24h après confirmation de paiement</p>
+              <p><span className="text-pearl/40 uppercase text-sm tracking-wider block mb-1">Délai de livraison</span>3 à 5 jours ouvrés après expédition</p>
+              <p><span className="text-pearl/40 uppercase text-sm tracking-wider block mb-1">Frais de livraison</span>Offerts sur toutes les commandes</p>
             </div>
-          </section>
-
-          {/* Article 4 */}
-          <section>
-            <h2 className="font-playfair text-pearl text-xl mb-4">Article 4 — Commande</h2>
-            <p>
-              La commande est réputée définitive après confirmation du paiement. Un email de
-              confirmation est adressé à l'acheteur dès réception du paiement. Hurûf se réserve
-              le droit d'annuler toute commande frauduleuse ou en cas de rupture de stock.
+            <p className="mt-4">
+              En cas d'absence lors de la livraison, un avis de passage sera déposé et le colis sera disponible en point relais selon les modalités du transporteur.
             </p>
           </section>
 
-          {/* Article 5 */}
           <section>
-            <h2 className="font-playfair text-pearl text-xl mb-4">Article 5 — Paiement</h2>
+            <h2 className="font-playfair text-pearl text-xl mb-4">6. Droit de rétractation</h2>
             <p>
-              Le règlement s'effectue en ligne par carte bancaire via <strong className="text-pearl/90">Stripe</strong> ou
-              par <strong className="text-pearl/90">PayPal</strong>. Les transactions sont sécurisées par chiffrement SSL.
-              Les coordonnées bancaires ne sont pas conservées par Hurûf.
-            </p>
-          </section>
-
-          {/* Article 6 */}
-          <section>
-            <h2 className="font-playfair text-pearl text-xl mb-4">Article 6 — Livraison</h2>
-            <p>
-              Les produits sont expédiés à l'adresse indiquée lors de la commande. Les délais
-              et frais de livraison sont indiqués au moment de la commande. Hurûf ne saurait
-              être tenue responsable des retards imputables au transporteur.
-            </p>
-            <p className="mt-3 text-pearl/40 italic text-base">
-              Note : les modalités précises de livraison (transporteurs, délais, zones) seront
-              précisées dans une prochaine mise à jour de ces CGV.
-            </p>
-          </section>
-
-          {/* Article 7 */}
-          <section>
-            <h2 className="font-playfair text-pearl text-xl mb-4">Article 7 — Droit de rétractation</h2>
-            <p>
-              Conformément à l'article L.221-18 du Code de la consommation, le consommateur
-              dispose d'un délai de <strong className="text-pearl/90">14 jours calendaires</strong> à compter
-              de la réception du bien pour exercer son droit de rétractation, sans avoir à justifier
-              de motifs ni à payer de pénalités.
+              Conformément à l'article L221-18 du Code de la consommation, l'Acheteur dispose d'un délai de <strong className="text-pearl">14 jours</strong> à compter de la réception du produit pour exercer son droit de rétractation, sans avoir à justifier de motif.
             </p>
             <p className="mt-3">
-              Pour exercer ce droit, contactez-nous à <span className="text-gold/70">contact@huruf.fr</span>{' '}
-              avant l'expiration du délai. Les frais de retour sont à la charge du client.
-              Le produit doit être retourné en parfait état, dans son emballage d'origine.
+              Pour exercer ce droit, l'Acheteur doit notifier sa décision par email à{' '}
+              <a href="mailto:fashiontrendyfemme@gmail.com" className="text-gold/70 hover:text-gold transition-colors">
+                fashiontrendyfemme@gmail.com
+              </a>{' '}
+              avant l'expiration du délai.
             </p>
             <p className="mt-3">
-              <strong className="text-pearl/80">Exception :</strong> Le droit de rétractation ne s'applique pas
-              aux commandes sur mesure, conformément à l'article L.221-28 13° du Code de la consommation
-              (bien confectionné selon les spécifications du consommateur).
+              Le produit doit être retourné dans son emballage d'origine, en parfait état, non utilisé. Les frais de retour sont à la charge de l'Acheteur. Le remboursement sera effectué dans un délai de 5 jours ouvrés après réception du retour.
+            </p>
+            <p className="mt-3 text-pearl/40 text-base italic">
+              Exception : Les commandes sur mesure (personnalisées) ne peuvent pas faire l'objet d'un droit de rétractation, conformément à l'article L221-28 du Code de la consommation.
             </p>
           </section>
 
-          {/* Article 8 */}
           <section>
-            <h2 className="font-playfair text-pearl text-xl mb-4">Article 8 — Garanties légales</h2>
+            <h2 className="font-playfair text-pearl text-xl mb-4">7. Garantie légale</h2>
             <p>
-              Tous nos produits bénéficient de la garantie légale de conformité (art. L.217-4 à L.217-14
-              du Code de la consommation) et de la garantie contre les vices cachés
-              (art. 1641 à 1648 du Code civil).
+              Tous nos produits bénéficient des garanties légales françaises : garantie légale de conformité (article L217-4 du Code de la consommation) et garantie contre les vices cachés (articles 1641 à 1648 du Code civil).
+            </p>
+            <p className="mt-3">
+              En cas de produit défectueux ou endommagé lors du transport, l'Acheteur doit nous contacter dans les 48h suivant la réception avec des photos à l'appui. Nous enverrons un produit de remplacement sans frais.
             </p>
           </section>
 
-          {/* Article 9 */}
           <section>
-            <h2 className="font-playfair text-pearl text-xl mb-4">Article 9 — Droit applicable & litiges</h2>
+            <h2 className="font-playfair text-pearl text-xl mb-4">8. Responsabilité</h2>
             <p>
-              Les présentes CGV sont soumises au droit français. En cas de litige, une solution
-              amiable sera recherchée en priorité. À défaut, le consommateur peut recourir à la
-              médiation via la plateforme européenne de règlement en ligne des litiges :
-              <span className="text-gold/60"> ec.europa.eu/consumers/odr</span>
+              Le Vendeur ne pourra être tenu responsable des dommages résultant d'une mauvaise utilisation du produit, d'un cas de force majeure, ou de faits imputables à un tiers.
             </p>
           </section>
 
-          <p className="text-pearl/25 text-sm border-t border-gold/10 pt-6">
-            Dernière mise à jour : janvier 2026 · Hurûf — SIRET 993 653 393 00013
-          </p>
+          <section>
+            <h2 className="font-playfair text-pearl text-xl mb-4">9. Litiges</h2>
+            <p>
+              En cas de litige, l'Acheteur est invité à contacter en premier lieu le service client à{' '}
+              <a href="mailto:fashiontrendyfemme@gmail.com" className="text-gold/70 hover:text-gold transition-colors">
+                fashiontrendyfemme@gmail.com
+              </a>{' '}
+              pour trouver une solution amiable.
+            </p>
+            <p className="mt-3">
+              À défaut de résolution amiable, le litige sera soumis aux tribunaux français compétents. Les présentes CGV sont soumises au droit français.
+            </p>
+          </section>
+
+          <div className="border-t border-gold/10 pt-8 text-center">
+            <Link
+              href="/mentions-legales"
+              className="font-cormorant text-gold/60 hover:text-gold transition-colors text-lg tracking-wide uppercase"
+            >
+              ← Mentions légales
+            </Link>
+          </div>
         </div>
       </div>
     </div>

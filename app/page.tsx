@@ -421,12 +421,10 @@ export default function HomePage() {
             className="text-center mt-10"
           >
             <a
-              href="https://g.page/r/review"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/contact"
               className="font-cormorant text-pearl/35 text-sm tracking-widest uppercase hover:text-gold transition-colors duration-300"
             >
-              Laisser un avis Google →
+              Vous avez commandé ? Partagez votre avis →
             </a>
           </motion.div>
         </div>
