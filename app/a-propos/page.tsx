@@ -1,0 +1,211 @@
+'use client'
+
+import Image from 'next/image'
+import { motion } from 'framer-motion'
+import { SectionDivider } from '@/components/IslamicOrnament'
+
+const TIMELINE = [
+  { year: '2025', event: 'Fondation de Hurûf à Paris, au coeur du 8e arrondissement.' },
+  {
+    year: '2025',
+    event: 'Lancement de la première collection — tableaux de calligraphie arabe encadrés.',
+  },
+  {
+    year: '2026',
+    event: 'Ouverture des commandes sur mesure et de la boutique en ligne huruf.fr.',
+  },
+]
+
+export default function AProposPage() {
+  return (
+    <div className="min-h-screen bg-night pt-24 pb-20">
+      {/* Header */}
+      <section className="py-16 px-6 text-center">
+        <div className="max-w-3xl mx-auto">
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="font-cormorant text-gold/60 text-sm tracking-[0.3em] uppercase mb-4"
+          >
+            Notre histoire
+          </motion.p>
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
+            className="font-playfair text-pearl text-5xl md:text-6xl font-light mb-4"
+          >
+            À propos de Hurûf
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="font-cormorant text-pearl/55 text-xl italic leading-relaxed"
+          >
+            Hurûf — du mot arabe signifiant « lettres ».
+            <br />
+            Car tout commence par une lettre, et la lettre devient art.
+          </motion.p>
+        </div>
+      </section>
+
+      {/* Histoire + Photo */}
+      <section className="py-16 px-6">
+        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
+          >
+            <h2 className="font-playfair text-pearl text-3xl font-light mb-6">
+              L'histoire de la marque
+            </h2>
+            <div className="space-y-4 font-cormorant text-pearl/65 text-lg leading-relaxed">
+              <p>
+                Hurûf est née d'une conviction simple : la calligraphie arabe est l'un des arts les
+                plus beaux du monde, et pourtant elle reste peu représentée dans les intérieurs
+                contemporains.
+              </p>
+              <p>
+                Fondée en novembre 2025 à Paris, la marque propose des tableaux de calligraphie
+                arabe encadrés — des oeuvres tracées à la main, pensées pour s'intégrer avec
+                élégance dans tout espace de vie moderne.
+              </p>
+              <p>
+                Chaque tableau est une invitation à la contemplation. Un mot. Un sens. Une présence.
+                Que vous soyez arabophone ou non, ces oeuvres vous parlent dans un langage universel
+                : celui de la beauté.
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Photo artistique — on utilise l'une de nos oeuvres */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.15, ease: 'easeOut' }}
+          >
+            <div className="relative aspect-[3/4] border border-gold/20 overflow-hidden group">
+              <Image
+                src="/images/products/hubb.png"
+                alt="Tableau de calligraphie arabe Hurûf — Hubb (Amour)"
+                fill
+                className="object-cover product-image"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+              {/* Légende */}
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-night/90 to-transparent py-5 px-5 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                <p className="font-cormorant text-pearl/70 text-sm italic text-center">
+                  Tableau « Hubb » (Amour) — collection Hurûf 2025
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <SectionDivider />
+
+      {/* L'art de la calligraphie */}
+      <section className="py-16 px-6 bg-night-deep">
+        <div className="max-w-5xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
+            className="text-center mb-12"
+          >
+            <h2 className="font-playfair text-pearl text-3xl md:text-4xl font-light mb-3">
+              L'art de la calligraphie arabe
+            </h2>
+            <p className="font-cormorant text-pearl/50 text-lg italic">
+              Un patrimoine de 14 siècles, tracé lettre à lettre
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-gold/10">
+            {[
+              {
+                title: 'Une histoire de 14 siècles',
+                text: "La calligraphie arabe naît avec l'Islam au VIIe siècle. Elle devient rapidement l'art suprême du monde islamique — ornant mosquées, manuscrits et palais. Les maîtres calligraphes étaient considérés comme les plus grands artistes de leur époque.",
+              },
+              {
+                title: 'Six grands styles',
+                text: "Kufique, Naskh, Thuluth, Diwani, Riqa'a, Nasta'liq… Chaque style possède ses règles, ses proportions, son caractère propre. Maîtriser un seul style demande des années de pratique quotidienne avec la plume de roseau.",
+              },
+              {
+                title: "Au-delà de l'écriture",
+                text: "Pour le calligraphe, chaque lettre est une méditation. L'art n'est pas dans la reproduction mécanique, mais dans l'état d'esprit de celui qui trace. Un bon tableau de calligraphie porte en lui la présence de son auteur.",
+              },
+            ].map((item, i) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.12, ease: 'easeOut' }}
+                className="bg-night-deep p-8"
+              >
+                <div className="w-6 h-px bg-gold/40 mb-5" />
+                <h3 className="font-playfair text-pearl text-lg mb-3">{item.title}</h3>
+                <p className="font-cormorant text-pearl/55 text-base leading-relaxed">{item.text}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <SectionDivider />
+
+      {/* Timeline */}
+      <section className="py-16 px-6">
+        <div className="max-w-2xl mx-auto">
+          <h2 className="font-playfair text-pearl text-3xl font-light text-center mb-12">
+            Notre parcours
+          </h2>
+          <div className="relative">
+            <div className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-gold/30 via-gold/20 to-transparent" />
+            {TIMELINE.map(({ year, event }, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, x: -16 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.15, ease: 'easeOut' }}
+                className="pl-8 pb-10 relative"
+              >
+                <div className="absolute left-[-4px] top-1 w-2 h-2 rounded-full bg-gold/60 ring-4 ring-night" />
+                <span className="font-playfair text-gold/60 text-sm block mb-1">{year}</span>
+                <p className="font-cormorant text-pearl/65 text-lg leading-relaxed">{event}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Citation finale */}
+      <section className="py-16 px-6 text-center bg-night-deep">
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="max-w-2xl mx-auto"
+        >
+          <div className="w-12 h-px bg-gold/40 mx-auto mb-8" />
+          <p className="font-cormorant text-pearl/70 text-2xl md:text-3xl italic leading-relaxed mb-4">
+            « La calligraphie est la langue de la main. »
+          </p>
+          <p className="font-cormorant text-pearl/25 text-sm tracking-widest uppercase">
+            Proverbe de la tradition calligraphique arabe
+          </p>
+          <div className="w-12 h-px bg-gold/40 mx-auto mt-8" />
+        </motion.div>
+      </section>
+    </div>
+  )
+}
