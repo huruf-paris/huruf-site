@@ -296,36 +296,36 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
             {[
               {
-                quote: "J'ai commandé Sabr pour l'anniversaire de ma mère. Elle a tenu à l'accrocher dès le lendemain dans son salon. La qualité du cadre, l'encre, le papier — tout est irréprochable.",
-                author: 'Inès C.',
-                location: 'Lyon',
-                product: 'Sabr — 40 × 50 cm',
-                date: 'Il y a 3 semaines',
+                quote: "Très beau tableau, rapport qualité prix très intéressant.",
+                author: 'N.',
+                location: 'France',
+                date: 'Il y a 2 jours',
                 stars: 5,
+                initial: 'N',
               },
               {
-                quote: "J'avais hésité à commander un tableau de calligraphie en ligne. Les photos envoyées avant expédition m'ont convaincu. Le trait de 'Salam' est d'une précision remarquable.",
-                author: 'Mehdi B.',
-                location: 'Paris 16e',
-                product: 'Salam — 50 × 70 cm',
-                date: 'Il y a 1 mois',
+                quote: "Parfait, très satisfait, professionnel et soigné, envoi rapide.",
+                author: 'Naomie P.',
+                location: 'France',
+                date: 'Il y a 4 mois',
                 stars: 5,
+                initial: 'N',
               },
               {
-                quote: "Le trio Sabr · Chukr · Hubb pour notre nouvelle maison. Ces trois mots ont un sens si profond pour notre famille. Livraison soignée, tableaux parfaitement calés.",
-                author: 'Fatima-Zahra I.',
-                location: 'Bordeaux',
-                product: 'Trio Chukr · Sabr · Hubb',
-                date: 'Il y a 2 semaines',
+                quote: "Merci parfait et très bien emballé !",
+                author: 'Z.',
+                location: 'France',
+                date: 'Il y a 3 mois',
                 stars: 5,
+                initial: 'Z',
               },
               {
-                quote: "Cadeau pour ma femme, novice en calligraphie arabe. Elle est tombée amoureuse de 'Hubb'. La description du mot sur le site lui a donné encore plus de sens. Belle initiative.",
-                author: 'Thomas M.',
-                location: 'Nantes',
-                product: 'Hubb — 40 × 50 cm',
-                date: 'Il y a 2 mois',
+                quote: "Impec, arrivé avant le délai prévu. Je recommande !",
+                author: 'P.',
+                location: 'France',
+                date: 'Il y a 4 mois',
                 stars: 5,
+                initial: 'P',
               },
             ].map((t, i) => (
               <motion.div
@@ -349,10 +349,14 @@ export default function HomePage() {
                   "{t.quote}"
                 </blockquote>
                 {/* Auteur */}
-                <div className="border-t border-gold/8 pt-4">
-                  <p className="font-playfair text-pearl text-sm">{t.author}</p>
-                  <p className="font-cormorant text-pearl/35 text-xs">{t.location} · {t.date}</p>
-                  <p className="font-cormorant text-gold/50 text-xs tracking-wide mt-1 uppercase">{t.product}</p>
+                <div className="border-t border-gold/8 pt-4 flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-full bg-gold/15 border border-gold/30 flex items-center justify-center flex-shrink-0">
+                    <span className="font-playfair text-gold text-sm font-semibold">{t.initial}</span>
+                  </div>
+                  <div>
+                    <p className="font-playfair text-pearl text-sm">{t.author}</p>
+                    <p className="font-cormorant text-pearl/35 text-xs">{t.location} · {t.date}</p>
+                  </div>
                 </div>
               </motion.div>
             ))}
