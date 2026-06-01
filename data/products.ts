@@ -45,9 +45,9 @@ export const products: Product[] = [
     transliteration: 'Allahu Akbar',
     meaning: 'Dieu est le plus Grand',
     description:
-      "Allahu Akbar est une formule de magnification divine, l'un des dhikr (rappels) les plus récités dans la tradition islamique. Au-delà de toute connotation, ces mots expriment simplement la grandeur infinie du Créateur face à la petitesse de l'existence humaine. Un tableau de paix intérieure et de sérénité profonde.",
+      "Allahu Akbar — « Dieu est le plus Grand » — est l'une des formules les plus profondes de la tradition islamique. Bien au-delà de toute connotation médiatique, ces mots portent en eux une signification de paix, d'humilité et de gratitude face à la grandeur du Créateur. Accroché dans un salon, une entrée ou une chambre, ce tableau apporte une présence apaisante et une élégance rare à votre intérieur. Un cadeau islamique idéal pour une pendaison de crémaillère, un anniversaire ou une occasion spirituelle importante. Livré encadré, prêt à accrocher.",
     calligraphyDescription:
-      "La composition s'inspire du style Thuluth monumental, donnant à cette formule sa pleine majesté — équilibre, hauteur et puissance visuelle.",
+      "La composition s'inspire du style Thuluth monumental, l'un des plus majestueux de la calligraphie arabe classique. Ses lettres étirées vers le haut donnent à cette formule toute sa hauteur et sa puissance visuelle. Imprimé sur papier d'art premium, cadre inclus.",
     images: [
       '/images/products/allah-akbar-1.png',
       '/images/products/allah-akbar-2.png',
@@ -68,9 +68,9 @@ export const products: Product[] = [
     transliteration: 'Salam',
     meaning: 'La Paix',
     description:
-      "Salam est la salutation universelle, le vœu adressé à l'autre au premier instant de la rencontre. La paix comme état d'être, comme aspiration quotidienne. Ce mot résonne depuis des siècles et trouve ici une forme visuelle digne de sa profondeur.",
+      "Salam — « La Paix » — est le mot arabe le plus universel. Salutation, vœu, état d'âme : il s'adresse à tous, arabophone ou non. Posé dans une entrée, il accueille chaque visiteur. Dans un salon, il invite à la sérénité. Dans une chambre, il accompagne le repos. Ce tableau de décoration islamique est l'un de nos plus demandés, aussi bien comme cadeau que comme pièce décorative pour soi. Livré encadré, toutes tailles disponibles.",
     calligraphyDescription:
-      "La composition s'inspire du style Riqa'a pour une fluidité particulière — ses lettres s'enchaînent comme une respiration apaisée.",
+      "La composition s'inspire du style Riqa'a, reconnaissable à sa fluidité naturelle et ses lettres qui s'enchaînent avec grâce. Un rendu visuel doux et élégant, qui s'intègre dans tous les styles d'intérieur — moderne, scandinave, oriental. Imprimé sur papier d'art premium, cadre inclus.",
     images: [
       '/images/products/salam-3.png',
       '/images/products/salam-1.png',
@@ -92,9 +92,9 @@ export const products: Product[] = [
     transliteration: 'Subhanallah',
     meaning: 'Gloire à Dieu',
     description:
-      "Subhanallah est une expression d'émerveillement et de glorification divine. On le prononce devant la beauté d'un coucher de soleil, la naissance d'un enfant, ou tout ce qui dépasse la compréhension humaine. Ce tableau est une invitation permanente à l'émerveillement.",
+      "Subhanallah — « Gloire à Dieu » — est le mot que l'on prononce face à ce qui émerveille : la naissance d'un enfant, un coucher de soleil, un moment de grâce inattendu. Suspendu dans votre intérieur, il rappelle chaque jour la beauté de l'existence et invite à la gratitude. Un tableau de calligraphie arabe élégant, qui trouve sa place dans un salon, un couloir ou une chambre. Idéal comme cadeau islamique pour une naissance, un mariage ou une nouvelle maison.",
     calligraphyDescription:
-      "Composé dans l'esprit du style Naskh raffiné, la formule s'inscrit en une ligne noble et équilibrée, riche en points diacritiques.",
+      "Composé dans l'esprit du style Naskh, l'un des styles arabes les plus lisibles et élégants. La formule s'étire en une ligne horizontale noble, riche en points diacritiques qui donnent au rendu toute sa précision. Un équilibre visuel parfait entre complexité et harmonie. Imprimé sur papier d'art premium, cadre inclus.",
     images: ['/images/products/subhanallah.png'],
     featured: true,
     prices: {
@@ -112,9 +112,9 @@ export const products: Product[] = [
     transliteration: 'Sabr',
     meaning: 'La Patience',
     description:
-      "Sabr est l'une des vertus les plus célébrées dans la sagesse arabe et islamique. Elle incarne la capacité à traverser l'épreuve avec dignité, à persévérer sans se laisser consumer par l'impatience. Ce tableau capture l'essence de cette qualité rare.",
+      "Sabr — « La Patience » — est la vertu que chacun aspire à cultiver. Dans les moments difficiles, dans les périodes d'attente, dans les épreuves du quotidien, ce mot devient une ancre, un rappel silencieux de sa propre force intérieure. Ce tableau est l'un des plus offerts : pour quelqu'un qui traverse une période difficile, pour une chambre d'hôpital, pour un proche qui a besoin d'encouragement. Un cadeau islamique profondément humain. Livré encadré, prêt à accrocher.",
     calligraphyDescription:
-      "Composé dans l'esprit du style Naskh classique, ce caractère s'élance avec équilibre et retenue — comme la vertu qu'il représente.",
+      "Composé dans l'esprit du style Naskh classique, ce caractère unique s'élance avec une élégance sobre et retenue — en parfaite cohérence avec la vertu qu'il représente. La sobriété de la composition en fait un tableau discret mais puissant, qui s'intègre dans tout type d'intérieur. Imprimé sur papier d'art premium, cadre inclus.",
     images: ['/images/products/sabr.png'],
     featured: true,
     prices: {
@@ -132,9 +132,9 @@ export const products: Product[] = [
     transliteration: 'Hubb',
     meaning: "L'Amour",
     description:
-      "Hubb — deux lettres seulement, mais quel abîme de sens. L'amour en arabe porte en lui la racine du désir, de l'attachement et du dévoilement de soi. Offrir ce tableau, c'est offrir une déclaration silencieuse et intemporelle.",
+      "Hubb — « L'Amour » — deux lettres seulement, mais l'un des mots les plus puissants de la langue arabe. Il porte en lui la racine du désir, de l'attachement et du don de soi. Offrir ce tableau pour un mariage, un anniversaire ou la Saint-Valentin, c'est offrir une déclaration silencieuse et intemporelle. Suspendu dans une chambre ou un salon, il rappelle chaque jour ce qui compte vraiment. Un cadeau romantique et raffiné, à la fois islamique et universel.",
     calligraphyDescription:
-      "Dans l'esprit du style Diwani, les deux lettres ح et ب se rejoignent en une courbe unique, symbole d'union et de plénitude.",
+      "Dans l'esprit du style Diwani, l'un des plus ornementaux de la calligraphie arabe, les deux lettres ح et ب se rejoignent en une courbe fluide et continue — symbole d'union parfaite. Un rendu visuel chaleureux et élégant, idéal pour une chambre ou un espace de vie intime. Imprimé sur papier d'art premium, cadre inclus.",
     images: ['/images/products/hubb.png'],
     featured: true,
     prices: {
@@ -152,9 +152,9 @@ export const products: Product[] = [
     transliteration: 'Hulm',
     meaning: 'Le Rêve',
     description:
-      "Hulm est le rêve nocturne, mais aussi le rêve éveillé — l'aspiration profonde, la vision que l'on porte en soi. Dans la poésie arabe classique, le rêve est souvent le territoire de la rencontre avec ce que l'on désire le plus. Ce tableau invite à ne jamais cesser de rêver.",
+      "Hulm — « Le Rêve » — désigne à la fois le rêve nocturne et l'aspiration profonde que l'on porte en soi. Un rappel quotidien de ne jamais abandonner ses ambitions, de continuer à imaginer, à espérer, à viser plus haut. Ce tableau de calligraphie arabe est parfait pour une chambre, un bureau ou un espace de travail créatif. Un cadeau inspirant pour un jeune adulte, un entrepreneur, ou toute personne qui construit quelque chose de grand. Livré encadré.",
     calligraphyDescription:
-      "La composition s'inspire du Naskh et déploie les trois lettres avec une légèreté qui évoque l'état de rêverie.",
+      "La composition s'inspire du Naskh et déploie les trois lettres حلم avec une légèreté aérienne, comme si elles flottaient sur le papier. Un rendu visuel délicat qui évoque l'état de rêverie. Parfait pour une chambre ou un bureau. Imprimé sur papier d'art premium, cadre inclus.",
     images: ['/images/products/hulm.png'],
     featured: false,
     prices: {
@@ -174,9 +174,9 @@ export const products: Product[] = [
     transliteration: 'Bismillah · Subhanallah',
     meaning: 'Au nom de Dieu · Gloire à Dieu',
     description:
-      "Ce duo associe deux des formules les plus emblématiques de la calligraphie islamique : Bismillah (au nom de Dieu) et Subhanallah (gloire à Dieu). Ensemble, ils forment un diptyque équilibré et harmonieux, conçu pour être exposé côte à côte.",
+      "Le Duo Bismillah · Subhanallah associe deux des formules islamiques les plus emblématiques en un diptyque mural élégant. Bismillah (« Au nom de Dieu ») ouvre chaque acte avec intention. Subhanallah (« Gloire à Dieu ») célèbre la beauté du monde. Côte à côte, ils créent une composition murale équilibrée et puissante, idéale pour un salon, une entrée ou une salle à manger. Chaque tableau est fourni encadré dans le même format — il suffit de les accrocher. Le cadeau islamique parfait pour une pendaison de crémaillère ou un mariage.",
     calligraphyDescription:
-      "Les deux tableaux ont été composés dans le même style et avec les mêmes proportions pour garantir une cohérence visuelle parfaite.",
+      "Les deux compositions partagent le même style graphique, les mêmes proportions et la même palette — garantissant une cohérence visuelle parfaite lorsqu'ils sont exposés ensemble. Un vrai travail de mise en page pensé pour que les deux pièces dialoguent harmonieusement sur votre mur. Imprimés sur papier d'art premium, cadres inclus.",
     images: [
       '/images/products/duo-bismi-2.png',
       '/images/products/duo-bismi-3.png',
@@ -200,9 +200,9 @@ export const products: Product[] = [
     transliteration: 'Chukr · Sabr · Hubb',
     meaning: 'Gratitude · Patience · Amour',
     description:
-      "Ce trio rassemble trois valeurs fondamentales : la gratitude (Chukr), la patience (Sabr) et l'amour (Hubb). Exposés ensemble, ces trois tableaux forment une composition murale équilibrée et profonde, idéale pour un salon, une entrée ou un couloir. Un cadeau parfait pour une famille ou un foyer.",
+      "Le Trio Chukr · Sabr · Hubb réunit les trois valeurs qui font un foyer heureux : la gratitude (Chukr), la patience (Sabr) et l'amour (Hubb). Exposés ensemble en ligne ou en triangle sur votre mur, ces trois tableaux créent une composition murale profonde et harmonieuse. Idéal pour un salon, une entrée ou un couloir. C'est le cadeau islamique par excellence pour une nouvelle maison, un mariage ou une famille — trois mots qui disent tout ce que l'on souhaite à ceux qu'on aime. Les trois tableaux sont fournis encadrés, dans le même format, prêts à accrocher.",
     calligraphyDescription:
-      "Chaque tableau du trio est composé dans le même style, avec des proportions et une mise en page coordonnées pour une cohérence visuelle optimale.",
+      "Les trois compositions partagent le même style graphique, les mêmes proportions et la même gamme de couleurs. Qu'ils soient accrochés alignés ou en triangle, ils forment un ensemble cohérent et raffiné. Un vrai trio pensé pour s'harmoniser ensemble, pas seulement trois tableaux vendus ensemble. Imprimés sur papier d'art premium, cadres inclus.",
     images: [
       '/images/products/trio-chukr-1.png',
       '/images/products/trio-chukr-2.png',
@@ -225,9 +225,9 @@ export const products: Product[] = [
     transliteration: 'Bismillah · Subhanallah · Allahu Akbar',
     meaning: 'Au nom de Dieu · Gloire à Dieu · Dieu est le plus Grand',
     description:
-      "Ce trio associe trois formules spirituelles majeures : Bismillah, Subhanallah et Allahu Akbar. Ensemble, ils créent une composition murale d'une grande richesse, parfaite pour une pièce de vie. Chaque tableau peut aussi être acheté séparément.",
+      "Le Trio Bismillah · Subhanallah · Allahu Akbar réunit trois des formules spirituelles les plus importantes de l'islam en une composition murale d'exception. Bismillah ouvre avec intention, Subhanallah célèbre avec émerveillement, Allahu Akbar élève avec grandeur. Ensemble, ils transforment n'importe quel mur en un espace chargé de sens et de beauté. Parfait pour un salon, une salle à manger ou une salle de prière. Un cadeau islamique fort pour un homme, une famille ou une maison. Les trois tableaux sont fournis encadrés, dans le même format.",
     calligraphyDescription:
-      "Les trois tableaux partagent le même style de composition et la même gamme de couleurs pour une harmonie parfaite.",
+      "Les trois compositions partagent le même style graphique et la même palette — une harmonie visuelle totale pour un rendu mural professionnel. Chaque pièce est pensée pour faire partie d'un ensemble, pas pour être vue isolément. Accrochez-les alignés pour un effet galerie, ou en triangle pour une composition plus dynamique. Imprimés sur papier d'art premium, cadres inclus.",
     images: ['/images/products/trio-bismi.png'],
     featured: false,
     isBundle: true,
