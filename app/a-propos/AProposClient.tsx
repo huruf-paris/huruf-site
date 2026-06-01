@@ -12,7 +12,7 @@ const TIMELINE = [
   },
   {
     year: '2026',
-    event: 'Ouverture des commandes sur mesure et de la boutique en ligne huruf.fr.',
+    event: 'Ouverture des commandes sur mesure et de la boutique en ligne huruf-paris.fr.',
   },
 ]
 
@@ -70,15 +70,15 @@ export default function AProposPage() {
                 d'entrer dans les foyers.
               </p>
               <p>
-                Fondée en novembre 2025 à Paris, la marque propose des tableaux de calligraphie
-                arabe encadrés — des oeuvres tracées à la main, pensées pour s'intégrer avec
-                élégance dans tout espace de vie moderne. Chaque pièce naît d'une collaboration
-                directe avec notre calligraphe, formé à la tradition classique.
+                Fondée en novembre 2025 à Paris, la marque propose des compositions calligraphiques
+                arabes encadrées — designées numériquement dans la tradition des grands styles
+                classiques, imprimées sur papier d'art de qualité premium et livrées encadrées,
+                prêtes à accrocher.
               </p>
               <p>
                 Chaque tableau est une invitation à la contemplation. Un mot. Un sens. Une présence.
-                Que vous soyez arabophone ou non, ces oeuvres vous parlent dans un langage universel
-                : celui de la beauté tracée à la main.
+                Que vous soyez arabophone ou non, ces compositions vous parlent dans un langage
+                universel : celui de la beauté de la lettre arabe.
               </p>
             </div>
           </motion.div>
@@ -101,7 +101,7 @@ export default function AProposPage() {
               <div className="absolute inset-0 bg-gradient-to-t from-night/80 via-transparent to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 py-5 px-5">
                 <p className="font-cormorant text-pearl/65 text-sm italic text-center">
-                  L'atelier — chaque tracé naît d'un geste précis, répété jusqu'à la perfection
+                  La lettre arabe — un patrimoine visuel de 14 siècles
                 </p>
               </div>
             </div>
@@ -111,7 +111,7 @@ export default function AProposPage() {
 
       <SectionDivider />
 
-      {/* ── Le calligraphe ── */}
+      {/* ── Notre processus créatif ── */}
       <section className="py-16 px-6 bg-night-deep">
         <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
           <motion.div
@@ -124,16 +124,16 @@ export default function AProposPage() {
             <div className="relative aspect-square border border-gold/20 overflow-hidden">
               <Image
                 src="/images/products/sabr.png"
-                alt="Atelier de calligraphie — Hurûf"
+                alt="Composition calligraphique — Hurûf"
                 fill
                 className="object-cover product-image"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
               <div className="absolute inset-0 bg-night/30" />
               <div className="absolute bottom-5 left-5 right-5">
-                <p className="font-amiri text-gold text-3xl">بِسْمِ اللهِ</p>
+                <p className="font-amiri text-gold text-3xl">صبر</p>
                 <p className="font-cormorant text-pearl/50 text-xs tracking-widest uppercase mt-1">
-                  « Au nom de Dieu » — premier mot tracé avant chaque oeuvre
+                  Sabr — Patience · Composition Hurûf Paris
                 </p>
               </div>
             </div>
@@ -147,36 +147,34 @@ export default function AProposPage() {
             className="order-1 md:order-2"
           >
             <p className="font-cormorant text-gold/60 text-xs tracking-[0.3em] uppercase mb-4">
-              Notre calligraphe
+              Notre processus
             </p>
             <h2 className="font-playfair text-pearl text-3xl font-light mb-6">
-              Rachid Al-Khattat
+              Du design à votre mur
             </h2>
             <div className="space-y-4 font-cormorant text-pearl/65 text-lg leading-relaxed">
               <p>
-                Né à Fès en 1984, Rachid a commencé à apprendre la calligraphie à l'âge de neuf ans,
-                au contact des maîtres de la médina. Pendant plus de quinze ans, il a étudié et
-                pratiqué les grands styles classiques — Naskh, Thuluth, Diwani et Riqa'a — avec une
-                rigueur héritée d'une tradition pluriséculaire.
+                Chaque composition Hurûf est designée numériquement en s'inspirant des grands styles
+                classiques de la calligraphie arabe — Naskh, Thuluth, Diwani, Riqa'a. Un travail
+                minutieux de formes, de proportions et d'équilibre, fidèle à l'esthétique de
+                cette tradition millénaire.
               </p>
               <p>
-                Installé en France depuis 2011, il travaille depuis son atelier parisien avec une
-                plume de roseau (qalam), une encre préparée à la main et des papiers d'art sélectionnés
-                pour leur grain et leur tenue. Aucune impression, aucun outil numérique ne participe
-                à la création des tableaux Hurûf.
+                Une fois la composition finalisée, elle est imprimée sur papier d'art de qualité
+                premium, puis encadrée avec soin avant d'être expédiée. Chaque tableau vous
+                parvient prêt à accrocher, dans un emballage protecteur renforcé.
               </p>
               <p>
-                Pour Rachid, chaque tracé est un acte de présence totale. « Avant de poser le qalam,
-                je dois être calme. La lettre porte l'état d'esprit de celui qui l'a tracée — le
-                collectionneur le ressent, même sans le savoir. »
+                Notre engagement : vous offrir la beauté de la lettre arabe, accessible à tous,
+                sans compromis sur la qualité du rendu final.
               </p>
             </div>
 
             <div className="mt-8 grid grid-cols-3 gap-4 border-t border-gold/10 pt-6">
               {[
-                { num: '15+', label: 'années de pratique' },
-                { num: '4', label: 'styles maîtrisés' },
-                { num: '100%', label: 'tracé à la main' },
+                { num: '9', label: 'compositions' },
+                { num: '3', label: 'formats disponibles' },
+                { num: '100%', label: 'encadré inclus' },
               ].map(({ num, label }) => (
                 <div key={label} className="text-center">
                   <p className="font-playfair text-gold text-2xl font-light">{num}</p>
