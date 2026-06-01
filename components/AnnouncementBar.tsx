@@ -1,14 +1,22 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 
 export default function AnnouncementBar() {
   const [visible, setVisible] = useState(true)
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 80)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
   if (!visible) return null
 
   return (
-    <div className="relative z-50 bg-gold text-night py-2 px-4">
+    <div className={`relative bg-gold text-night px-4 overflow-hidden transition-all duration-500 ease-in-out ${scrolled ? 'max-h-0 py-0 opacity-0' : 'max-h-16 py-2 opacity-100'}`}>
       <div className="max-w-7xl mx-auto flex items-center justify-center gap-6 text-center">
         <div className="flex items-center gap-4 flex-wrap justify-center">
           <span className="font-cormorant text-sm font-semibold tracking-widest uppercase">

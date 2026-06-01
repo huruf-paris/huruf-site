@@ -133,8 +133,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
         <CartProvider>
           <CustomCursor />
-          <AnnouncementBar />
-          <Navbar />
+          <div className="fixed top-0 left-0 right-0 z-50 flex flex-col">
+            <AnnouncementBar />
+            <Navbar />
+          </div>
           <CartDrawer />
           <PageTransition>
             <main>{children}</main>
