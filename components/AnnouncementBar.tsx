@@ -16,7 +16,17 @@ export default function AnnouncementBar() {
   if (!visible) return null
 
   return (
-    <div className={`relative bg-gold text-night px-4 overflow-hidden transition-all duration-500 ease-in-out ${scrolled ? 'max-h-0 py-0 opacity-0' : 'max-h-16 py-2 opacity-100'}`}>
+    <div
+      style={{
+        maxHeight: scrolled ? '0px' : '60px',
+        opacity: scrolled ? 0 : 1,
+        paddingTop: scrolled ? '0px' : '8px',
+        paddingBottom: scrolled ? '0px' : '8px',
+        overflow: 'hidden',
+        transition: 'max-height 0.4s ease, opacity 0.35s ease, padding 0.4s ease',
+      }}
+      className="relative bg-gold text-night px-4"
+    >
       <div className="max-w-7xl mx-auto flex items-center justify-center gap-6 text-center">
         <div className="flex items-center gap-4 flex-wrap justify-center">
           <span className="font-cormorant text-sm font-semibold tracking-widest uppercase">
