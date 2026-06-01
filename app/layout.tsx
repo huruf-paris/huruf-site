@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     template: '%s | Hurûf Paris',
   },
   description:
-    "Hurûf Paris : tableaux de calligraphie arabe tracés à la main, encadrés et livrés en France. Salam, Sabr, Hubb, Subhanallah — des œuvres uniques pour votre intérieur. Livraison offerte.",
+    "Hurûf Paris : tableaux de calligraphie arabe imprimés sur papier d'art, encadrés et livrés en France. Salam, Sabr, Hubb, Subhanallah — des compositions uniques pour votre intérieur. Livraison offerte.",
   keywords: [
     'calligraphie arabe',
     'tableau calligraphie arabe',
@@ -101,7 +101,7 @@ const organizationSchema = {
   name: 'Hurûf Paris',
   url: 'https://www.huruf-paris.fr',
   logo: 'https://www.huruf-paris.fr/images/logo.png',
-  description: "Maison de calligraphie arabe artisanale. Tableaux tracés à la main, encadrés et livrés en France.",
+  description: "Tableaux de calligraphie arabe imprimés sur papier d'art, encadrés et livrés en France.",
   address: {
     '@type': 'PostalAddress',
     streetAddress: '60 Rue François Ier',

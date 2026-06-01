@@ -18,8 +18,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!product) return {}
 
   const price = product.prices['40x50'].single
-  const title = `${product.nameFr} — Tableau Calligraphie Arabe | Hurûf Paris`
-  const description = `${product.description.slice(0, 150)}... Tableau de calligraphie arabe tracé à la main, encadré, livré en France. À partir de ${price.toFixed(2).replace('.', ',')} €.`
+  const title = `${product.nameFr} — Tableau Calligraphie Arabe`
+  const description = `${product.description.slice(0, 150)}... Composition calligraphique arabe imprimée sur papier d'art, encadrée et livrée en France. À partir de ${price.toFixed(2).replace('.', ',')} €.`
 
   return {
     title,

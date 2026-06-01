@@ -69,7 +69,7 @@ export default function Footer() {
               <span className="font-amiri text-gold text-xl">حروف</span>
             </div>
             <p className="font-cormorant text-pearl/60 text-base leading-relaxed max-w-xs">
-              L'art de la calligraphie arabe, encadré pour votre intérieur. Chaque tableau est tracé à la main avec soin.
+              L'art de la calligraphie arabe, encadré pour votre intérieur. Chaque composition est créée avec soin, imprimée sur papier d'art de qualité.
             </p>
 
             {/* Réseaux sociaux */}
@@ -200,7 +200,7 @@ export default function Footer() {
 
         {/* Bottom */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-3 text-pearl/30 font-cormorant text-sm">
-          <p>© 2025 Hurûf — حروف. Tous droits réservés.</p>
+          <p>© 2026 Hurûf — حروف. Tous droits réservés.</p>
           <p>SIRET 993 653 393 00013 — APE 47.91B — Paris 8e</p>
         </div>
       </div>

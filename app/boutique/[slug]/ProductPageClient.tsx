@@ -230,7 +230,7 @@ export default function ProductPageClient({ params }: PageProps) {
                               : 'border-gold/20 text-pearl/60 hover:border-gold/40'
                           }`}
                         >
-                          Affiche seule
+                          Tableau encadré
                           <span className="block text-xs mt-0.5 opacity-70">
                             {product.prices[selectedFormat].single.toFixed(2).replace('.', ',')} €
                           </span>
@@ -307,8 +307,8 @@ export default function ProductPageClient({ params }: PageProps) {
 
               <div className="mt-5 grid grid-cols-3 gap-3 pt-5 border-t border-gold/10">
                 {[
-                  { icon: '✦', label: 'Tracé à la main' },
                   { icon: '✦', label: 'Cadre inclus' },
+                  { icon: '✦', label: 'Papier d\'art' },
                   { icon: '✦', label: 'Livraison soignée' },
                 ].map(({ icon, label }) => (
                   <div key={label} className="text-center">

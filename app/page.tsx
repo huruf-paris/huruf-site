@@ -13,11 +13,11 @@ import { getFeaturedProducts } from '@/data/products'
 const VALUES = [
   {
     title: 'Authenticité',
-    desc: "Chaque tableau est tracé à la main par un calligraphe formé à la tradition arabe classique. Aucune impression numérique — uniquement l'encre, le papier et le geste.",
+    desc: "Chaque composition est créée avec soin, en s'inspirant des grands styles classiques de la calligraphie arabe — Naskh, Thuluth, Diwani. Un travail de design ancré dans une tradition millénaire.",
   },
   {
-    title: 'Artisanat',
-    desc: "Papier d'art de qualité musée, encre permanente, cadre noble inclus. Un soin minutieux à chaque étape, de la plume jusqu'au clou dans votre mur.",
+    title: 'Qualité',
+    desc: "Imprimé sur papier d'art de qualité premium, cadre noble inclus. Un soin minutieux à chaque étape, de la composition jusqu'au clou dans votre mur.",
   },
   {
     title: 'Élégance',

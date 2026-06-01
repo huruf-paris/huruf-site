@@ -47,7 +47,7 @@ export const products: Product[] = [
     description:
       "Allahu Akbar est une formule de magnification divine, l'un des dhikr (rappels) les plus récités dans la tradition islamique. Au-delà de toute connotation, ces mots expriment simplement la grandeur infinie du Créateur face à la petitesse de l'existence humaine. Un tableau de paix intérieure et de sérénité profonde.",
     calligraphyDescription:
-      "La composition en Thuluth monumental donne à cette formule sa pleine majesté — équilibre, hauteur et puissance visuelle.",
+      "La composition s'inspire du style Thuluth monumental, donnant à cette formule sa pleine majesté — équilibre, hauteur et puissance visuelle.",
     images: [
       '/images/products/allah-akbar-1.png',
       '/images/products/allah-akbar-2.png',
@@ -70,7 +70,7 @@ export const products: Product[] = [
     description:
       "Salam est la salutation universelle, le vœu adressé à l'autre au premier instant de la rencontre. La paix comme état d'être, comme aspiration quotidienne. Ce mot résonne depuis des siècles et trouve ici une forme visuelle digne de sa profondeur.",
     calligraphyDescription:
-      "Le style Riqa'a offre à ce mot une fluidité particulière — ses lettres s'enchaînent comme une respiration apaisée.",
+      "La composition s'inspire du style Riqa'a pour une fluidité particulière — ses lettres s'enchaînent comme une respiration apaisée.",
     images: [
       '/images/products/salam-3.png',
       '/images/products/salam-1.png',
@@ -94,7 +94,7 @@ export const products: Product[] = [
     description:
       "Subhanallah est une expression d'émerveillement et de glorification divine. On le prononce devant la beauté d'un coucher de soleil, la naissance d'un enfant, ou tout ce qui dépasse la compréhension humaine. Ce tableau est une invitation permanente à l'émerveillement.",
     calligraphyDescription:
-      "Tracé en style Naskh raffiné, la formule s'inscrit en une ligne noble et équilibrée, riche en points diacritiques.",
+      "Composé dans l'esprit du style Naskh raffiné, la formule s'inscrit en une ligne noble et équilibrée, riche en points diacritiques.",
     images: ['/images/products/subhanallah.png'],
     featured: true,
     prices: {
@@ -112,9 +112,9 @@ export const products: Product[] = [
     transliteration: 'Sabr',
     meaning: 'La Patience',
     description:
-      "Sabr est l'une des vertus les plus célébrées dans la sagesse arabe et islamique. Elle incarne la capacité à traverser l'épreuve avec dignité, à persévérer sans se laisser consumer par l'impatience. Ce tableau capture l'essence de cette qualité rare, tracée à la plume de roseau.",
+      "Sabr est l'une des vertus les plus célébrées dans la sagesse arabe et islamique. Elle incarne la capacité à traverser l'épreuve avec dignité, à persévérer sans se laisser consumer par l'impatience. Ce tableau capture l'essence de cette qualité rare.",
     calligraphyDescription:
-      "Tracé en style Naskh classique, ce caractère s'élance avec équilibre et retenue — comme la vertu qu'il représente.",
+      "Composé dans l'esprit du style Naskh classique, ce caractère s'élance avec équilibre et retenue — comme la vertu qu'il représente.",
     images: ['/images/products/sabr.png'],
     featured: true,
     prices: {
@@ -134,7 +134,7 @@ export const products: Product[] = [
     description:
       "Hubb — deux lettres seulement, mais quel abîme de sens. L'amour en arabe porte en lui la racine du désir, de l'attachement et du dévoilement de soi. Offrir ce tableau, c'est offrir une déclaration silencieuse et intemporelle.",
     calligraphyDescription:
-      "En style Diwani, les deux lettres ح et ب se rejoignent en une courbe unique, symbole d'union et de plénitude.",
+      "Dans l'esprit du style Diwani, les deux lettres ح et ب se rejoignent en une courbe unique, symbole d'union et de plénitude.",
     images: ['/images/products/hubb.png'],
     featured: true,
     prices: {
@@ -154,7 +154,7 @@ export const products: Product[] = [
     description:
       "Hulm est le rêve nocturne, mais aussi le rêve éveillé — l'aspiration profonde, la vision que l'on porte en soi. Dans la poésie arabe classique, le rêve est souvent le territoire de la rencontre avec ce que l'on désire le plus. Ce tableau invite à ne jamais cesser de rêver.",
     calligraphyDescription:
-      "La composition en Naskh déploie les trois lettres avec une légèreté qui évoque l'état de rêverie.",
+      "La composition s'inspire du Naskh et déploie les trois lettres avec une légèreté qui évoque l'état de rêverie.",
     images: ['/images/products/hulm.png'],
     featured: false,
     prices: {
@@ -176,7 +176,7 @@ export const products: Product[] = [
     description:
       "Ce duo associe deux des formules les plus emblématiques de la calligraphie islamique : Bismillah (au nom de Dieu) et Subhanallah (gloire à Dieu). Ensemble, ils forment un diptyque équilibré et harmonieux, conçu pour être exposé côte à côte.",
     calligraphyDescription:
-      "Les deux tableaux ont été calligraphiés dans le même style et avec les mêmes proportions pour garantir une cohérence visuelle parfaite.",
+      "Les deux tableaux ont été composés dans le même style et avec les mêmes proportions pour garantir une cohérence visuelle parfaite.",
     images: [
       '/images/products/duo-bismi-2.png',
       '/images/products/duo-bismi-3.png',
@@ -202,7 +202,7 @@ export const products: Product[] = [
     description:
       "Ce trio rassemble trois valeurs fondamentales : la gratitude (Chukr), la patience (Sabr) et l'amour (Hubb). Exposés ensemble, ces trois tableaux forment une composition murale équilibrée et profonde, idéale pour un salon, une entrée ou un couloir. Un cadeau parfait pour une famille ou un foyer.",
     calligraphyDescription:
-      "Chaque tableau du trio est calligraphié dans le même style, avec des proportions et une mise en page coordonnées pour une cohérence visuelle optimale.",
+      "Chaque tableau du trio est composé dans le même style, avec des proportions et une mise en page coordonnées pour une cohérence visuelle optimale.",
     images: [
       '/images/products/trio-chukr-1.png',
       '/images/products/trio-chukr-2.png',
@@ -227,7 +227,7 @@ export const products: Product[] = [
     description:
       "Ce trio associe trois formules spirituelles majeures : Bismillah, Subhanallah et Allahu Akbar. Ensemble, ils créent une composition murale d'une grande richesse, parfaite pour une pièce de vie. Chaque tableau peut aussi être acheté séparément.",
     calligraphyDescription:
-      "Les trois tableaux partagent le même style calligraphique et la même gamme de couleurs pour une harmonie parfaite.",
+      "Les trois tableaux partagent le même style de composition et la même gamme de couleurs pour une harmonie parfaite.",
     images: ['/images/products/trio-bismi.png'],
     featured: false,
     isBundle: true,
