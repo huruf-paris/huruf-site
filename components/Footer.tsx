@@ -200,7 +200,7 @@ export default function Footer() {
 
         {/* Bottom */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-3 text-pearl/30 font-cormorant text-sm">
-          <p>© 2026 Hurûf — حروف. Tous droits réservés.</p>
+          <p>© 2025 Hurûf — حروف. Tous droits réservés.</p>
           <p>SIRET 993 653 393 00013 — APE 47.91B — Paris 8e</p>
         </div>
       </div>
