@@ -46,7 +46,7 @@ export default function BoutiquePage() {
             transition={{ duration: 0.5, delay: 0.2, ease: 'easeOut' }}
             className="font-cormorant text-pearl/55 text-xl italic leading-relaxed"
           >
-            Tableaux de calligraphie arabe tracés à la main, encadrés avec soin.
+            Compositions de calligraphie arabe, imprimées sur papier d'art et encadrées avec soin.
             <br />
             Choisissez l'oeuvre qui vous ressemble.
           </motion.p>
@@ -181,7 +181,7 @@ export default function BoutiquePage() {
               Vous cherchez un mot précis ?
             </h2>
             <p className="font-cormorant text-pearl/55 text-lg italic mb-8 max-w-md mx-auto">
-              Faites une commande sur mesure — nous calligraphierons le mot de votre choix en 3 à 4 semaines.
+              Faites une commande sur mesure — nous composerons le mot de votre choix et vous enverrons un devis sous 48h.
             </p>
             <a
               href="/sur-mesure"

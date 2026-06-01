@@ -8,6 +8,7 @@ import CartDrawer from '@/components/CartDrawer'
 import CustomCursor from '@/components/CustomCursor'
 import PageTransition from '@/components/PageTransition'
 import CookieBanner from '@/components/CookieBanner'
+import AnnouncementBar from '@/components/AnnouncementBar'
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -132,6 +133,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
         <CartProvider>
           <CustomCursor />
+          <AnnouncementBar />
           <Navbar />
           <CartDrawer />
           <PageTransition>

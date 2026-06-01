@@ -34,7 +34,7 @@ const STEPS = [
   {
     num: '03',
     title: 'Création',
-    desc: 'Le calligraphe trace votre oeuvre à la main. Délai : 3 à 4 semaines.',
+    desc: 'Nous créons votre composition sur mesure avec soin. Délai : 2 à 3 semaines.',
   },
   {
     num: '04',
@@ -44,9 +44,9 @@ const STEPS = [
 ]
 
 const GUARANTEES = [
-  { icon: <Feather size={18} strokeWidth={1.5} className="text-gold/70" />, label: 'Tracé 100% à la main' },
+  { icon: <Feather size={18} strokeWidth={1.5} className="text-gold/70" />, label: 'Composition sur mesure' },
   { icon: <Frame size={18} strokeWidth={1.5} className="text-gold/70" />, label: 'Cadre noble inclus' },
-  { icon: <Star size={18} strokeWidth={1.5} className="text-gold/70" />, label: 'Oeuvre unique certifiée' },
+  { icon: <Star size={18} strokeWidth={1.5} className="text-gold/70" />, label: 'Composition exclusive' },
   { icon: <Clock size={18} strokeWidth={1.5} className="text-gold/70" />, label: 'Devis gratuit sous 48h' },
 ]
 
@@ -109,9 +109,9 @@ export default function SurMesurePage() {
             transition={{ duration: 0.6, delay: 0.25 }}
             className="font-cormorant text-pearl/65 text-xl md:text-2xl italic leading-relaxed max-w-2xl"
           >
-            Un mot qui vous tient à coeur, calligraphié à la main pour vous.
+            Un mot qui vous tient à coeur, composé sur mesure pour vous.
             <br className="hidden md:block" />
-            Une oeuvre unique, dans le format de votre choix.
+            Une composition exclusive, dans le format de votre choix.
           </motion.p>
         </div>
       </section>
@@ -305,15 +305,15 @@ export default function SurMesurePage() {
               </div>
             </div>
 
-            {/* Citation du calligraphe */}
+            {/* Engagement qualité */}
             <div className="bg-night border border-gold/10 p-7">
               <div className="w-6 h-px bg-gold/40 mb-5" />
               <blockquote className="font-cormorant text-pearl/70 text-lg italic leading-relaxed mb-4">
-                "Avant de poser le qalam, je dois être calme. La lettre porte l'état d'esprit de celui qui l'a tracée — le collectionneur le ressent, même sans le savoir."
+                "Chaque composition sur mesure est pensée spécifiquement pour vous — formes, proportions, style — afin de créer une pièce qui vous ressemble vraiment."
               </blockquote>
-              <p className="font-playfair text-gold/60 text-sm">Rachid Al-Khattat</p>
+              <p className="font-playfair text-gold/60 text-sm">L'équipe Hurûf Paris</p>
               <p className="font-cormorant text-pearl/35 text-xs tracking-wide mt-0.5">
-                Calligraphe Hurûf · 15 ans de pratique
+                Devis gratuit · Réponse sous 48h
               </p>
             </div>
 
@@ -325,7 +325,7 @@ export default function SurMesurePage() {
               <div>
                 <p className="font-playfair text-pearl text-sm">Délai de création estimé</p>
                 <p className="font-cormorant text-pearl/45 text-base">
-                  3 à 4 semaines · Chaque oeuvre est tracée à la main, sans compromis
+                  2 à 3 semaines · Composition sur mesure, impression premium, encadrement inclus
                 </p>
               </div>
             </div>

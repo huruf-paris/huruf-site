@@ -115,7 +115,7 @@ export default function PanierPage() {
                         </span>
                         <span className="text-pearl/20">·</span>
                         <span className="font-cormorant text-pearl/40 text-sm">
-                          {item.isLot ? 'Lot de 3' : 'Affiche seule'}
+                          {item.isLot ? 'Lot de 3' : 'Tableau encadré'}
                         </span>
                         <span className="text-pearl/20">·</span>
                         <span className="font-cormorant text-teal/60 text-sm flex items-center gap-1">
@@ -211,8 +211,8 @@ export default function PanierPage() {
 
             <div className="flex justify-between items-center mb-6">
               <span className="font-cormorant text-pearl/60 tracking-wide">Livraison</span>
-              <span className="font-cormorant text-pearl/40 text-sm italic">
-                Calculée à la commande
+              <span className="font-cormorant text-teal/70 text-sm font-semibold">
+                Offerte 🎁
               </span>
             </div>
 

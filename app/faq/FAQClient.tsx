@@ -11,8 +11,8 @@ const FAQ_ITEMS = [
     category: 'Les tableaux',
     questions: [
       {
-        q: 'Les tableaux sont-ils peints à la main ou imprimés ?',
-        a: 'Chaque tableau Hurûf est tracé à la main par un calligraphe formé à la tradition arabe classique. Il ne s\'agit pas d\'impressions numériques — chaque oeuvre est unique, tracée à l\'encre permanente sur papier d\'art de qualité musée.',
+        q: 'Comment sont fabriqués vos tableaux ?',
+        a: 'Nos tableaux sont des compositions calligraphiques designées numériquement dans la tradition des grands styles arabes classiques (Naskh, Thuluth, Diwani…), puis imprimées sur papier d\'art de qualité premium et encadrées avec soin. Chaque composition est créée avec attention aux formes, aux proportions et à l\'esthétique de la calligraphie arabe.',
       },
       {
         q: 'Quels formats sont disponibles ?',
@@ -23,8 +23,8 @@ const FAQ_ITEMS = [
         a: 'Oui, chaque tableau est livré avec son cadre, prêt à être accroché. Aucun achat supplémentaire n\'est nécessaire.',
       },
       {
-        q: 'Quels styles calligraphiques utilisez-vous ?',
-        a: 'Nous maîtrisons plusieurs styles classiques : le Naskh (lisible et élégant), le Thuluth (monumental et majestueux), le Diwani (fluide et ornemental) et le Riq\'a (rapide et naturel). Le style est choisi selon le mot calligraphié pour en exprimer toute la profondeur.',
+        q: 'Quels styles calligraphiques inspirent vos compositions ?',
+        a: 'Nos compositions s\'inspirent des grands styles classiques : le Naskh (lisible et élégant), le Thuluth (monumental et majestueux), le Diwani (fluide et ornemental) et le Riqa\'a (naturel et fluide). Le style est choisi selon le mot pour en exprimer toute la profondeur visuelle.',
       },
     ],
   },
