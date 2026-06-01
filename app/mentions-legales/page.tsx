@@ -32,8 +32,8 @@ export default function MentionsLegalesPage() {
               <p><span className="text-pearl/40 uppercase text-sm tracking-wider block mb-1">Adresse</span>60 Rue François Ier, 75008 Paris, France</p>
               <p>
                 <span className="text-pearl/40 uppercase text-sm tracking-wider block mb-1">Email</span>
-                <a href="mailto:fashiontrendyfemme@gmail.com" className="text-gold/70 hover:text-gold transition-colors">
-                  fashiontrendyfemme@gmail.com
+                <a href="mailto:contact@huruf-paris.fr" className="text-gold/70 hover:text-gold transition-colors">
+                  contact@huruf-paris.fr
                 </a>
               </p>
             </div>
@@ -75,8 +75,8 @@ export default function MentionsLegalesPage() {
             </ul>
             <p className="mt-4">
               Pour exercer ces droits :{' '}
-              <a href="mailto:fashiontrendyfemme@gmail.com" className="text-gold/70 hover:text-gold transition-colors">
-                fashiontrendyfemme@gmail.com
+              <a href="mailto:contact@huruf-paris.fr" className="text-gold/70 hover:text-gold transition-colors">
+                contact@huruf-paris.fr
               </a>
             </p>
             <p className="mt-3">

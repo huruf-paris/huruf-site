@@ -85,10 +85,10 @@ export default function ContactPage() {
             <div>
               <p className="font-playfair text-pearl text-sm mb-1">Email</p>
               <a
-                href="mailto:fashiontrendyfemme@gmail.com"
+                href="mailto:contact@huruf-paris.fr"
                 className="font-cormorant text-pearl/55 hover:text-gold transition-colors text-lg"
               >
-                fashiontrendyfemme@gmail.com
+                contact@huruf-paris.fr
               </a>
             </div>
           </div>

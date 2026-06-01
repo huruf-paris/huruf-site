@@ -112,7 +112,7 @@ const organizationSchema = {
   },
   contactPoint: {
     '@type': 'ContactPoint',
-    email: 'fashiontrendyfemme@gmail.com',
+    email: 'contact@huruf-paris.fr',
     contactType: 'customer service',
     availableLanguage: 'French',
   },

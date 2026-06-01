@@ -77,8 +77,8 @@ export default function CGVPage() {
             </p>
             <p className="mt-3">
               Pour exercer ce droit, l'Acheteur doit notifier sa décision par email à{' '}
-              <a href="mailto:fashiontrendyfemme@gmail.com" className="text-gold/70 hover:text-gold transition-colors">
-                fashiontrendyfemme@gmail.com
+              <a href="mailto:contact@huruf-paris.fr" className="text-gold/70 hover:text-gold transition-colors">
+                contact@huruf-paris.fr
               </a>{' '}
               avant l'expiration du délai.
             </p>
@@ -111,8 +111,8 @@ export default function CGVPage() {
             <h2 className="font-playfair text-pearl text-xl mb-4">9. Litiges</h2>
             <p>
               En cas de litige, l'Acheteur est invité à contacter en premier lieu le service client à{' '}
-              <a href="mailto:fashiontrendyfemme@gmail.com" className="text-gold/70 hover:text-gold transition-colors">
-                fashiontrendyfemme@gmail.com
+              <a href="mailto:contact@huruf-paris.fr" className="text-gold/70 hover:text-gold transition-colors">
+                contact@huruf-paris.fr
               </a>{' '}
               pour trouver une solution amiable.
             </p>
