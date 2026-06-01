@@ -57,7 +57,38 @@ export default function ProductPageClient({ params }: PageProps) {
 
   return (
     <>
-      <div className="pt-24 pb-16 px-6 bg-night min-h-screen">
+      {/* ── Barre sticky mobile — toujours visible ── */}
+      {!product.prixSurDemande && (
+        <div className="lg:hidden fixed bottom-0 left-0 right-0 z-50 bg-night-deep border-t border-gold/20 px-4 py-3 flex items-center gap-3 shadow-[0_-8px_32px_rgba(0,0,0,0.4)]">
+          <div className="flex-1 min-w-0">
+            <p className="font-cormorant text-pearl/50 text-xs tracking-widest uppercase truncate">
+              {FORMATS[selectedFormat]} · {isLot ? 'Lot de 3' : 'Tableau encadré'}
+            </p>
+            <p className="font-playfair text-gold text-xl leading-tight">
+              {(currentPrice * qty).toFixed(2).replace('.', ',')} €
+            </p>
+          </div>
+          <button
+            onClick={handleAddToCart}
+            className="flex-shrink-0 bg-gold text-night font-cormorant text-sm tracking-widest uppercase px-5 py-3 flex items-center gap-2 hover:bg-gold/90 transition-colors duration-200"
+          >
+            {added ? (
+              <>
+                <Check size={14} strokeWidth={2} />
+                Ajouté
+              </>
+            ) : (
+              <>
+                <ShoppingBag size={14} strokeWidth={1.5} />
+                Ajouter au panier
+              </>
+            )}
+          </button>
+        </div>
+      )}
+
+      {/* Padding bottom sur mobile pour compenser la barre sticky */}
+      <div className="pt-24 pb-24 lg:pb-16 px-6 bg-night min-h-screen">
         <div className="max-w-7xl mx-auto">
 
           {/* Fil d'Ariane */}
