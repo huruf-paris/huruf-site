@@ -64,8 +64,17 @@ export default function SurMesurePage() {
 
   const onSubmit = async (data: FormData) => {
     try {
-      console.log('Demande sur mesure :', data)
-      await new Promise((r) => setTimeout(r, 1000))
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          nom: data.prenom,
+          email: data.email,
+          sujet: `Commande sur mesure — ${data.mot}`,
+          message: `Prénom : ${data.prenom}\nMot / phrase : ${data.mot}\nStyle : ${data.style}\nFormat : ${data.format}\nMessage : ${data.message || 'Aucun'}`,
+        }),
+      })
+      if (!res.ok) throw new Error('Erreur envoi')
       setSent(true)
     } catch (err) {
       console.error(err)
