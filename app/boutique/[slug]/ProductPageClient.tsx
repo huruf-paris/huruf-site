@@ -275,11 +275,11 @@ export default function ProductPageClient({ params }: PageProps) {
                           }`}
                         >
                           <span className="absolute -top-2 left-1/2 -translate-x-1/2 bg-gold text-night text-[10px] px-2 py-0.5 font-semibold tracking-wider uppercase whitespace-nowrap">
-                            Économie
+                            Économisez {((product.prices[selectedFormat].single * 3) - product.prices[selectedFormat].lot3).toFixed(0)} €
                           </span>
                           Lot de 3
                           <span className="block text-xs mt-0.5 opacity-70">
-                            {product.prices[selectedFormat].lot3.toFixed(2).replace('.', ',')} €
+                            {product.prices[selectedFormat].lot3.toFixed(2).replace('.', ',')} € <span className="line-through opacity-50">{(product.prices[selectedFormat].single * 3).toFixed(2).replace('.', ',')} €</span>
                           </span>
                         </button>
                       </div>

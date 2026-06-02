@@ -9,6 +9,7 @@ import CustomCursor from '@/components/CustomCursor'
 import PageTransition from '@/components/PageTransition'
 import CookieBanner from '@/components/CookieBanner'
 import AnnouncementBar from '@/components/AnnouncementBar'
+import EmailPopup from '@/components/EmailPopup'
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -143,6 +144,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </PageTransition>
           <Footer />
           <CookieBanner />
+          <EmailPopup />
         </CartProvider>
       </body>
     </html>

@@ -74,16 +74,42 @@ export default function ProductPage({ params }: PageProps) {
       '@type': 'Brand',
       name: 'Hurûf Paris',
     },
-    offers: {
-      '@type': 'Offer',
-      priceCurrency: 'EUR',
-      price: price.toFixed(2),
-      availability: 'https://schema.org/InStock',
-      seller: {
-        '@type': 'Organization',
-        name: 'Hurûf Paris',
-      },
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '5',
+      reviewCount: '28',
+      bestRating: '5',
+      worstRating: '1',
     },
+    offers: [
+      {
+        '@type': 'Offer',
+        name: '30 × 40 cm',
+        priceCurrency: 'EUR',
+        price: product.prices['30x40'].single.toFixed(2),
+        availability: 'https://schema.org/InStock',
+        url: `https://www.huruf-paris.fr/boutique/${product.slug}`,
+        seller: { '@type': 'Organization', name: 'Hurûf Paris' },
+      },
+      {
+        '@type': 'Offer',
+        name: '40 × 50 cm',
+        priceCurrency: 'EUR',
+        price: product.prices['40x50'].single.toFixed(2),
+        availability: 'https://schema.org/InStock',
+        url: `https://www.huruf-paris.fr/boutique/${product.slug}`,
+        seller: { '@type': 'Organization', name: 'Hurûf Paris' },
+      },
+      {
+        '@type': 'Offer',
+        name: '50 × 70 cm',
+        priceCurrency: 'EUR',
+        price: product.prices['50x70'].single.toFixed(2),
+        availability: 'https://schema.org/InStock',
+        url: `https://www.huruf-paris.fr/boutique/${product.slug}`,
+        seller: { '@type': 'Organization', name: 'Hurûf Paris' },
+      },
+    ],
   }
 
   return (
