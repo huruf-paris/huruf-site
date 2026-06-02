@@ -71,7 +71,7 @@ export default function SurMesurePage() {
           nom: data.prenom,
           email: data.email,
           sujet: `Commande sur mesure — ${data.mot}`,
-          message: `Prénom : ${data.prenom}\nMot / phrase : ${data.mot}\nStyle : ${data.style}\nFormat : ${data.format}\nMessage : ${data.message || 'Aucun'}`,
+          message: `Prénom : ${data.prenom}\nMot / phrase : ${data.mot}\nFormat : ${data.format}\nMessage : ${data.message || 'Aucun'}`,
         }),
       })
       if (!res.ok) throw new Error('Erreur envoi')
