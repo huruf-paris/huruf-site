@@ -49,16 +49,16 @@ export default function HomePage() {
           </p>
 
           {/* Titre principal */}
-          <h1 className="hero-title font-playfair text-pearl text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-light tracking-tight leading-tight mb-6 max-w-lg">
-            L'art de la calligraphie arabe, encadré pour votre intérieur.
+          <h1 className="hero-title font-playfair text-pearl text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-light tracking-tight leading-tight mb-6">
+            Quand les mots<br />deviennent art.
           </h1>
 
           {/* Ligne dorée */}
           <div className="hero-line w-16 h-px bg-gold/50 mb-8" />
 
           {/* Sous-titre */}
-          <p className="hero-sub font-cormorant text-pearl/55 text-lg sm:text-xl font-light italic mb-10 max-w-sm leading-relaxed">
-            Compositions uniques inspirées de la tradition calligraphique arabe — imprimées sur papier d'art, cadre inclus.
+          <p className="hero-sub font-cormorant text-pearl/55 text-xl font-light italic mb-10 max-w-sm leading-relaxed">
+            Calligraphie arabe encadrée, livrée en France.
           </p>
 
           {/* CTA */}
