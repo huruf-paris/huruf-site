@@ -44,26 +44,21 @@ export default function HomePage() {
           <div className="hidden lg:block absolute left-0 top-1/2 -translate-y-1/2 h-40 w-px bg-gradient-to-b from-transparent via-gold/30 to-transparent" />
 
           {/* Catégorie */}
-          <p className="hero-tag font-cormorant text-gold/50 text-xs tracking-[0.4em] uppercase mb-6">
+          <p className="hero-tag font-cormorant text-gold/50 text-xs tracking-[0.4em] uppercase mb-8">
             Calligraphie arabe encadrée · Paris
           </p>
 
-          {/* Titre — LCP element, rendu immédiatement */}
-          <h1 className="hero-title font-playfair text-pearl text-6xl sm:text-7xl lg:text-8xl xl:text-9xl font-light tracking-tight leading-none mb-3">
-            Hurûf
+          {/* Titre principal */}
+          <h1 className="hero-title font-playfair text-pearl text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-light tracking-tight leading-tight mb-6 max-w-lg">
+            L'art de la calligraphie arabe, encadré pour votre intérieur.
           </h1>
-
-          {/* Nom arabe de marque */}
-          <div className="hero-ar mb-8">
-            <span className="font-amiri text-gold text-3xl sm:text-4xl">حروف</span>
-          </div>
 
           {/* Ligne dorée */}
           <div className="hero-line w-16 h-px bg-gold/50 mb-8" />
 
           {/* Sous-titre */}
-          <p className="hero-sub font-cormorant text-pearl/65 text-xl sm:text-2xl font-light italic mb-10 max-w-sm leading-relaxed">
-            L'art de la calligraphie arabe,<br className="hidden sm:block" /> encadré pour votre intérieur.
+          <p className="hero-sub font-cormorant text-pearl/55 text-lg sm:text-xl font-light italic mb-10 max-w-sm leading-relaxed">
+            Compositions uniques inspirées de la tradition calligraphique arabe — imprimées sur papier d'art, cadre inclus.
           </p>
 
           {/* CTA */}
