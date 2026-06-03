@@ -420,6 +420,53 @@ export default function ProductPageClient({ params }: PageProps) {
 
           <SectionDivider />
 
+          {/* ───── FAQ ───── */}
+          <div className="mt-4 mb-16">
+            <h2 className="font-playfair text-pearl text-3xl font-light text-center mb-10">
+              Questions fréquentes
+            </h2>
+            <div className="max-w-3xl mx-auto divide-y divide-gold/10">
+              {[
+                {
+                  q: "Le cadre est-il inclus dans le prix ?",
+                  a: "Oui, chaque tableau est livré encadré, prêt à accrocher. Le cadre en bois naturel est inclus dans le prix affiché — aucun frais supplémentaire.",
+                },
+                {
+                  q: "Quels sont les délais de livraison ?",
+                  a: "Les commandes sont expédiées sous 3 à 5 jours ouvrés. La livraison en France métropolitaine prend ensuite 2 à 4 jours. Vous recevez un email de suivi dès l'expédition.",
+                },
+                {
+                  q: "Quelle est la différence entre les formats ?",
+                  a: "Le 30×40 cm est idéal pour une petite surface ou un bureau. Le 40×50 cm est notre format le plus populaire — parfait au-dessus d'un canapé ou dans un couloir. Le 50×70 cm crée un effet statement dans un salon ou une chambre.",
+                },
+                {
+                  q: "Puis-je retourner mon tableau si je ne suis pas satisfait ?",
+                  a: "Oui, vous disposez de 14 jours après réception pour retourner votre commande. Le tableau doit être dans son emballage d'origine, non endommagé. Le remboursement est effectué sous 7 jours.",
+                },
+                {
+                  q: "Le paiement est-il sécurisé ?",
+                  a: "Absolument. Le paiement est traité par Stripe, l'un des leaders mondiaux du paiement en ligne. Toutes vos données bancaires sont chiffrées et sécurisées — nous n'y avons jamais accès.",
+                },
+                {
+                  q: "Puis-je commander un tableau avec un mot personnalisé ?",
+                  a: "Oui ! Notre service sur mesure vous permet de commander la calligraphie du mot ou de la phrase de votre choix. Délai de création : 2 à 3 semaines. Demandez un devis gratuit sur notre page Sur Mesure.",
+                },
+              ].map(({ q, a }, i) => (
+                <details key={i} className="group py-5 cursor-pointer">
+                  <summary className="flex items-center justify-between gap-4 list-none">
+                    <span className="font-playfair text-pearl text-base">{q}</span>
+                    <span className="text-gold/50 group-open:rotate-45 transition-transform duration-300 flex-shrink-0 text-xl">+</span>
+                  </summary>
+                  <p className="font-cormorant text-pearl/55 text-base leading-relaxed mt-3 pr-8">
+                    {a}
+                  </p>
+                </details>
+              ))}
+            </div>
+          </div>
+
+          <SectionDivider />
+
           {related.length > 0 && (
             <div className="mt-4">
               <h2 className="font-playfair text-pearl text-3xl font-light text-center mb-12">Vous aimerez aussi</h2>
