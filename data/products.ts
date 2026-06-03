@@ -38,20 +38,37 @@ export const products: Product[] = [
   /* ─────────────────────────── TABLEAUX SEULS ─────────────────────────── */
 
   {
-    id: 'allah-akbar',
-    slug: 'allahu-akbar-grandeur',
-    nameFr: 'Allahu Akbar',
+    id: 'allah-akbar-dore',
+    slug: 'allahu-akbar-fond-dore',
+    nameFr: 'Allahu Akbar — Édition Dorée',
     nameAr: 'الله أكبر',
     transliteration: 'Allahu Akbar',
     meaning: 'Dieu est le plus Grand',
     description:
-      "Allahu Akbar — « Dieu est le plus Grand » — est l'une des formules les plus profondes de la tradition islamique. Bien au-delà de toute connotation médiatique, ces mots portent en eux une signification de paix, d'humilité et de gratitude face à la grandeur du Créateur. Accroché dans un salon, une entrée ou une chambre, ce tableau apporte une présence apaisante et une élégance rare à votre intérieur. Un cadeau islamique idéal pour une pendaison de crémaillère, un anniversaire ou une occasion spirituelle importante. Livré encadré, prêt à accrocher.",
+      "Allahu Akbar — « Dieu est le plus Grand » — dans une composition lumineuse sur fond doré. Cette édition exclusive apporte chaleur et raffinement à votre intérieur. Ses teintes dorées s'harmonisent naturellement avec les intérieurs contemporains clairs, le bois naturel et le marbre. Un tableau d'exception pour une entrée, un salon ou une chambre. Cadeau islamique idéal pour une pendaison de crémaillère, un mariage ou une occasion spirituelle. Livré encadré, prêt à accrocher.",
     calligraphyDescription:
-      "La composition s'inspire du style Thuluth monumental, l'un des plus majestueux de la calligraphie arabe classique. Ses lettres étirées vers le haut donnent à cette formule toute sa hauteur et sa puissance visuelle. Imprimé sur papier d'art premium, cadre inclus.",
-    images: [
-      '/images/products/allah-akbar-1.png',
-      '/images/products/allah-akbar-2.png',
-    ],
+      "La composition s'inspire du style Thuluth monumental sur un fond doré lumineux. Ses lettres étirées vers le haut donnent à cette formule toute sa hauteur et sa puissance visuelle. Le fond doré crée un contraste élégant qui illumine n'importe quel mur. Imprimé sur papier d'art premium, cadre inclus.",
+    images: ['/images/products/allah-akbar-1.png'],
+    featured: true,
+    prices: {
+      '30x40': { single: 37.99, lot3: 99.99 },
+      '40x50': { single: 47.99, lot3: 124.99 },
+      '50x70': { single: 61.99, lot3: 159.99 },
+    },
+  },
+
+  {
+    id: 'allah-akbar-sombre',
+    slug: 'allahu-akbar-fond-sombre',
+    nameFr: 'Allahu Akbar — Édition Sombre',
+    nameAr: 'الله أكبر',
+    transliteration: 'Allahu Akbar',
+    meaning: 'Dieu est le plus Grand',
+    description:
+      "Allahu Akbar — « Dieu est le plus Grand » — dans une composition puissante sur fond sombre. Cette édition apporte profondeur et élégance moderne à votre intérieur. Ses teintes foncées s'harmonisent parfaitement avec les intérieurs contemporains, les murs gris anthracite ou les espaces à l'ambiance feutrée. Un tableau de caractère pour un salon, une chambre ou un bureau. Cadeau islamique idéal pour une pendaison de crémaillère, un anniversaire ou une occasion spirituelle. Livré encadré, prêt à accrocher.",
+    calligraphyDescription:
+      "La composition s'inspire du style Thuluth monumental sur un fond sombre élégant. Ses lettres lumineuses se détachent avec force sur le fond foncé, créant un effet de profondeur saisissant. Un rendu visuel contemporain et puissant. Imprimé sur papier d'art premium, cadre inclus.",
+    images: ['/images/products/allah-akbar-2.png'],
     featured: true,
     prices: {
       '30x40': { single: 37.99, lot3: 99.99 },
@@ -240,7 +257,7 @@ export const products: Product[] = [
   },
 ]
 
-const FEATURED_ORDER = ['allah-akbar', 'duo-bismillah', 'salam', 'trio-chukr-sabr-hubb', 'subhanallah', 'sabr']
+const FEATURED_ORDER = ['allah-akbar-dore', 'allah-akbar-sombre', 'duo-bismillah', 'salam', 'trio-chukr-sabr-hubb', 'subhanallah', 'sabr']
 export const getFeaturedProducts = () =>
   FEATURED_ORDER.map((id) => products.find((p) => p.id === id)).filter(Boolean) as Product[]
 
