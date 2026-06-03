@@ -127,6 +127,20 @@ const organizationSchema = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fr" className={`${playfair.variable} ${cormorant.variable} ${amiri.variable}`}>
+      <head>
+        {/* Google Analytics GA4 */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-DEXY3DE20Q" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-DEXY3DE20Q');
+            `,
+          }}
+        />
+      </head>
       <body>
         <script
           type="application/ld+json"
