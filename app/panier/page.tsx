@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { useState } from 'react'
 import Link from 'next/link'
@@ -26,7 +26,7 @@ export default function PanierPage() {
       // const res = await fetch('/api/checkout/stripe', { method: 'POST', body: JSON.stringify({ items }) })
       // const { sessionId } = await res.json()
       // await stripe?.redirectToCheckout({ sessionId })
-      alert('Intégration Stripe à configurer — voir /lib/stripe.ts et NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY dans .env.local')
+      alert('IntÃ©gration Stripe Ã  configurer â€” voir /lib/stripe.ts et NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY dans .env.local')
     } finally {
       setLoadingStripe(false)
     }
@@ -34,20 +34,20 @@ export default function PanierPage() {
 
   if (items.length === 0) {
     return (
-      <div className="min-h-screen bg-night flex flex-col items-center justify-center px-6 pt-24">
+      <div className="min-h-screen bg-night flex flex-col items-center justify-center px-6 pt-40">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, ease: 'easeOut' }}
           className="text-center max-w-sm"
         >
-          <span className="font-amiri text-gold/20 text-8xl block mb-6">حروف</span>
+          <span className="font-amiri text-gold/20 text-8xl block mb-6">Ø­Ø±ÙˆÙ</span>
           <ShoppingBag size={48} strokeWidth={1} className="text-gold/30 mx-auto mb-5" />
           <h1 className="font-playfair text-pearl text-3xl font-light mb-3">
             Votre panier est vide
           </h1>
           <p className="font-cormorant text-pearl/50 text-lg italic mb-10">
-            Découvrez nos tableaux de calligraphie arabe et trouvez l'œuvre qui vous parle.
+            DÃ©couvrez nos tableaux de calligraphie arabe et trouvez l'Å“uvre qui vous parle.
           </p>
           <Link href="/boutique">
             <Button variant="primary" size="lg">
@@ -60,7 +60,7 @@ export default function PanierPage() {
   }
 
   return (
-    <div className="min-h-screen bg-night pt-24 pb-20 px-6">
+    <div className="min-h-screen bg-night pt-40 pb-20 px-6">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="mb-10">
@@ -113,11 +113,11 @@ export default function PanierPage() {
                         <span className="font-cormorant text-pearl/40 text-sm tracking-wide">
                           {FORMATS[item.format]}
                         </span>
-                        <span className="text-pearl/20">·</span>
+                        <span className="text-pearl/20">Â·</span>
                         <span className="font-cormorant text-pearl/40 text-sm">
-                          {item.isLot ? 'Lot de 3' : 'Tableau encadré'}
+                          {item.isLot ? 'Lot de 3' : 'Tableau encadrÃ©'}
                         </span>
-                        <span className="text-pearl/20">·</span>
+                        <span className="text-pearl/20">Â·</span>
                         <span className="font-cormorant text-teal/60 text-sm flex items-center gap-1">
                           <Package size={12} strokeWidth={1.5} />
                           Cadre inclus
@@ -134,7 +134,7 @@ export default function PanierPage() {
                   </div>
 
                   <div className="flex items-center justify-between mt-4">
-                    {/* Quantité */}
+                    {/* QuantitÃ© */}
                     <div className="flex items-center border border-gold/20">
                       <button
                         onClick={() =>
@@ -143,7 +143,7 @@ export default function PanierPage() {
                         }
                         className="w-9 h-9 text-pearl/40 hover:text-gold transition-colors font-cormorant text-lg flex items-center justify-center"
                       >
-                        −
+                        âˆ’
                       </button>
                       <span className="w-10 text-center font-cormorant text-pearl">
                         {item.quantity}
@@ -159,7 +159,7 @@ export default function PanierPage() {
                     </div>
                     {/* Prix */}
                     <p className="font-playfair text-gold text-xl">
-                      {(item.unitPrice * item.quantity).toFixed(2).replace('.', ',')} €
+                      {(item.unitPrice * item.quantity).toFixed(2).replace('.', ',')} â‚¬
                     </p>
                   </div>
                 </div>
@@ -174,14 +174,14 @@ export default function PanierPage() {
             </button>
           </div>
 
-          {/* ===== RÉCAPITULATIF ===== */}
+          {/* ===== RÃ‰CAPITULATIF ===== */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2, ease: 'easeOut' }}
             className="lg:sticky lg:top-28 h-fit bg-night-deep border border-gold/15 p-7"
           >
-            <h2 className="font-playfair text-pearl text-xl mb-6">Récapitulatif</h2>
+            <h2 className="font-playfair text-pearl text-xl mb-6">RÃ©capitulatif</h2>
 
             {/* Lignes */}
             <div className="space-y-3 mb-5">
@@ -191,10 +191,10 @@ export default function PanierPage() {
                   className="flex justify-between"
                 >
                   <span className="font-cormorant text-pearl/55 text-sm flex-1 pr-3">
-                    {item.product.nameFr} ({FORMATS[item.format]}) × {item.quantity}
+                    {item.product.nameFr} ({FORMATS[item.format]}) Ã— {item.quantity}
                   </span>
                   <span className="font-cormorant text-pearl/70 text-sm flex-shrink-0">
-                    {(item.unitPrice * item.quantity).toFixed(2).replace('.', ',')} €
+                    {(item.unitPrice * item.quantity).toFixed(2).replace('.', ',')} â‚¬
                   </span>
                 </div>
               ))}
@@ -205,21 +205,21 @@ export default function PanierPage() {
             <div className="flex justify-between items-center mb-3">
               <span className="font-cormorant text-pearl/60 tracking-wide">Sous-total</span>
               <span className="font-playfair text-pearl text-lg">
-                {subtotal.toFixed(2).replace('.', ',')} €
+                {subtotal.toFixed(2).replace('.', ',')} â‚¬
               </span>
             </div>
 
             <div className="flex justify-between items-center mb-6">
               <span className="font-cormorant text-pearl/60 tracking-wide">Livraison</span>
               <span className="font-cormorant text-teal/70 text-sm font-semibold">
-                Offerte 🎁
+                Offerte ðŸŽ
               </span>
             </div>
 
             <div className="flex justify-between items-center py-4 border-t border-b border-gold/15 mb-7">
               <span className="font-playfair text-pearl text-lg">Total</span>
               <span className="font-playfair text-gold text-3xl">
-                {subtotal.toFixed(2).replace('.', ',')} €
+                {subtotal.toFixed(2).replace('.', ',')} â‚¬
               </span>
             </div>
 
@@ -238,9 +238,9 @@ export default function PanierPage() {
               </Button>
 
               {/* PayPal */}
-              {/* TODO: Remplacer par le vrai bouton PayPal une fois NEXT_PUBLIC_PAYPAL_CLIENT_ID configuré */}
+              {/* TODO: Remplacer par le vrai bouton PayPal une fois NEXT_PUBLIC_PAYPAL_CLIENT_ID configurÃ© */}
               <button
-                onClick={() => alert('Intégration PayPal à configurer — voir /lib/paypal.ts')}
+                onClick={() => alert('IntÃ©gration PayPal Ã  configurer â€” voir /lib/paypal.ts')}
                 className="w-full py-3.5 bg-[#0070ba] hover:bg-[#003087] text-white font-semibold text-sm tracking-wide transition-all duration-300 flex items-center justify-center gap-2"
               >
                 <svg viewBox="0 0 124 33" className="h-5" aria-label="PayPal">
@@ -250,9 +250,9 @@ export default function PanierPage() {
               </button>
             </div>
 
-            {/* Sécurité */}
+            {/* SÃ©curitÃ© */}
             <p className="font-cormorant text-pearl/25 text-xs text-center mt-4 leading-relaxed">
-              Paiement 100% sécurisé · Données chiffrées SSL
+              Paiement 100% sÃ©curisÃ© Â· DonnÃ©es chiffrÃ©es SSL
             </p>
           </motion.div>
         </div>
@@ -260,3 +260,4 @@ export default function PanierPage() {
     </div>
   )
 }
+

@@ -1,14 +1,14 @@
-'use client'
+﻿'use client'
 
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { SectionDivider } from '@/components/IslamicOrnament'
 
 const TIMELINE = [
-  { year: '2025', event: 'Fondation de Hurûf à Paris, au coeur du 8e arrondissement.' },
+  { year: '2025', event: 'Fondation de HurÃ»f Ã  Paris, au coeur du 8e arrondissement.' },
   {
     year: '2025',
-    event: 'Lancement de la première collection — tableaux de calligraphie arabe encadrés.',
+    event: 'Lancement de la premiÃ¨re collection â€” tableaux de calligraphie arabe encadrÃ©s.',
   },
   {
     year: '2026',
@@ -18,7 +18,7 @@ const TIMELINE = [
 
 export default function AProposPage() {
   return (
-    <div className="min-h-screen bg-night pt-24 pb-20">
+    <div className="min-h-screen bg-night pt-40 pb-20">
       {/* Header */}
       <section className="py-16 px-6 text-center">
         <div className="max-w-3xl mx-auto">
@@ -35,7 +35,7 @@ export default function AProposPage() {
             transition={{ duration: 0.6, ease: 'easeOut' }}
             className="font-playfair text-pearl text-5xl md:text-6xl font-light mb-4"
           >
-            À propos de Hurûf
+            Ã€ propos de HurÃ»f
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 16 }}
@@ -43,7 +43,7 @@ export default function AProposPage() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="font-cormorant text-pearl/55 text-xl italic leading-relaxed"
           >
-            Hurûf — du mot arabe signifiant « lettres ».
+            HurÃ»f â€” du mot arabe signifiant Â« lettres Â».
             <br />
             Car tout commence par une lettre, et la lettre devient art.
           </motion.p>
@@ -64,21 +64,21 @@ export default function AProposPage() {
             </h2>
             <div className="space-y-4 font-cormorant text-pearl/65 text-lg leading-relaxed">
               <p>
-                Hurûf est née d'une conviction simple : la calligraphie arabe est l'un des arts les
-                plus raffinés du monde, et pourtant elle reste absente de la plupart des intérieurs
-                contemporains. Trop souvent reléguée aux mosquées ou aux livres, elle méritait
+                HurÃ»f est nÃ©e d'une conviction simple : la calligraphie arabe est l'un des arts les
+                plus raffinÃ©s du monde, et pourtant elle reste absente de la plupart des intÃ©rieurs
+                contemporains. Trop souvent relÃ©guÃ©e aux mosquÃ©es ou aux livres, elle mÃ©ritait
                 d'entrer dans les foyers.
               </p>
               <p>
-                Fondée en novembre 2025 à Paris, la marque propose des compositions calligraphiques
-                arabes encadrées — designées numériquement dans la tradition des grands styles
-                classiques, imprimées sur papier d'art de qualité premium et livrées encadrées,
-                prêtes à accrocher.
+                FondÃ©e en novembre 2025 Ã  Paris, la marque propose des compositions calligraphiques
+                arabes encadrÃ©es â€” designÃ©es numÃ©riquement dans la tradition des grands styles
+                classiques, imprimÃ©es sur papier d'art de qualitÃ© premium et livrÃ©es encadrÃ©es,
+                prÃªtes Ã  accrocher.
               </p>
               <p>
-                Chaque tableau est une invitation à la contemplation. Un mot. Un sens. Une présence.
+                Chaque tableau est une invitation Ã  la contemplation. Un mot. Un sens. Une prÃ©sence.
                 Que vous soyez arabophone ou non, ces compositions vous parlent dans un langage
-                universel : celui de la beauté de la lettre arabe.
+                universel : celui de la beautÃ© de la lettre arabe.
               </p>
             </div>
           </motion.div>
@@ -92,7 +92,7 @@ export default function AProposPage() {
             <div className="relative aspect-[3/4] border border-gold/20 overflow-hidden group">
               <Image
                 src="https://images.unsplash.com/photo-1486303954368-398fea0e72cd?w=800&q=85"
-                alt="Atelier de calligraphie — Hurûf Paris"
+                alt="Atelier de calligraphie â€” HurÃ»f Paris"
                 fill
                 className="object-cover object-center"
                 sizes="(max-width: 768px) 100vw, 50vw"
@@ -101,7 +101,7 @@ export default function AProposPage() {
               <div className="absolute inset-0 bg-gradient-to-t from-night/80 via-transparent to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 py-5 px-5">
                 <p className="font-cormorant text-pearl/65 text-sm italic text-center">
-                  La lettre arabe — un patrimoine visuel de 14 siècles
+                  La lettre arabe â€” un patrimoine visuel de 14 siÃ¨cles
                 </p>
               </div>
             </div>
@@ -111,7 +111,7 @@ export default function AProposPage() {
 
       <SectionDivider />
 
-      {/* ── Notre processus créatif ── */}
+      {/* â”€â”€ Notre processus crÃ©atif â”€â”€ */}
       <section className="py-16 px-6 bg-night-deep">
         <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
           <motion.div
@@ -124,16 +124,16 @@ export default function AProposPage() {
             <div className="relative aspect-square border border-gold/20 overflow-hidden">
               <Image
                 src="/images/products/sabr.png"
-                alt="Composition calligraphique — Hurûf"
+                alt="Composition calligraphique â€” HurÃ»f"
                 fill
                 className="object-cover product-image"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
               <div className="absolute inset-0 bg-night/30" />
               <div className="absolute bottom-5 left-5 right-5">
-                <p className="font-amiri text-gold text-3xl">صبر</p>
+                <p className="font-amiri text-gold text-3xl">ØµØ¨Ø±</p>
                 <p className="font-cormorant text-pearl/50 text-xs tracking-widest uppercase mt-1">
-                  Sabr — Patience · Composition Hurûf Paris
+                  Sabr â€” Patience Â· Composition HurÃ»f Paris
                 </p>
               </div>
             </div>
@@ -150,23 +150,23 @@ export default function AProposPage() {
               Notre processus
             </p>
             <h2 className="font-playfair text-pearl text-3xl font-light mb-6">
-              Du design à votre mur
+              Du design Ã  votre mur
             </h2>
             <div className="space-y-4 font-cormorant text-pearl/65 text-lg leading-relaxed">
               <p>
-                Chaque composition Hurûf est designée numériquement en s'inspirant des grands styles
-                classiques de la calligraphie arabe — Naskh, Thuluth, Diwani, Riqa'a. Un travail
-                minutieux de formes, de proportions et d'équilibre, fidèle à l'esthétique de
-                cette tradition millénaire.
+                Chaque composition HurÃ»f est designÃ©e numÃ©riquement en s'inspirant des grands styles
+                classiques de la calligraphie arabe â€” Naskh, Thuluth, Diwani, Riqa'a. Un travail
+                minutieux de formes, de proportions et d'Ã©quilibre, fidÃ¨le Ã  l'esthÃ©tique de
+                cette tradition millÃ©naire.
               </p>
               <p>
-                Une fois la composition finalisée, elle est imprimée sur papier d'art de qualité
-                premium, puis encadrée avec soin avant d'être expédiée. Chaque tableau vous
-                parvient prêt à accrocher, dans un emballage protecteur renforcé.
+                Une fois la composition finalisÃ©e, elle est imprimÃ©e sur papier d'art de qualitÃ©
+                premium, puis encadrÃ©e avec soin avant d'Ãªtre expÃ©diÃ©e. Chaque tableau vous
+                parvient prÃªt Ã  accrocher, dans un emballage protecteur renforcÃ©.
               </p>
               <p>
-                Notre engagement : vous offrir la beauté de la lettre arabe, accessible à tous,
-                sans compromis sur la qualité du rendu final.
+                Notre engagement : vous offrir la beautÃ© de la lettre arabe, accessible Ã  tous,
+                sans compromis sur la qualitÃ© du rendu final.
               </p>
             </div>
 
@@ -174,7 +174,7 @@ export default function AProposPage() {
               {[
                 { num: '9', label: 'compositions' },
                 { num: '3', label: 'formats disponibles' },
-                { num: '100%', label: 'encadré inclus' },
+                { num: '100%', label: 'encadrÃ© inclus' },
               ].map(({ num, label }) => (
                 <div key={label} className="text-center">
                   <p className="font-playfair text-gold text-2xl font-light">{num}</p>
@@ -202,23 +202,23 @@ export default function AProposPage() {
               L'art de la calligraphie arabe
             </h2>
             <p className="font-cormorant text-pearl/50 text-lg italic">
-              Un patrimoine de 14 siècles, tracé lettre à lettre
+              Un patrimoine de 14 siÃ¨cles, tracÃ© lettre Ã  lettre
             </p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-gold/10">
             {[
               {
-                title: 'Une histoire de 14 siècles',
-                text: "La calligraphie arabe naît avec l'Islam au VIIe siècle. Elle devient rapidement l'art suprême du monde islamique — ornant mosquées, manuscrits et palais. Les maîtres calligraphes étaient considérés comme les plus grands artistes de leur époque.",
+                title: 'Une histoire de 14 siÃ¨cles',
+                text: "La calligraphie arabe naÃ®t avec l'Islam au VIIe siÃ¨cle. Elle devient rapidement l'art suprÃªme du monde islamique â€” ornant mosquÃ©es, manuscrits et palais. Les maÃ®tres calligraphes Ã©taient considÃ©rÃ©s comme les plus grands artistes de leur Ã©poque.",
               },
               {
                 title: 'Six grands styles',
-                text: "Kufique, Naskh, Thuluth, Diwani, Riqa'a, Nasta'liq… Chaque style possède ses règles, ses proportions, son caractère propre. Maîtriser un seul style demande des années de pratique quotidienne avec la plume de roseau.",
+                text: "Kufique, Naskh, Thuluth, Diwani, Riqa'a, Nasta'liqâ€¦ Chaque style possÃ¨de ses rÃ¨gles, ses proportions, son caractÃ¨re propre. MaÃ®triser un seul style demande des annÃ©es de pratique quotidienne avec la plume de roseau.",
               },
               {
-                title: "Au-delà de l'écriture",
-                text: "Pour le calligraphe, chaque lettre est une méditation. L'art n'est pas dans la reproduction mécanique, mais dans l'état d'esprit de celui qui trace. Un bon tableau de calligraphie porte en lui la présence de son auteur.",
+                title: "Au-delÃ  de l'Ã©criture",
+                text: "Pour le calligraphe, chaque lettre est une mÃ©ditation. L'art n'est pas dans la reproduction mÃ©canique, mais dans l'Ã©tat d'esprit de celui qui trace. Un bon tableau de calligraphie porte en lui la prÃ©sence de son auteur.",
               },
             ].map((item, i) => (
               <motion.div
@@ -277,7 +277,7 @@ export default function AProposPage() {
         >
           <div className="w-12 h-px bg-gold/40 mx-auto mb-8" />
           <p className="font-cormorant text-pearl/70 text-2xl md:text-3xl italic leading-relaxed mb-4">
-            « La calligraphie est la langue de la main. »
+            Â« La calligraphie est la langue de la main. Â»
           </p>
           <p className="font-cormorant text-pearl/25 text-sm tracking-widest uppercase">
             Proverbe de la tradition calligraphique arabe
@@ -288,3 +288,4 @@ export default function AProposPage() {
     </div>
   )
 }
+

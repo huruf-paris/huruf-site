@@ -88,7 +88,7 @@ export default function ProductPageClient({ params }: PageProps) {
       )}
 
       {/* Padding bottom sur mobile pour compenser la barre sticky */}
-      <div className="pt-24 pb-24 lg:pb-16 px-6 bg-night min-h-screen">
+      <div className="pt-40 pb-24 lg:pb-16 px-6 bg-night min-h-screen">
         <div className="max-w-7xl mx-auto">
 
           {/* Fil d'Ariane */}
