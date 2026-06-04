@@ -194,7 +194,6 @@ export const products: Product[] = [
       "La formule Bismillah est composée dans un style expressif et libre, sublimée par des éclaboussures d'encre dorée qui créent un effet aquarelle unique. Le contraste entre la précision des lettres arabes et la spontanéité des taches dorées donne à ce tableau un caractère artistique rare. Imprimé sur papier d'art premium, cadre inclus.",
     images: [
       '/images/products/bismillah-aquarelle-1.webp',
-      '/images/products/bismillah-aquarelle-2.webp',
     ],
     featured: true,
     prices: {
@@ -217,6 +216,7 @@ export const products: Product[] = [
       "La formule Bismillah est composée dans un style Thuluth élancé sur fond doré lumineux. Les lettres noires se détachent avec force sur le fond chaud, créant un contraste puissant et raffiné. Un rendu visuel contemporain et spirituel à la fois. Imprimé sur papier d'art premium, cadre inclus.",
     images: [
       '/images/products/bismillah-dore-1.webp',
+      '/images/products/bismillah-dore-2.webp',
     ],
     featured: true,
     prices: {
