@@ -181,6 +181,51 @@ export const products: Product[] = [
     },
   },
 
+  {
+    id: 'bismillah-aquarelle',
+    slug: 'bismillah-aquarelle',
+    nameFr: 'Bismillah — Édition Aquarelle',
+    nameAr: 'بسم الله',
+    transliteration: 'Bismillah',
+    meaning: 'Au nom de Dieu',
+    description:
+      "Bismillah — « Au nom de Dieu » — dans une composition unique mêlant calligraphie arabe et éclaboussures d'encre dorée. Cette édition aquarelle apporte chaleur, mouvement et caractère à votre intérieur. Ses teintes chaleureuses s'harmonisent avec les intérieurs naturels, le bois clair et le lin. Idéale pour une entrée, un salon ou une chambre. Un cadeau islamique original et élégant pour une pendaison de crémaillère, un mariage ou une occasion spirituelle. Livré encadré, prêt à accrocher.",
+    calligraphyDescription:
+      "La formule Bismillah est composée dans un style expressif et libre, sublimée par des éclaboussures d'encre dorée qui créent un effet aquarelle unique. Le contraste entre la précision des lettres arabes et la spontanéité des taches dorées donne à ce tableau un caractère artistique rare. Imprimé sur papier d'art premium, cadre inclus.",
+    images: [
+      '/images/products/bismillah-aquarelle-1.webp',
+      '/images/products/bismillah-aquarelle-2.webp',
+    ],
+    featured: true,
+    prices: {
+      '30x40': { single: 35.99, lot3: 95.99 },
+      '40x50': { single: 45.99, lot3: 119.99 },
+      '50x70': { single: 58.99, lot3: 149.99 },
+    },
+  },
+
+  {
+    id: 'bismillah-dore',
+    slug: 'bismillah-fond-dore',
+    nameFr: 'Bismillah — Édition Dorée',
+    nameAr: 'بسم الله',
+    transliteration: 'Bismillah',
+    meaning: 'Au nom de Dieu',
+    description:
+      "Bismillah — « Au nom de Dieu » — dans une composition lumineuse sur fond doré. Cette édition sobre et raffinée s'intègre naturellement dans les intérieurs contemporains, les espaces à l'ambiance feutrée et les décors luxueux. Ses teintes or et noir créent un équilibre élégant entre spiritualité et modernité. Idéale pour un salon, une chambre ou un bureau. Cadeau islamique intemporel pour une pendaison de crémaillère, un mariage ou un anniversaire. Livré encadré, prêt à accrocher.",
+    calligraphyDescription:
+      "La formule Bismillah est composée dans un style Thuluth élancé sur fond doré lumineux. Les lettres noires se détachent avec force sur le fond chaud, créant un contraste puissant et raffiné. Un rendu visuel contemporain et spirituel à la fois. Imprimé sur papier d'art premium, cadre inclus.",
+    images: [
+      '/images/products/bismillah-dore-1.webp',
+    ],
+    featured: true,
+    prices: {
+      '30x40': { single: 35.99, lot3: 95.99 },
+      '40x50': { single: 45.99, lot3: 119.99 },
+      '50x70': { single: 58.99, lot3: 149.99 },
+    },
+  },
+
   /* ──────────────────────────────── PACKS ──────────────────────────────── */
 
   {
@@ -257,7 +302,7 @@ export const products: Product[] = [
   },
 ]
 
-const FEATURED_ORDER = ['allah-akbar-dore', 'allah-akbar-sombre', 'duo-bismillah', 'salam', 'trio-chukr-sabr-hubb', 'subhanallah', 'sabr']
+const FEATURED_ORDER = ['allah-akbar-dore', 'allah-akbar-sombre', 'bismillah-aquarelle', 'bismillah-dore', 'duo-bismillah', 'salam', 'trio-chukr-sabr-hubb', 'subhanallah', 'sabr']
 export const getFeaturedProducts = () =>
   FEATURED_ORDER.map((id) => products.find((p) => p.id === id)).filter(Boolean) as Product[]
 
