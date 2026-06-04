@@ -123,7 +123,7 @@ export default function ContactPage() {
                 Instagram
               </a>
               <a
-                href="https://www.pinterest.fr/hurufparis"
+                href="https://fr.pinterest.com/huruf_paris/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-cormorant text-pearl/40 hover:text-gold border border-gold/15 hover:border-gold/40 px-3 py-1.5 text-sm tracking-wide transition-all duration-300"
