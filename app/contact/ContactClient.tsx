@@ -39,12 +39,12 @@ export default function ContactPage() {
       })
       if (!res.ok) {
         const json = await res.json()
-        setSubmitError(json.error || 'Une erreur est survenue, veuillez rÃ©essayer.')
+        setSubmitError(json.error || 'Une erreur est survenue, veuillez réessayer.')
         return
       }
       setSent(true)
     } catch {
-      setSubmitError('Erreur rÃ©seau, veuillez rÃ©essayer.')
+      setSubmitError('Erreur réseau, veuillez réessayer.')
     }
   }
 
@@ -67,7 +67,7 @@ export default function ContactPage() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="font-cormorant text-pearl/55 text-xl italic"
           >
-            Une question ? Nous vous rÃ©pondons sous 48h.
+            Une question ? Nous vous répondons sous 48h.
           </motion.p>
         </div>
       </section>
@@ -97,7 +97,7 @@ export default function ContactPage() {
             <div>
               <p className="font-playfair text-pearl text-sm mb-1">Adresse</p>
               <p className="font-cormorant text-pearl/55 text-lg leading-relaxed">
-                60 Rue FranÃ§ois Ier
+                60 Rue François Ier
                 <br />
                 75008 Paris, France
               </p>
@@ -106,13 +106,13 @@ export default function ContactPage() {
           <div className="flex gap-4">
             <Clock size={20} strokeWidth={1.5} className="text-gold/60 flex-shrink-0 mt-0.5" />
             <div>
-              <p className="font-playfair text-pearl text-sm mb-1">DÃ©lai de rÃ©ponse</p>
+              <p className="font-playfair text-pearl text-sm mb-1">Délai de réponse</p>
               <p className="font-cormorant text-pearl/55 text-lg">Sous 48 heures</p>
             </div>
           </div>
 
           <div>
-            <p className="font-playfair text-pearl text-sm mb-3">RÃ©seaux sociaux</p>
+            <p className="font-playfair text-pearl text-sm mb-3">Réseaux sociaux</p>
             <div className="flex gap-3">
               <a
                 href="https://www.instagram.com/huruf.paris"
@@ -153,10 +153,10 @@ export default function ContactPage() {
             <div className="text-center py-16">
               <CheckCircle size={48} strokeWidth={1} className="text-gold mx-auto mb-6" />
               <h2 className="font-playfair text-pearl text-3xl font-light mb-3">
-                Message envoyÃ©
+                Message envoyé
               </h2>
               <p className="font-cormorant text-pearl/55 text-xl italic">
-                Merci pour votre message. Nous vous rÃ©pondrons sous 48 heures.
+                Merci pour votre message. Nous vous répondrons sous 48 heures.
               </p>
             </div>
           ) : (
@@ -214,7 +214,7 @@ export default function ContactPage() {
                 <textarea
                   {...register('message')}
                   rows={6}
-                  placeholder="Votre messageâ€¦"
+                  placeholder="Votre message…"
                   className="luxury-input resize-none"
                 />
                 {errors.message && (
@@ -240,4 +240,3 @@ export default function ContactPage() {
     </div>
   )
 }
-

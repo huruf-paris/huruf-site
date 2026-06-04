@@ -11,20 +11,20 @@ const FAQ_ITEMS = [
     category: 'Les tableaux',
     questions: [
       {
-        q: 'Comment sont fabriquÃ©s vos tableaux ?',
-        a: 'Nos tableaux sont des compositions calligraphiques designÃ©es numÃ©riquement dans la tradition des grands styles arabes classiques (Naskh, Thuluth, Diwaniâ€¦), puis imprimÃ©es sur papier d\'art de qualitÃ© premium et encadrÃ©es avec soin. Chaque composition est crÃ©Ã©e avec attention aux formes, aux proportions et Ã  l\'esthÃ©tique de la calligraphie arabe.',
+        q: 'Comment sont fabriqués vos tableaux ?',
+        a: 'Nos tableaux sont des compositions calligraphiques designées numériquement dans la tradition des grands styles arabes classiques (Naskh, Thuluth, Diwani…), puis imprimées sur papier d\'art de qualité premium et encadrées avec soin. Chaque composition est créée avec attention aux formes, aux proportions et à l\'esthétique de la calligraphie arabe.',
       },
       {
         q: 'Quels formats sont disponibles ?',
-        a: 'Nos tableaux sont disponibles en trois formats : 30 Ã— 40 cm, 40 Ã— 50 cm et 50 Ã— 70 cm. Pour un format personnalisÃ©, rendez-vous sur notre page Commande sur mesure.',
+        a: 'Nos tableaux sont disponibles en trois formats : 30 × 40 cm, 40 × 50 cm et 50 × 70 cm. Pour un format personnalisé, rendez-vous sur notre page Commande sur mesure.',
       },
       {
         q: 'Le cadre est-il inclus dans le prix ?',
-        a: 'Oui, chaque tableau est livrÃ© avec son cadre, prÃªt Ã  Ãªtre accrochÃ©. Aucun achat supplÃ©mentaire n\'est nÃ©cessaire.',
+        a: 'Oui, chaque tableau est livré avec son cadre, prêt à être accroché. Aucun achat supplémentaire n\'est nécessaire.',
       },
       {
         q: 'Quels styles calligraphiques inspirent vos compositions ?',
-        a: 'Nos compositions s\'inspirent des grands styles classiques : le Naskh (lisible et Ã©lÃ©gant), le Thuluth (monumental et majestueux), le Diwani (fluide et ornemental) et le Riqa\'a (naturel et fluide). Le style est choisi selon le mot pour en exprimer toute la profondeur visuelle.',
+        a: 'Nos compositions s\'inspirent des grands styles classiques : le Naskh (lisible et élégant), le Thuluth (monumental et majestueux), le Diwani (fluide et ornemental) et le Riqa\'a (naturel et fluide). Le style est choisi selon le mot pour en exprimer toute la profondeur visuelle.',
       },
     ],
   },
@@ -33,14 +33,14 @@ const FAQ_ITEMS = [
     questions: [
       {
         q: 'Quels moyens de paiement acceptez-vous ?',
-        a: 'Nous acceptons toutes les cartes bancaires (Visa, Mastercard, American Express) via notre systÃ¨me de paiement sÃ©curisÃ© Stripe. Le paiement est entiÃ¨rement cryptÃ© â€” vos donnÃ©es bancaires ne transitent jamais par nos serveurs.',
+        a: 'Nous acceptons toutes les cartes bancaires (Visa, Mastercard, American Express) via notre système de paiement sécurisé Stripe. Le paiement est entièrement crypté — vos données bancaires ne transitent jamais par nos serveurs.',
       },
       {
         q: 'Puis-je annuler ou modifier ma commande ?',
-        a: 'Vous pouvez annuler ou modifier votre commande dans les 24h suivant l\'achat en nous contactant par email. Au-delÃ , si le tableau est dÃ©jÃ  en prÃ©paration, l\'annulation n\'est plus possible.',
+        a: 'Vous pouvez annuler ou modifier votre commande dans les 24h suivant l\'achat en nous contactant par email. Au-delà, si le tableau est déjà en préparation, l\'annulation n\'est plus possible.',
       },
       {
-        q: 'Est-il possible de commander un tableau personnalisÃ© ?',
+        q: 'Est-il possible de commander un tableau personnalisé ?',
         a: 'Oui ! Notre service "Sur mesure" vous permet de commander n\'importe quel mot, phrase ou calligraphie dans le format et le style de votre choix. Rendez-vous sur la page Commande sur mesure pour recevoir un devis sous 48h.',
       },
     ],
@@ -50,15 +50,15 @@ const FAQ_ITEMS = [
     questions: [
       {
         q: 'Dans quels pays livrez-vous ?',
-        a: 'Nous livrons en France mÃ©tropolitaine, Belgique, Suisse, Luxembourg et Monaco. Pour toute autre destination, contactez-nous directement.',
+        a: 'Nous livrons en France métropolitaine, Belgique, Suisse, Luxembourg et Monaco. Pour toute autre destination, contactez-nous directement.',
       },
       {
-        q: 'Quel est le dÃ©lai de livraison ?',
-        a: 'Les commandes sont expÃ©diÃ©es sous 24h aprÃ¨s confirmation de paiement. Le dÃ©lai de livraison est ensuite de 3 Ã  5 jours ouvrÃ©s. Vous recevrez un email de confirmation avec le numÃ©ro de suivi.',
+        q: 'Quel est le délai de livraison ?',
+        a: 'Les commandes sont expédiées sous 24h après confirmation de paiement. Le délai de livraison est ensuite de 3 à 5 jours ouvrés. Vous recevrez un email de confirmation avec le numéro de suivi.',
       },
       {
-        q: 'Comment les tableaux sont-ils emballÃ©s ?',
-        a: 'Chaque tableau est soigneusement protÃ©gÃ© dans un emballage renforcÃ© spÃ©cialement conÃ§u pour les oeuvres d\'art. Angles protÃ©gÃ©s, bulle, boÃ®te rigide â€” votre tableau arrive intact.',
+        q: 'Comment les tableaux sont-ils emballés ?',
+        a: 'Chaque tableau est soigneusement protégé dans un emballage renforcé spécialement conçu pour les oeuvres d\'art. Angles protégés, bulle, boîte rigide — votre tableau arrive intact.',
       },
       {
         q: 'La livraison est-elle gratuite ?',
@@ -71,11 +71,11 @@ const FAQ_ITEMS = [
     questions: [
       {
         q: 'Puis-je retourner un tableau ?',
-        a: 'Vous disposez de 14 jours aprÃ¨s rÃ©ception pour nous retourner votre tableau si vous n\'en Ãªtes pas satisfait. Le tableau doit Ãªtre retournÃ© dans son emballage d\'origine, en parfait Ã©tat. Le remboursement est effectuÃ© sous 5 jours ouvrÃ©s aprÃ¨s rÃ©ception du retour.',
+        a: 'Vous disposez de 14 jours après réception pour nous retourner votre tableau si vous n\'en êtes pas satisfait. Le tableau doit être retourné dans son emballage d\'origine, en parfait état. Le remboursement est effectué sous 5 jours ouvrés après réception du retour.',
       },
       {
-        q: 'Que faire si mon tableau arrive endommagÃ© ?',
-        a: 'Dans le cas trÃ¨s rare d\'un tableau endommagÃ© lors du transport, contactez-nous dans les 48h avec des photos du colis et de l\'oeuvre. Nous vous enverrons un tableau de remplacement sans frais.',
+        q: 'Que faire si mon tableau arrive endommagé ?',
+        a: 'Dans le cas très rare d\'un tableau endommagé lors du transport, contactez-nous dans les 48h avec des photos du colis et de l\'oeuvre. Nous vous enverrons un tableau de remplacement sans frais.',
       },
     ],
   },
@@ -131,7 +131,7 @@ export default function FAQPage() {
             animate={{ opacity: 1 }}
             className="font-cormorant text-gold/50 text-xs tracking-[0.4em] uppercase mb-4"
           >
-            Questions frÃ©quentes
+            Questions fréquentes
           </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
@@ -183,7 +183,7 @@ export default function FAQPage() {
         className="text-center mt-20 px-6"
       >
         <p className="font-cormorant text-pearl/50 text-xl italic mb-6">
-          Vous ne trouvez pas votre rÃ©ponse ?
+          Vous ne trouvez pas votre réponse ?
         </p>
         <Link href="/contact">
           <Button variant="outline" size="lg">
@@ -194,4 +194,3 @@ export default function FAQPage() {
     </div>
   )
 }
-
