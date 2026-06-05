@@ -9,6 +9,9 @@ export default function CustomCursor() {
   const rafRef = useRef<number>(0)
 
   useEffect(() => {
+    // Désactiver sur écran tactile (mobile/tablette)
+    if (window.matchMedia('(pointer: coarse)').matches) return
+
     const handleMove = (e: MouseEvent) => {
       posRef.current = { x: e.clientX, y: e.clientY }
     }
