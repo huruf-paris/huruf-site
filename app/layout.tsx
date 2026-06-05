@@ -64,18 +64,27 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/',
   },
+  icons: {
+    icon: [
+      { url: '/favicon-32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon-192.png', sizes: '192x192', type: 'image/png' },
+    ],
+    apple: [{ url: '/apple-icon.png', sizes: '180x180', type: 'image/png' }],
+  },
   openGraph: {
     title: 'Hurûf Paris — Tableaux de Calligraphie Arabe Encadrés',
-    description: "Tableaux de calligraphie arabe tracés à la main, encadrés et livrés en France. Livraison offerte.",
+    description: "Tableaux de calligraphie arabe encadrés et livrés en France. Livraison offerte.",
     locale: 'fr_FR',
     type: 'website',
     siteName: 'Hurûf Paris',
     url: 'https://www.huruf-paris.fr',
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Hurûf Paris — Calligraphie Arabe Encadrée' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Hurûf Paris — Calligraphie Arabe Encadrée',
-    description: 'Tableaux de calligraphie arabe tracés à la main. Livraison offerte en France.',
+    description: 'Tableaux de calligraphie arabe encadrés. Livraison offerte en France.',
+    images: ['/og-image.jpg'],
   },
   robots: {
     index: true,
