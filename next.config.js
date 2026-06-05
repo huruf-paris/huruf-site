@@ -37,15 +37,15 @@ const securityHeaders = [
     value: [
       "default-src 'self'",
       // Scripts : Next.js nécessite unsafe-inline/eval + Stripe JS
-      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://js.stripe.com https://checkout.stripe.com",
-      // Styles : Tailwind + Framer Motion inline
-      "style-src 'self' 'unsafe-inline'",
-      // Images : local + Unsplash
-      "img-src 'self' data: blob: https://images.unsplash.com",
-      // Polices locales uniquement
-      "font-src 'self'",
+      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://js.stripe.com https://checkout.stripe.com https://www.googletagmanager.com https://www.google-analytics.com",
+      // Styles : Tailwind + Framer Motion inline + Google Fonts
+      "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+      // Images : local + Unsplash + Google Analytics + Pinterest
+      "img-src 'self' data: blob: https://images.unsplash.com https://www.google-analytics.com https://www.googletagmanager.com https://i.pinimg.com https://media.canva.com",
+      // Polices Google Fonts
+      "font-src 'self' https://fonts.gstatic.com",
       // Connexions API autorisées
-      "connect-src 'self' https://api.stripe.com",
+      "connect-src 'self' https://api.stripe.com https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com",
       // Iframes Stripe (3DS, checkout)
       "frame-src https://js.stripe.com https://hooks.stripe.com https://checkout.stripe.com",
       // Interdit les plugins Flash/Java
