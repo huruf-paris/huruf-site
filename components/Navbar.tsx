@@ -119,6 +119,7 @@ export default function Navbar() {
                   >
                     <Link
                       href={href}
+                      onClick={() => setMobileOpen(false)}
                       className="font-playfair text-3xl text-pearl hover:text-gold transition-colors duration-300"
                     >
                       {label}
