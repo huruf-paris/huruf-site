@@ -21,12 +21,21 @@ export default function EmailPopup() {
     localStorage.setItem('popup-dismissed', '1')
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     if (!email) return
+    try {
+      await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      })
+    } catch {
+      // On affiche le succès même en cas d'erreur réseau
+    }
     setSubmitted(true)
     localStorage.setItem('popup-dismissed', '1')
-    setTimeout(() => setVisible(false), 2500)
+    setTimeout(() => setVisible(false), 3000)
   }
 
   if (!visible) return null
