@@ -105,6 +105,7 @@ export async function POST(req: NextRequest) {
       line_items: lineItems,
       mode: 'payment',
       locale: 'fr',
+      allow_promotion_codes: true,
       shipping_address_collection: {
         allowed_countries: ['FR', 'BE', 'CH', 'LU', 'MC'],
       },
