@@ -10,6 +10,7 @@ export interface Testimonial {
   date: string
   stars: number
   initial: string
+  source?: 'Google' | 'Vinted'
 }
 
 interface Props {
@@ -39,8 +40,15 @@ const Card = ({ t }: { t: Testimonial }) => (
       <div className="w-9 h-9 rounded-full bg-gold/15 border border-gold/30 flex items-center justify-center flex-shrink-0">
         <span className="font-playfair text-gold text-sm font-semibold">{t.initial}</span>
       </div>
-      <div>
-        <p className="font-playfair text-pearl text-sm">{t.author}</p>
+      <div className="flex-1 min-w-0">
+        <div className="flex items-center gap-2">
+          <p className="font-playfair text-pearl text-sm">{t.author}</p>
+          {t.source && (
+            <span className="inline-flex items-center gap-1 text-[10px] font-cormorant tracking-wide text-pearl/40 border border-gold/15 px-1.5 py-0.5">
+              {t.source === 'Google' ? '🔵' : '🟢'} {t.source}
+            </span>
+          )}
+        </div>
         <p className="font-cormorant text-pearl/35 text-xs">{t.location} · {t.date}</p>
       </div>
     </div>
