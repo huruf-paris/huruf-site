@@ -45,9 +45,9 @@ const REASSURANCE = [
 ]
 
 const COLLECTIONS = [
-  { title: 'Collection Dorée', desc: 'Fond doré, calligraphie noire', image: '/images/products/allahu-akbar-fond-dore.png', href: '/boutique?collection=doree' },
-  { title: 'Collection Minimaliste', desc: 'Épuré, sobre, élégant', image: '/images/products/sabr-patience.png', href: '/boutique?collection=minimaliste' },
-  { title: 'Collection Aquarelle', desc: 'Douceur et couleurs', image: '/images/products/bismillah-aquarelle.png', href: '/boutique?collection=aquarelle' },
+  { title: 'Collection Dorée', desc: 'Fond doré, calligraphie noire', image: '/images/products/bismillah-dore-1.webp', href: '/boutique' },
+  { title: 'Collection Minimaliste', desc: 'Épuré, sobre, élégant', image: '/images/products/sabr.png', href: '/boutique' },
+  { title: 'Collection Aquarelle', desc: 'Douceur et couleurs', image: '/images/products/bismillah-aquarelle-1.webp', href: '/boutique' },
   { title: 'Commande sur mesure', desc: 'Votre texte, votre style', image: '/images/products/duo-bismi-3.png', href: '/sur-mesure' },
 ]
 
