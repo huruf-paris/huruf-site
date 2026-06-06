@@ -162,16 +162,33 @@ export default function ProductPageClient({ params }: PageProps) {
                 <p className="font-cormorant text-gold/60 text-sm tracking-[0.3em] uppercase mb-2">
                   {product.isBundle ? (product.bundleSize === 2 ? 'Pack duo' : 'Pack trio') : 'Tableau calligraphie'}
                 </p>
-                <h1 className="font-playfair text-pearl text-3xl md:text-4xl font-light mb-3 leading-tight">
+                <h1 className="font-playfair text-pearl text-3xl md:text-4xl font-light mb-2 leading-tight">
                   {product.nameFr}
                 </h1>
+                <p className="font-cormorant text-pearl/50 text-lg italic mb-3">
+                  Tableau calligraphique encadré, imprimé sur papier d'art premium.
+                </p>
                 <div className="flex items-baseline gap-4 mb-1">
                   <span className="font-amiri text-gold text-4xl">{product.nameAr}</span>
                   <span className="font-cormorant text-pearl/40 text-lg italic">
                     {product.transliteration}
                   </span>
                 </div>
-                <p className="font-cormorant text-teal/70 text-base italic">{product.meaning}</p>
+                <p className="font-cormorant text-teal/70 text-base italic mb-4">{product.meaning}</p>
+
+                {/* 3 puces bénéfices visibles immédiatement */}
+                <div className="flex flex-wrap gap-3 mt-4">
+                  {[
+                    { icon: '✦', text: 'Cadre inclus' },
+                    { icon: '✦', text: 'Papier d\'art premium' },
+                    { icon: '✦', text: 'Livraison offerte en France' },
+                  ].map(({ icon, text }) => (
+                    <div key={text} className="flex items-center gap-2 bg-gold/5 border border-gold/20 px-3 py-1.5">
+                      <span className="text-gold text-xs">{icon}</span>
+                      <span className="font-cormorant text-pearl/70 text-sm tracking-wide">{text}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
 
               <div className="section-divider mb-8" />
@@ -334,40 +351,54 @@ export default function ProductPageClient({ params }: PageProps) {
                     )}
                   </Button>
 
-                  {/* ── Badges de réassurance paiement ── */}
-                  <div className="mt-4 pt-4 border-t border-gold/10">
-                    <div className="flex items-center justify-center gap-1.5 mb-3">
-                      <svg className="w-3.5 h-3.5 text-teal/70" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <rect x="3" y="11" width="18" height="11" rx="2" />
-                        <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-                      </svg>
-                      <span className="font-cormorant text-pearl/40 text-xs tracking-widest uppercase">
-                        Paiement 100% sécurisé · SSL
-                      </span>
+                  {/* ── Réassurance sous le bouton ── */}
+                  <div className="mt-4 pt-4 border-t border-gold/10 space-y-3">
+                    <div className="flex items-center justify-center gap-4 flex-wrap">
+                      {[
+                        { icon: '🔒', text: 'Paiement sécurisé' },
+                        { icon: '↩', text: 'Retour sous 14 jours' },
+                        { icon: '📦', text: 'Emballage soigné' },
+                      ].map(({ icon, text }) => (
+                        <div key={text} className="flex items-center gap-1.5">
+                          <span className="text-sm">{icon}</span>
+                          <span className="font-cormorant text-pearl/50 text-xs tracking-wide">{text}</span>
+                        </div>
+                      ))}
                     </div>
-                    <div className="flex items-center justify-center gap-2 flex-wrap">
-                      {/* Visa */}
+                    <p className="font-cormorant text-pearl/30 text-xs text-center tracking-wide">
+                      Préparé avec soin à la commande · Expédié sous 3 à 5 jours ouvrés
+                    </p>
+                    <div className="flex items-center justify-center gap-2 flex-wrap pt-1">
                       <div className="bg-white/5 border border-white/10 px-3 py-1.5 rounded">
                         <span className="font-bold text-white/60 text-xs tracking-wider italic">VISA</span>
                       </div>
-                      {/* Mastercard */}
                       <div className="flex items-center gap-0.5 bg-white/5 border border-white/10 px-2 py-1.5 rounded">
                         <div className="w-4 h-4 rounded-full bg-red-500/70" />
                         <div className="w-4 h-4 rounded-full bg-yellow-500/70 -ml-1.5" />
                       </div>
-                      {/* CB */}
                       <div className="bg-white/5 border border-white/10 px-3 py-1.5 rounded">
                         <span className="font-bold text-white/60 text-xs tracking-wider">CB</span>
                       </div>
-                      {/* Stripe */}
                       <div className="bg-white/5 border border-white/10 px-3 py-1.5 rounded">
                         <span className="font-cormorant text-white/60 text-xs font-semibold tracking-wide">stripe</span>
                       </div>
-                      {/* PayPal */}
-                      <div className="bg-white/5 border border-white/10 px-3 py-1.5 rounded">
-                        <span className="font-bold text-white/60 text-xs tracking-wide">PayPal</span>
-                      </div>
                     </div>
+                  </div>
+
+                  {/* ── Témoignages clients ── */}
+                  <div className="mt-6 space-y-3">
+                    {[
+                      { name: 'Fatima A.', note: '⭐⭐⭐⭐⭐', texte: '"Magnifique tableau, le cadre est de très bonne qualité. Livraison rapide et bien emballé. Je recommande !"' },
+                      { name: 'Karim M.', note: '⭐⭐⭐⭐⭐', texte: '"Acheté en cadeau pour ma mère, elle a adoré. La calligraphie est vraiment belle."' },
+                    ].map(({ name, note, texte }) => (
+                      <div key={name} className="bg-gold/5 border border-gold/10 p-4">
+                        <div className="flex items-center justify-between mb-2">
+                          <span className="font-playfair text-pearl/80 text-sm">{name}</span>
+                          <span className="text-xs">{note}</span>
+                        </div>
+                        <p className="font-cormorant text-pearl/55 text-sm leading-relaxed italic">{texte}</p>
+                      </div>
+                    ))}
                   </div>
                 </>
               )}
@@ -416,6 +447,31 @@ export default function ProductPageClient({ params }: PageProps) {
                 </p>
               </div>
             </motion.div>
+          </div>
+
+          <SectionDivider />
+
+          {/* ───── POURQUOI CETTE PIÈCE ───── */}
+          <div className="mt-4 mb-16 max-w-4xl mx-auto">
+            <h2 className="font-playfair text-pearl text-3xl font-light text-center mb-10">
+              Pourquoi cette pièce se distingue
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              {[
+                { icon: '🎨', titre: 'Impression de qualité supérieure', texte: 'Imprimé sur papier d\'art épais, les couleurs sont profondes et durables. Un rendu premium visible dès la réception.' },
+                { icon: '🖼️', titre: 'Cadre inclus, prêt à accrocher', texte: 'Chaque tableau est livré encadré avec son système d\'accroche. Aucun accessoire supplémentaire nécessaire.' },
+                { icon: '✦', titre: 'Composition raffinée', texte: 'Contraste soigné, équilibre visuel travaillé — chaque détail est pensé pour sublimer votre intérieur sans l\'alourdir.' },
+                { icon: '🎁', titre: 'Idéal en cadeau', texte: 'Emballage soigné, livraison protégée. Un cadeau islamique unique et mémorable pour toutes les occasions.' },
+              ].map(({ icon, titre, texte }) => (
+                <div key={titre} className="bg-night-deep border border-gold/10 p-6 flex gap-4">
+                  <span className="text-2xl flex-shrink-0">{icon}</span>
+                  <div>
+                    <p className="font-playfair text-pearl text-base mb-2">{titre}</p>
+                    <p className="font-cormorant text-pearl/55 text-base leading-relaxed">{texte}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
 
           <SectionDivider />
