@@ -29,6 +29,8 @@ const config: Config = {
         float: 'float 6s ease-in-out infinite',
         'fade-in': 'fadeIn 0.6s ease-out forwards',
         'draw-line': 'drawLine 1.2s ease-out forwards',
+        marquee: 'marquee 30s linear infinite',
+        'marquee-slow': 'marquee 50s linear infinite',
       },
       keyframes: {
         shimmer: {
@@ -46,6 +48,10 @@ const config: Config = {
         drawLine: {
           from: { strokeDashoffset: '300' },
           to: { strokeDashoffset: '0' },
+        },
+        marquee: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-50%)' },
         },
       },
       transitionTimingFunction: {

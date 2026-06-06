@@ -9,6 +9,7 @@ export interface CartItem {
   isLot: boolean
   quantity: number
   unitPrice: number
+  frameColor?: string // ex: 'Bois naturel', 'Noir', 'Doré', 'Blanc'
 }
 
 interface CartState {

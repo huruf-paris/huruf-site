@@ -8,7 +8,18 @@ import { SectionDivider } from '@/components/IslamicOrnament'
 import SectionTitle from '@/components/SectionTitle'
 import ProductCard from '@/components/ProductCard'
 import Button from '@/components/Button'
+import MarqueeBand from '@/components/MarqueeBand'
+import TestimonialsCarousel from '@/components/TestimonialsCarousel'
 import { getFeaturedProducts } from '@/data/products'
+
+const TESTIMONIALS = [
+  { quote: "Très beau tableau, rapport qualité prix très intéressant.", author: 'N.', location: 'France', date: 'Il y a 2 jours', stars: 5, initial: 'N' },
+  { quote: "Parfait, très satisfait, professionnel et soigné, envoi rapide.", author: 'Naomie P.', location: 'France', date: 'Il y a 4 mois', stars: 5, initial: 'N' },
+  { quote: "Merci parfait et très bien emballé !", author: 'Z.', location: 'France', date: 'Il y a 3 mois', stars: 5, initial: 'Z' },
+  { quote: "Impec, arrivé avant le délai prévu. Je recommande !", author: 'P.', location: 'France', date: 'Il y a 4 mois', stars: 5, initial: 'P' },
+  { quote: "Magnifique tableau, le cadre est de très bonne qualité. Un cadeau parfait !", author: 'Fatima A.', location: 'France', date: 'Il y a 1 mois', stars: 5, initial: 'F' },
+  { quote: "Acheté en cadeau pour ma mère, elle a adoré. La calligraphie est vraiment belle.", author: 'Karim M.', location: 'France', date: 'Il y a 2 semaines', stars: 5, initial: 'K' },
+]
 
 const VALUES = [
   {
@@ -32,37 +43,57 @@ export default function HomePage() {
   return (
     <>
       {/* ═══════════════════════ HERO ═══════════════════════ */}
-      <section
-        className="relative min-h-screen flex flex-col lg:flex-row overflow-hidden bg-night"
-      >
+      <section className="relative min-h-screen flex overflow-hidden bg-night">
         <GoldenParticles />
 
-        {/* ── Colonne gauche : contenu brand ── */}
-        <div className="relative z-10 flex flex-col justify-center w-full lg:w-[54%] px-8 sm:px-14 lg:px-20 xl:px-28 pt-32 pb-10 lg:pt-0 lg:pb-0 lg:min-h-screen">
+        {/* ── Image de fond sur mobile, colonne droite sur desktop ── */}
+        <div className="absolute inset-0 lg:relative lg:w-[46%] lg:min-h-screen lg:flex-shrink-0">
+          <Image
+            src="/images/products/duo-bismi-3.png"
+            alt="Tableaux Hurûf dans un intérieur contemporain"
+            fill
+            className="object-cover object-center"
+            priority
+            sizes="(max-width: 1024px) 100vw, 46vw"
+            quality={75}
+          />
+          {/* Voile sombre sur mobile pour lisibilité du texte */}
+          <div className="absolute inset-0 bg-night/70 lg:bg-night/15" />
+          {/* Fondu gauche sur desktop */}
+          <div className="hidden lg:block absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-night to-transparent z-10" />
+          {/* Cadre doré décoratif desktop */}
+          <div className="hidden lg:block absolute bottom-12 right-12 w-24 h-24 border border-gold/20 z-10 pointer-events-none" />
+        </div>
 
-          {/* Ligne verticale dorée décorative */}
+        {/* ── Contenu texte ── */}
+        <div className="relative z-10 flex flex-col justify-center w-full lg:w-[54%] lg:order-first px-8 sm:px-14 lg:px-20 xl:px-28 pt-32 pb-10 lg:pt-0 lg:pb-0 min-h-screen">
+
+          {/* Ligne verticale dorée décorative desktop */}
           <div className="hidden lg:block absolute left-0 top-1/2 -translate-y-1/2 h-40 w-px bg-gradient-to-b from-transparent via-gold/30 to-transparent" />
 
           {/* Catégorie */}
-          <p className="hero-tag font-cormorant text-gold/50 text-xs tracking-[0.4em] uppercase mb-8">
+          <p className="hero-tag font-cormorant text-gold/60 text-xs tracking-[0.4em] uppercase mb-6">
             Calligraphie arabe encadrée · Paris
           </p>
 
           {/* Titre principal */}
-          <h1 className="hero-title font-playfair text-pearl text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-light tracking-tight leading-tight mb-6">
+          <h1 className="hero-title font-playfair text-pearl text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-light tracking-tight leading-tight mb-5">
             Quand les mots<br />deviennent art.
           </h1>
 
           {/* Ligne dorée */}
-          <div className="hero-line w-16 h-px bg-gold/50 mb-8" />
+          <div className="hero-line w-16 h-px bg-gold/50 mb-6" />
 
           {/* Sous-titre */}
-          <p className="hero-sub font-cormorant text-pearl/55 text-xl font-light italic mb-10 max-w-sm leading-relaxed">
-            Calligraphie arabe encadrée, livrée en France.
+          <p className="hero-sub font-cormorant text-pearl/70 text-xl font-light italic mb-2 max-w-sm leading-relaxed">
+            Tableaux de calligraphie arabe encadrés, livrés en France.
+          </p>
+          <p className="font-cormorant text-gold/80 text-lg mb-8">
+            À partir de <strong>35,99 €</strong> · Cadre inclus · Livraison offerte
           </p>
 
           {/* CTA */}
-          <div className="hero-cta flex flex-col sm:flex-row gap-3">
+          <div className="hero-cta flex flex-col sm:flex-row gap-3 mb-8">
             <Link href="/boutique">
               <Button variant="primary" size="lg">
                 Découvrir la collection
@@ -75,34 +106,19 @@ export default function HomePage() {
             </Link>
           </div>
 
+
           {/* Indicateur scroll */}
-          <div className="hero-scroll absolute bottom-10 left-8 sm:left-14 lg:left-20 xl:left-28 flex items-center gap-3">
+          <div className="hero-scroll absolute bottom-8 left-8 sm:left-14 lg:left-20 xl:left-28 flex items-center gap-3">
             <div className="w-px h-8 bg-gradient-to-b from-gold/40 to-transparent" />
-            <span className="font-cormorant text-pearl/25 text-xs tracking-widest uppercase">
+            <span className="font-cormorant text-pearl/30 text-xs tracking-widest uppercase">
               Défiler
             </span>
           </div>
         </div>
-
-        {/* ── Colonne droite : image ── */}
-        <div className="w-full aspect-[4/3] lg:aspect-auto lg:w-[46%] lg:min-h-screen relative">
-          <Image
-            src="/images/products/duo-bismi-3.png"
-            alt="Tableaux Hurûf dans un intérieur contemporain"
-            fill
-            className="object-cover object-center"
-            priority
-            sizes="(max-width: 1024px) 100vw, 46vw"
-            quality={75}
-          />
-          {/* Fondu gauche pour fusionner avec le fond dark */}
-          <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-night to-transparent z-10" />
-          {/* Léger voile pour les contrastes */}
-          <div className="absolute inset-0 bg-night/15" />
-          {/* Cadre subtil doré en bas à droite */}
-          <div className="absolute bottom-12 right-12 w-24 h-24 border border-gold/20 z-10 pointer-events-none" />
-        </div>
       </section>
+
+      {/* ═══════════════════════ MARQUEE ═══════════════════════ */}
+      <MarqueeBand />
 
       {/* ═══════════════════════ NOS VALEURS ═══════════════════════ */}
       <section className="py-28 px-6 bg-night">
@@ -282,87 +298,19 @@ export default function HomePage() {
 
       {/* ═══════════════════════ AVIS CLIENTS ═══════════════════════ */}
       <section className="py-24 px-6 bg-night">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           <SectionTitle
             frenchTitle="Ils ont choisi Hurûf"
             subtitle="Ce que nos premiers clients en disent"
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-            {[
-              {
-                quote: "Très beau tableau, rapport qualité prix très intéressant.",
-                author: 'N.',
-                location: 'France',
-                date: 'Il y a 2 jours',
-                stars: 5,
-                initial: 'N',
-              },
-              {
-                quote: "Parfait, très satisfait, professionnel et soigné, envoi rapide.",
-                author: 'Naomie P.',
-                location: 'France',
-                date: 'Il y a 4 mois',
-                stars: 5,
-                initial: 'N',
-              },
-              {
-                quote: "Merci parfait et très bien emballé !",
-                author: 'Z.',
-                location: 'France',
-                date: 'Il y a 3 mois',
-                stars: 5,
-                initial: 'Z',
-              },
-              {
-                quote: "Impec, arrivé avant le délai prévu. Je recommande !",
-                author: 'P.',
-                location: 'France',
-                date: 'Il y a 4 mois',
-                stars: 5,
-                initial: 'P',
-              },
-            ].map((t, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-40px' }}
-                transition={{ duration: 0.5, delay: i * 0.1, ease: 'easeOut' }}
-                className="bg-night-deep border border-gold/10 p-6 flex flex-col gap-4 hover:border-gold/25 transition-colors duration-400"
-              >
-                {/* Étoiles */}
-                <div className="flex gap-0.5">
-                  {Array.from({ length: t.stars }).map((_, s) => (
-                    <svg key={s} viewBox="0 0 12 12" className="w-3 h-3 fill-gold">
-                      <path d="M6 0l1.5 4h4l-3.3 2.4 1.3 4L6 8 2.5 10.4l1.3-4L.5 4h4z" />
-                    </svg>
-                  ))}
-                </div>
-                {/* Citation */}
-                <blockquote className="font-cormorant text-pearl/70 text-base leading-relaxed flex-1 italic">
-                  "{t.quote}"
-                </blockquote>
-                {/* Auteur */}
-                <div className="border-t border-gold/8 pt-4 flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-full bg-gold/15 border border-gold/30 flex items-center justify-center flex-shrink-0">
-                    <span className="font-playfair text-gold text-sm font-semibold">{t.initial}</span>
-                  </div>
-                  <div>
-                    <p className="font-playfair text-pearl text-sm">{t.author}</p>
-                    <p className="font-cormorant text-pearl/35 text-xs">{t.location} · {t.date}</p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+          <TestimonialsCarousel testimonials={TESTIMONIALS} twoColumns interval={5000} />
 
-          {/* Lien vers Google */}
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.4 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
             className="text-center mt-10"
           >
             <a

@@ -14,6 +14,7 @@ interface CartItemPayload {
   quantity: number
   unitPrice: number
   image?: string
+  frameColor?: string
 }
 
 function validateItems(items: unknown): CartItemPayload[] {
@@ -46,6 +47,7 @@ function validateItems(items: unknown): CartItemPayload[] {
       quantity: Number(i.quantity),
       unitPrice: Number(i.unitPrice),
       image: typeof i.image === 'string' ? i.image : undefined,
+      frameColor: typeof i.frameColor === 'string' ? i.frameColor.slice(0, 30) : undefined,
     }
   })
 }
@@ -87,8 +89,8 @@ export async function POST(req: NextRequest) {
         currency: 'eur',
         product_data: {
           name: item.isLot
-            ? `${item.name} — Lot de 3 (${item.format})`
-            : `${item.name} — ${item.format}`,
+            ? `${item.name} — Lot de 3 (${item.format})${item.frameColor ? ` · Cadre ${item.frameColor}` : ''}`
+            : `${item.name} — ${item.format}${item.frameColor ? ` · Cadre ${item.frameColor}` : ''}`,
           images: item.image ? [`${siteUrl}${item.image}`] : [],
           metadata: {
             format: item.format,
