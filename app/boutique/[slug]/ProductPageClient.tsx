@@ -28,7 +28,7 @@ const PRODUCT_TESTIMONIALS = [
   { quote: "Acheté en cadeau pour ma mère, elle a adoré. La calligraphie est vraiment belle.", author: 'Karim M.', location: 'France', date: 'Il y a 2 semaines', stars: 5, initial: 'K' },
   { quote: "Parfait, très satisfait, professionnel et soigné, envoi rapide.", author: 'Naomie P.', location: 'France', date: 'Il y a 4 mois', stars: 5, initial: 'N' },
   { quote: "Impec, arrivé avant le délai prévu. Très beau rendu, ça fait un super cadeau !", author: 'P.', location: 'France', date: 'Il y a 3 mois', stars: 5, initial: 'P' },
-  { quote: "Jolie tableau, livraison rapide, très contente de ma commande. Je vous le recommande…", author: 'Anlabati Moussa', location: 'France', date: 'Juin 2025', stars: 5, initial: 'A', source: 'Google' as const },
+  { quote: "Jolie tableau, livraison rapide, très contente de ma commande. Je vous le recommande…", author: 'Anlabati Moussa', location: 'France', date: 'Juin 2026', stars: 5, initial: 'A', source: 'Google' as const },
 ]
 
 interface PageProps {
