@@ -4,16 +4,62 @@ import { Suspense, useEffect, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { CheckCircle, Package, Mail, ArrowRight } from 'lucide-react'
+import { CheckCircle, Package, Mail, ArrowRight, Star } from 'lucide-react'
+
+// 👉 Remplace ce lien par ton vrai lien Google Reviews une fois ta fiche créée
+// Va sur business.google.com → ton établissement → "Demander des avis"
+const GOOGLE_REVIEWS_URL = 'https://g.page/r/CQlXNwRFGLZKEBM/review'
+
+function StarRating({ onSelect, selected }: { onSelect: (n: number) => void; selected: number }) {
+  const [hovered, setHovered] = useState(0)
+  return (
+    <div className="flex gap-1 justify-center">
+      {[1, 2, 3, 4, 5].map((n) => (
+        <button
+          key={n}
+          onMouseEnter={() => setHovered(n)}
+          onMouseLeave={() => setHovered(0)}
+          onClick={() => onSelect(n)}
+          className="transition-transform hover:scale-110"
+          aria-label={`${n} étoile${n > 1 ? 's' : ''}`}
+        >
+          <Star
+            size={32}
+            strokeWidth={1.2}
+            className={`transition-colors duration-150 ${
+              n <= (hovered || selected) ? 'fill-gold text-gold' : 'text-gold/25'
+            }`}
+          />
+        </button>
+      ))}
+    </div>
+  )
+}
 
 function CommandeConfirmeeContent() {
   const searchParams = useSearchParams()
   const sessionId = searchParams.get('session_id')
   const [visible, setVisible] = useState(false)
+  const [stars, setStars] = useState(0)
+  const [reviewSent, setReviewSent] = useState(false)
 
   useEffect(() => {
     setVisible(true)
   }, [])
+
+  const handleStarSelect = (n: number) => {
+    setStars(n)
+    if (n >= 4) {
+      // Redirige vers Google Reviews pour les clients satisfaits
+      setTimeout(() => {
+        window.open(GOOGLE_REVIEWS_URL, '_blank')
+        setReviewSent(true)
+      }, 400)
+    } else {
+      // Pour les clients moins satisfaits, on propose de contacter par email
+      setReviewSent(true)
+    }
+  }
 
   return (
     <div className="min-h-screen bg-night flex items-center justify-center px-6 py-24">
@@ -23,6 +69,7 @@ function CommandeConfirmeeContent() {
         transition={{ duration: 0.7, ease: 'easeOut' }}
         className="max-w-xl w-full text-center"
       >
+        {/* Icône succès */}
         <motion.div
           initial={{ scale: 0.5, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
@@ -45,6 +92,7 @@ function CommandeConfirmeeContent() {
           Votre tableau sera soigneusement emballé et expédié sous 3 à 5 jours ouvrés.
         </p>
 
+        {/* Infos commande */}
         <div className="bg-night-deep border border-gold/10 p-6 mb-8 text-left space-y-4">
           {[
             {
@@ -68,6 +116,55 @@ function CommandeConfirmeeContent() {
           ))}
         </div>
 
+        {/* ── Bloc demande d'avis ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.8 }}
+          className="bg-night-deep border border-gold/20 p-6 mb-8"
+        >
+          {!reviewSent ? (
+            <>
+              <p className="font-cormorant text-gold/70 text-xs tracking-[0.25em] uppercase mb-2">
+                Votre avis compte
+              </p>
+              <p className="font-playfair text-pearl text-lg font-light mb-1">
+                Comment s'est passée votre expérience ?
+              </p>
+              <p className="font-cormorant text-pearl/40 text-sm mb-5">
+                2 minutes suffisent — cela aide énormément d'autres personnes à nous découvrir.
+              </p>
+              <StarRating onSelect={handleStarSelect} selected={stars} />
+              {stars > 0 && stars < 4 && (
+                <p className="font-cormorant text-pearl/40 text-sm mt-4">
+                  Nous sommes désolés. Contactez-nous à{' '}
+                  <a href="mailto:contact@huruf-paris.fr" className="text-gold/70 hover:text-gold underline underline-offset-2">
+                    contact@huruf-paris.fr
+                  </a>{' '}
+                  pour que nous puissions arranger ça.
+                </p>
+              )}
+            </>
+          ) : stars >= 4 ? (
+            <div className="space-y-2">
+              <p className="text-2xl">⭐⭐⭐⭐⭐</p>
+              <p className="font-playfair text-pearl text-base">Merci infiniment !</p>
+              <p className="font-cormorant text-pearl/45 text-sm">
+                La page Google s'est ouverte dans un nouvel onglet.
+                Votre avis aide toute la communauté à nous trouver.
+              </p>
+            </div>
+          ) : (
+            <div className="space-y-2">
+              <p className="font-playfair text-pearl text-base">Merci pour votre retour</p>
+              <p className="font-cormorant text-pearl/45 text-sm">
+                Notre équipe va revenir vers vous rapidement.
+              </p>
+            </div>
+          )}
+        </motion.div>
+
+        {/* CTA boutique */}
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <Link
             href="/boutique"
