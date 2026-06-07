@@ -5,6 +5,7 @@ import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { CheckCircle, Package, Mail, ArrowRight, Star } from 'lucide-react'
+import { trackPurchase } from '@/lib/analytics'
 
 // 👉 Remplace ce lien par ton vrai lien Google Reviews une fois ta fiche créée
 // Va sur business.google.com → ton établissement → "Demander des avis"
@@ -45,7 +46,15 @@ function CommandeConfirmeeContent() {
 
   useEffect(() => {
     setVisible(true)
-  }, [])
+    // ── purchase — utilise le session_id Stripe comme transaction_id ──
+    if (sessionId) {
+      trackPurchase({
+        transactionId: sessionId,
+        items: [], // items non disponibles côté client après redirect Stripe
+        total: 0,  // total non disponible côté client — à améliorer via webhook Stripe
+      })
+    }
+  }, [sessionId])
 
   const handleStarSelect = (n: number) => {
     setStars(n)

@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { notFound } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -13,6 +13,7 @@ import Lightbox, { LightboxTrigger } from '@/components/Lightbox'
 import { SectionDivider } from '@/components/IslamicOrnament'
 import ProductCard from '@/components/ProductCard'
 import TestimonialsCarousel from '@/components/TestimonialsCarousel'
+import { trackViewItem, trackAddToCart } from '@/lib/analytics'
 
 const FRAMES = [
   { id: 'bois',  label: 'Bois naturel', bg: '#C4A06A', ring: 'ring-[#C4A06A]' },
@@ -55,8 +56,29 @@ export default function ProductPageClient({ params }: PageProps) {
     ? product.prices[selectedFormat].lot3
     : product.prices[selectedFormat].single
 
+  // ── view_item au chargement de la page produit ──
+  useEffect(() => {
+    trackViewItem({
+      productId: product.id,
+      productName: product.nameFr,
+      format: FORMATS[selectedFormat],
+      price: currentPrice,
+    })
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
   const handleAddToCart = () => {
     const frame = FRAMES.find(f => f.id === frameColor)
+    // ── add_to_cart ──
+    trackAddToCart({
+      productId: product.id,
+      productName: product.nameFr,
+      format: FORMATS[selectedFormat],
+      price: currentPrice,
+      quantity: qty,
+      isLot,
+      frameColor: frame?.label,
+    })
     addItem({
       product,
       format: selectedFormat,

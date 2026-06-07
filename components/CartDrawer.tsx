@@ -8,6 +8,7 @@ import { X, Trash2, ShoppingBag, Lock, Tag, ChevronRight } from 'lucide-react'
 import { useCart } from '@/context/CartContext'
 import { FORMATS } from '@/data/products'
 import Button from './Button'
+import { trackBeginCheckout } from '@/lib/analytics'
 
 export default function CartDrawer() {
   const { items, isOpen, closeCart, removeItem, updateQuantity, subtotal, itemCount } = useCart()
@@ -17,6 +18,18 @@ export default function CartDrawer() {
   const handleCheckout = async () => {
     setLoading(true)
     setError('')
+    // ── begin_checkout ──
+    trackBeginCheckout({
+      items: items.map((item) => ({
+        productId: item.product.id,
+        productName: item.product.nameFr,
+        format: FORMATS[item.format],
+        price: item.unitPrice,
+        quantity: item.quantity,
+        isLot: item.isLot,
+      })),
+      total: subtotal,
+    })
     try {
       const payload = items.map((item) => ({
         name: item.product.nameFr,
