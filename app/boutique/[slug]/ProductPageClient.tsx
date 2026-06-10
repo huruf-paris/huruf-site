@@ -5,7 +5,7 @@ import { notFound } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { Check, ShoppingBag, ArrowLeft, Mail } from 'lucide-react'
+import { Check, ShoppingBag, ArrowLeft, Mail, Lock, RotateCcw, Package } from 'lucide-react'
 import { getProductBySlug, FORMATS, type Format, products } from '@/data/products'
 import { useCart } from '@/context/CartContext'
 import Button from '@/components/Button'
@@ -399,14 +399,41 @@ export default function ProductPageClient({ params }: PageProps) {
                   </Button>
 
                   {/* ── Réassurance ── */}
-                  <div className="mt-3 flex items-center justify-center gap-5 flex-wrap border-t border-gold/10 pt-3">
+                  <div className="mt-3 flex items-center justify-center gap-6 flex-wrap border-t border-gold/10 pt-3">
                     {[
-                      { icon: '🔒', text: 'Paiement sécurisé' },
-                      { icon: '↩', text: 'Retour 14 jours' },
-                      { icon: '📦', text: 'Expédié sous 3–5 jours' },
+                      {
+                        icon: (
+                          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                            <rect x="3" y="6" width="8" height="6" rx="0.5" stroke="#D4AF37" strokeWidth="1" strokeOpacity="0.75"/>
+                            <path d="M4.5 6V4.5a2.5 2.5 0 0 1 5 0V6" stroke="#D4AF37" strokeWidth="1" strokeOpacity="0.75" strokeLinecap="round"/>
+                            <circle cx="7" cy="9" r="0.8" fill="#D4AF37" fillOpacity="0.75"/>
+                          </svg>
+                        ),
+                        text: 'Paiement sécurisé'
+                      },
+                      {
+                        icon: (
+                          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                            <path d="M11 7A4 4 0 1 1 4.5 3.8" stroke="#D4AF37" strokeWidth="1" strokeOpacity="0.75" strokeLinecap="round"/>
+                            <path d="M4 1.5 4.5 3.8 6.8 3.3" stroke="#D4AF37" strokeWidth="1" strokeOpacity="0.75" strokeLinecap="round" strokeLinejoin="round"/>
+                          </svg>
+                        ),
+                        text: 'Retour 14 jours'
+                      },
+                      {
+                        icon: (
+                          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                            <rect x="1.5" y="5.5" width="11" height="7" rx="0.5" stroke="#D4AF37" strokeWidth="1" strokeOpacity="0.75"/>
+                            <path d="M4.5 5.5V4a2.5 2.5 0 0 1 5 0v1.5" stroke="#D4AF37" strokeWidth="1" strokeOpacity="0.75" strokeLinecap="round"/>
+                            <path d="M1.5 8h11" stroke="#D4AF37" strokeWidth="0.75" strokeOpacity="0.5"/>
+                            <path d="M7 5.5v7" stroke="#D4AF37" strokeWidth="0.75" strokeOpacity="0.5"/>
+                          </svg>
+                        ),
+                        text: 'Expédié sous 3–5 jours'
+                      },
                     ].map(({ icon, text }) => (
                       <div key={text} className="flex items-center gap-1.5">
-                        <span className="text-sm">{icon}</span>
+                        {icon}
                         <span className="font-cormorant text-pearl/45 text-xs tracking-wide">{text}</span>
                       </div>
                     ))}
@@ -428,13 +455,62 @@ export default function ProductPageClient({ params }: PageProps) {
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               {[
-                { icon: '🎨', titre: 'Impression de qualité supérieure', texte: 'Imprimé sur papier d\'art épais, les couleurs sont profondes et durables. Un rendu premium visible dès la réception.' },
-                { icon: '🖼️', titre: 'Cadre inclus, prêt à accrocher', texte: 'Chaque tableau est livré encadré avec son système d\'accroche. Aucun accessoire supplémentaire nécessaire.' },
-                { icon: '✦', titre: 'Composition raffinée', texte: 'Contraste soigné, équilibre visuel travaillé — chaque détail est pensé pour sublimer votre intérieur sans l\'alourdir.' },
-                { icon: '🎁', titre: 'Idéal en cadeau', texte: 'Emballage soigné, livraison protégée. Un cadeau islamique unique et mémorable pour toutes les occasions.' },
+                {
+                  icon: (
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+                      {/* Feuille / impression — calligraphie sur parchemin */}
+                      <rect x="4" y="2" width="12" height="15" rx="0.8" stroke="#D4AF37" strokeWidth="1" strokeOpacity="0.85"/>
+                      <path d="M7 6h8M7 9h8M7 12h5" stroke="#D4AF37" strokeWidth="0.9" strokeOpacity="0.6" strokeLinecap="round"/>
+                      <path d="M13 16l2.5 3.5" stroke="#D4AF37" strokeWidth="0.9" strokeOpacity="0.5" strokeLinecap="round"/>
+                      <path d="M4 19h6" stroke="#D4AF37" strokeWidth="0.9" strokeOpacity="0.4" strokeLinecap="round"/>
+                    </svg>
+                  ),
+                  titre: "Impression de qualité supérieure",
+                  texte: "Imprimé sur papier d\"art épais, les couleurs sont profondes et durables. Un rendu premium visible dès la réception."
+                },
+                {
+                  icon: (
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+                      {/* Cadre géométrique */}
+                      <rect x="2" y="2" width="18" height="18" rx="0.8" stroke="#D4AF37" strokeWidth="1" strokeOpacity="0.85"/>
+                      <rect x="5" y="5" width="12" height="12" rx="0.4" stroke="#D4AF37" strokeWidth="0.7" strokeOpacity="0.45"/>
+                      <path d="M2 2l3 3M20 2l-3 3M2 20l3-3M20 20l-3-3" stroke="#D4AF37" strokeWidth="0.8" strokeOpacity="0.6" strokeLinecap="round"/>
+                    </svg>
+                  ),
+                  titre: "Cadre inclus, prêt à accrocher",
+                  texte: "Chaque tableau est livré encadré avec son système d\"accroche. Aucun accessoire supplémentaire nécessaire."
+                },
+                {
+                  icon: (
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+                      {/* Étoile islamique à 8 branches — motif géométrique */}
+                      <polygon points="11,2 12.8,9.2 20,11 12.8,12.8 11,20 9.2,12.8 2,11 9.2,9.2" stroke="#D4AF37" strokeWidth="0.9" strokeOpacity="0.85" fill="none"/>
+                      <polygon points="11,5 12.2,9.8 17,11 12.2,12.2 11,17 9.8,12.2 5,11 9.8,9.8" stroke="#D4AF37" strokeWidth="0.6" strokeOpacity="0.4" fill="none"/>
+                      <circle cx="11" cy="11" r="1.5" fill="#D4AF37" fillOpacity="0.7"/>
+                    </svg>
+                  ),
+                  titre: "Composition raffinée",
+                  texte: "Contraste soigné, équilibre visuel travaillé — chaque détail est pensé pour sublimer votre intérieur sans l\"alourdir."
+                },
+                {
+                  icon: (
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+                      {/* Cadeau / boîte ornée */}
+                      <rect x="3" y="9" width="16" height="11" rx="0.6" stroke="#D4AF37" strokeWidth="1" strokeOpacity="0.85"/>
+                      <path d="M3 12h16" stroke="#D4AF37" strokeWidth="0.8" strokeOpacity="0.5"/>
+                      <path d="M11 9v11" stroke="#D4AF37" strokeWidth="0.8" strokeOpacity="0.5"/>
+                      <path d="M11 9c0 0-3-4 0-6 1.5-1 3 0 3 2s-3 4-3 4z" stroke="#D4AF37" strokeWidth="0.9" strokeOpacity="0.75" fill="none"/>
+                      <path d="M11 9c0 0 3-4 0-6-1.5-1-3 0-3 2s3 4 3 4z" stroke="#D4AF37" strokeWidth="0.9" strokeOpacity="0.75" fill="none"/>
+                    </svg>
+                  ),
+                  titre: "Idéal en cadeau",
+                  texte: "Emballage soigné, livraison protégée. Un cadeau islamique unique et mémorable pour toutes les occasions."
+                },
               ].map(({ icon, titre, texte }) => (
-                <div key={titre} className="bg-night-deep border border-gold/10 p-6 flex gap-4">
-                  <span className="text-2xl flex-shrink-0">{icon}</span>
+                <div key={titre} className="bg-night-deep border border-gold/10 p-6 flex gap-4 items-start">
+                  <div className="w-10 h-10 flex-shrink-0 rotate-45 border border-gold/25 bg-gold/5 flex items-center justify-center shadow-[0_0_10px_rgba(212,175,55,0.08)]">
+                    <div className="-rotate-45">{icon}</div>
+                  </div>
                   <div>
                     <p className="font-playfair text-pearl text-base mb-2">{titre}</p>
                     <p className="font-cormorant text-pearl/55 text-base leading-relaxed">{texte}</p>

@@ -22,7 +22,7 @@ export default function BoutiquePage() {
   return (
     <>
       {/* Header */}
-      <section className="pt-32 pb-16 px-6 bg-night text-center">
+      <section className="pt-40 pb-6 px-6 bg-night text-center">
         <div className="max-w-3xl mx-auto">
           <motion.p
             initial={{ opacity: 0 }}

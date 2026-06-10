@@ -89,7 +89,7 @@ export default function AProposPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.15, ease: 'easeOut' }}
           >
-            <div className="relative aspect-[3/4] border border-gold/20 overflow-hidden group">
+            <div className="relative aspect-[4/5] border border-gold/20 overflow-hidden group">
               <Image
                 src="https://images.unsplash.com/photo-1486303954368-398fea0e72cd?w=800&q=85"
                 alt="Atelier de calligraphie — Hurûf Paris"
