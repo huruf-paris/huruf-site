@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     template: '%s | Hurûf Paris',
   },
   description:
-    "Hurûf Paris : tableaux de calligraphie arabe imprimés sur papier d'art, encadrés et livrés en France. Salam, Sabr, Hubb, Subhanallah — des compositions uniques pour votre intérieur. Livraison offerte.",
+    "Hurûf Paris : tableaux de calligraphie arabe imprimés sur papier d'art, encadrés et livrés en Europe. Salam, Sabr, Hubb, Subhanallah — des compositions uniques pour votre intérieur. Livraison offerte.",
   keywords: [
     'calligraphie arabe',
     'tableau calligraphie arabe',
@@ -73,7 +73,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Hurûf Paris — Tableaux de Calligraphie Arabe Encadrés',
-    description: "Tableaux de calligraphie arabe encadrés et livrés en France. Livraison offerte.",
+    description: "Tableaux de calligraphie arabe encadrés et livrés en Europe. Livraison offerte.",
     locale: 'fr_FR',
     type: 'website',
     siteName: 'Hurûf Paris',
@@ -83,7 +83,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Hurûf Paris — Calligraphie Arabe Encadrée',
-    description: 'Tableaux de calligraphie arabe encadrés. Livraison offerte en France.',
+    description: 'Tableaux de calligraphie arabe encadrés. Livraison offerte en Europe.',
     images: ['/og-image.jpg'],
   },
   robots: {

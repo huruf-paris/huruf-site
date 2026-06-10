@@ -60,7 +60,7 @@ export default function CGVPage() {
           <section>
             <h2 className="font-playfair text-pearl text-xl mb-4">5. Livraison</h2>
             <div className="bg-night-deep border border-gold/10 p-6 space-y-3">
-              <p><span className="text-pearl/40 uppercase text-sm tracking-wider block mb-1">Zones de livraison</span>France métropolitaine, Belgique, Suisse, Luxembourg, Monaco</p>
+              <p><span className="text-pearl/40 uppercase text-sm tracking-wider block mb-1">Zones de livraison</span>Toute l'Europe (France, Belgique, Suisse, Luxembourg, Monaco, Allemagne, Espagne, Italie, Pays-Bas...)</p>
               <p><span className="text-pearl/40 uppercase text-sm tracking-wider block mb-1">Délai d'expédition</span>Sous 24h après confirmation de paiement</p>
               <p><span className="text-pearl/40 uppercase text-sm tracking-wider block mb-1">Délai de livraison</span>3 à 5 jours ouvrés après expédition</p>
               <p><span className="text-pearl/40 uppercase text-sm tracking-wider block mb-1">Frais de livraison</span>Offerts sur toutes les commandes</p>

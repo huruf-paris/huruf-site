@@ -37,7 +37,7 @@ const VALUES = [
 ]
 
 const REASSURANCE = [
-  { icon: '🚚', label: 'Livraison offerte en France' },
+  { icon: '🚚', label: 'Livraison offerte en Europe' },
   { icon: '🖼️', label: 'Cadre inclus' },
   { icon: '📦', label: 'Expédié sous 3 à 5 jours ouvrés' },
   { icon: '🔒', label: 'Paiement sécurisé' },

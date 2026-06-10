@@ -358,7 +358,7 @@ export default function ProductPageClient({ params }: PageProps) {
                       <p className="font-playfair text-gold text-5xl leading-none">
                         {currentPrice.toFixed(2).replace('.', ',')} €
                       </p>
-                      <p className="font-cormorant text-pearl/35 text-xs tracking-wide mt-1">Cadre inclus · Livraison offerte en France</p>
+                      <p className="font-cormorant text-pearl/35 text-xs tracking-wide mt-1">Cadre inclus · Livraison offerte en Europe</p>
                     </div>
                     <div className="flex items-center gap-1.5 bg-teal/10 border border-teal/20 px-3 py-1.5">
                       <span className="w-2 h-2 rounded-full bg-teal/70 animate-pulse" />

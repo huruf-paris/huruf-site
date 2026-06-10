@@ -1,7 +1,7 @@
 'use client'
 
 const ITEMS = [
-  'Livraison offerte en France',
+  'Livraison offerte en Europe',
   'Cadre inclus',
   'Papier d\'art premium',
   'Retour 14 jours',

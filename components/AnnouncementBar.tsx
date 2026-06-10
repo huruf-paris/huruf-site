@@ -30,7 +30,7 @@ export default function AnnouncementBar() {
       <div className="max-w-7xl mx-auto flex items-center justify-center gap-6 text-center">
         <div className="flex items-center gap-4 flex-wrap justify-center">
           <span className="font-cormorant text-sm font-semibold tracking-widest uppercase">
-            🚚 Livraison offerte en France
+            🚚 Livraison offerte en Europe
           </span>
           <span className="hidden sm:inline text-night/40">·</span>
           <span className="font-cormorant text-sm tracking-wide hidden sm:inline">

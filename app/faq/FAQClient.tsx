@@ -50,7 +50,7 @@ const FAQ_ITEMS = [
     questions: [
       {
         q: 'Dans quels pays livrez-vous ?',
-        a: 'Nous livrons en France métropolitaine, Belgique, Suisse, Luxembourg et Monaco. Pour toute autre destination, contactez-nous directement.',
+        a: 'Nous livrons dans toute l\'Europe : France, Belgique, Suisse, Luxembourg, Monaco, Allemagne, Espagne, Italie, Pays-Bas, et plus. Pour toute autre destination, contactez-nous directement.',
       },
       {
         q: 'Quel est le délai de livraison ?',
