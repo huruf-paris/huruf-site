@@ -33,7 +33,7 @@ export default function AnnouncementBar() {
           <span className="font-cormorant text-sm font-semibold tracking-widest uppercase">
             {isPromoActive()
               ? `🎉 -${Math.round(PROMO_DISCOUNT * 100)}% sur toute la boutique — jusqu'au ${PROMO_END.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long' })}`
-              : '🚚 Livraison offerte en Europe'}
+              : '✦ Livraison offerte en Europe'}
           </span>
           <span className="hidden sm:inline text-night/40">·</span>
           <span className="font-cormorant text-sm tracking-wide hidden sm:inline">

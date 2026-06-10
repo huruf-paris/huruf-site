@@ -37,11 +37,55 @@ const VALUES = [
 ]
 
 const REASSURANCE = [
-  { icon: '🚚', label: 'Livraison offerte en Europe' },
-  { icon: '🖼️', label: 'Cadre inclus' },
-  { icon: '📦', label: 'Expédié sous 3 à 5 jours ouvrés' },
-  { icon: '🔒', label: 'Paiement sécurisé' },
-  { icon: '↩', label: 'Retour 14 jours' },
+  {
+    icon: (
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <rect x="1" y="5" width="10" height="7" rx="0.6" stroke="#D4AF37" strokeWidth="1" strokeOpacity="0.7"/>
+        <path d="M11 8l3-2v6l-3-2" stroke="#D4AF37" strokeWidth="1" strokeOpacity="0.7" strokeLinejoin="round"/>
+        <path d="M4 5V3.5a2 2 0 0 1 4 0V5" stroke="#D4AF37" strokeWidth="1" strokeOpacity="0.5" strokeLinecap="round"/>
+      </svg>
+    ),
+    label: 'Livraison offerte en Europe'
+  },
+  {
+    icon: (
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <rect x="1.5" y="1.5" width="13" height="13" rx="0.6" stroke="#D4AF37" strokeWidth="1" strokeOpacity="0.7"/>
+        <rect x="4" y="4" width="8" height="8" rx="0.3" stroke="#D4AF37" strokeWidth="0.7" strokeOpacity="0.4"/>
+        <path d="M1.5 1.5l2.5 2.5M14.5 1.5l-2.5 2.5M1.5 14.5l2.5-2.5M14.5 14.5l-2.5-2.5" stroke="#D4AF37" strokeWidth="0.8" strokeOpacity="0.6" strokeLinecap="round"/>
+      </svg>
+    ),
+    label: 'Cadre inclus'
+  },
+  {
+    icon: (
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <rect x="1" y="6" width="14" height="9" rx="0.6" stroke="#D4AF37" strokeWidth="1" strokeOpacity="0.7"/>
+        <path d="M4 6V5a4 4 0 0 1 8 0v1" stroke="#D4AF37" strokeWidth="1" strokeOpacity="0.5" strokeLinecap="round"/>
+        <path d="M1 9h14M8 6v9" stroke="#D4AF37" strokeWidth="0.7" strokeOpacity="0.4"/>
+      </svg>
+    ),
+    label: 'Expédié sous 3 à 5 jours ouvrés'
+  },
+  {
+    icon: (
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <rect x="2.5" y="7" width="11" height="8" rx="0.6" stroke="#D4AF37" strokeWidth="1" strokeOpacity="0.7"/>
+        <path d="M5 7V5a3 3 0 0 1 6 0v2" stroke="#D4AF37" strokeWidth="1" strokeOpacity="0.7" strokeLinecap="round"/>
+        <circle cx="8" cy="11" r="1" fill="#D4AF37" fillOpacity="0.7"/>
+      </svg>
+    ),
+    label: 'Paiement sécurisé'
+  },
+  {
+    icon: (
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <path d="M13 8A5 5 0 1 1 5.5 4.2" stroke="#D4AF37" strokeWidth="1" strokeOpacity="0.7" strokeLinecap="round"/>
+        <path d="M5 2l0.5 2.2 2.3-0.5" stroke="#D4AF37" strokeWidth="1" strokeOpacity="0.7" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+    ),
+    label: 'Retour 14 jours'
+  },
 ]
 
 const COLLECTIONS = [
@@ -140,7 +184,7 @@ export default function HomePage() {
         <div className="flex items-center justify-center flex-wrap gap-x-8 gap-y-2 px-6">
           {REASSURANCE.map(({ icon, label }) => (
             <div key={label} className="flex items-center gap-2 flex-shrink-0">
-              <span className="text-base">{icon}</span>
+              <span className="flex-shrink-0">{icon}</span>
               <span className="font-cormorant text-pearl/55 text-sm tracking-wide whitespace-nowrap">{label}</span>
             </div>
           ))}
