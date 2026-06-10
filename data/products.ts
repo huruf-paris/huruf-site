@@ -48,7 +48,7 @@ export const products: Product[] = [
       "Allahu Akbar — « Dieu est le plus Grand » — dans une composition lumineuse sur fond doré. Cette édition exclusive apporte chaleur et raffinement à votre intérieur. Ses teintes dorées s'harmonisent naturellement avec les intérieurs contemporains clairs, le bois naturel et le marbre. Un tableau d'exception pour une entrée, un salon ou une chambre. Cadeau islamique idéal pour une pendaison de crémaillère, un mariage ou une occasion spirituelle. Livré encadré, prêt à accrocher.",
     calligraphyDescription:
       "La composition s'inspire du style Thuluth monumental sur un fond doré lumineux. Ses lettres étirées vers le haut donnent à cette formule toute sa hauteur et sa puissance visuelle. Le fond doré crée un contraste élégant qui illumine n'importe quel mur. Imprimé sur papier d'art premium, cadre inclus.",
-    images: ['/images/products/allah-akbar-1.png'],
+    images: ['/images/products/allah-akbar-2.png'],
     featured: true,
     prices: {
       '30x40': { single: 37.99, lot3: 99.99 },
@@ -68,7 +68,7 @@ export const products: Product[] = [
       "Allahu Akbar — « Dieu est le plus Grand » — dans une composition puissante sur fond sombre. Cette édition apporte profondeur et élégance moderne à votre intérieur. Ses teintes foncées s'harmonisent parfaitement avec les intérieurs contemporains, les murs gris anthracite ou les espaces à l'ambiance feutrée. Un tableau de caractère pour un salon, une chambre ou un bureau. Cadeau islamique idéal pour une pendaison de crémaillère, un anniversaire ou une occasion spirituelle. Livré encadré, prêt à accrocher.",
     calligraphyDescription:
       "La composition s'inspire du style Thuluth monumental sur un fond sombre élégant. Ses lettres lumineuses se détachent avec force sur le fond foncé, créant un effet de profondeur saisissant. Un rendu visuel contemporain et puissant. Imprimé sur papier d'art premium, cadre inclus.",
-    images: ['/images/products/allah-akbar-2.png'],
+    images: ['/images/products/allah-akbar-1.png'],
     featured: true,
     prices: {
       '30x40': { single: 37.99, lot3: 99.99 },
