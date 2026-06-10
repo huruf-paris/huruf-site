@@ -14,6 +14,7 @@ import { SectionDivider } from '@/components/IslamicOrnament'
 import ProductCard from '@/components/ProductCard'
 import TestimonialsCarousel from '@/components/TestimonialsCarousel'
 import { trackViewItem, trackAddToCart } from '@/lib/analytics'
+import { isPromoActive, promoPrice, formatPrice, PROMO_DISCOUNT, PROMO_END } from '@/lib/promo'
 
 const FRAMES = [
   { id: 'bois',  label: 'Bois naturel', bg: '#C4A06A', ring: 'ring-[#C4A06A]' },
@@ -52,9 +53,11 @@ export default function ProductPageClient({ params }: PageProps) {
 
   const { addItem, toggleCart } = useCart()
 
-  const currentPrice = isLot
+  const basePrice = isLot
     ? product.prices[selectedFormat].lot3
     : product.prices[selectedFormat].single
+  const promoActive = isPromoActive()
+  const currentPrice = promoActive ? promoPrice(basePrice) : basePrice
 
   // ── view_item au chargement de la page produit ──
   useEffect(() => {
@@ -355,10 +358,25 @@ export default function ProductPageClient({ params }: PageProps) {
                   {/* Prix + stock */}
                   <div className="flex items-center justify-between mb-5">
                     <div>
-                      <p className="font-playfair text-gold text-5xl leading-none">
-                        {currentPrice.toFixed(2).replace('.', ',')} €
+                      {promoActive && (
+                        <div className="flex items-center gap-2 mb-1">
+                          <span className="bg-red-500 text-white text-xs font-cormorant tracking-widest uppercase px-2 py-0.5">
+                            -{Math.round(PROMO_DISCOUNT * 100)}% cette semaine
+                          </span>
+                          <span className="font-cormorant text-pearl/35 text-xs line-through">
+                            {formatPrice(basePrice)} €
+                          </span>
+                        </div>
+                      )}
+                      <p className={`font-playfair text-5xl leading-none ${promoActive ? 'text-red-400' : 'text-gold'}`}>
+                        {formatPrice(currentPrice)} €
                       </p>
                       <p className="font-cormorant text-pearl/35 text-xs tracking-wide mt-1">Cadre inclus · Livraison offerte en Europe</p>
+                      {promoActive && (
+                        <p className="font-cormorant text-red-400/70 text-xs mt-1">
+                          Offre valable jusqu'au {PROMO_END.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long' })}
+                        </p>
+                      )}
                     </div>
                     <div className="flex items-center gap-1.5 bg-teal/10 border border-teal/20 px-3 py-1.5">
                       <span className="w-2 h-2 rounded-full bg-teal/70 animate-pulse" />

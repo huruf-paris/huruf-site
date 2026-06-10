@@ -5,6 +5,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import type { Product } from '@/data/products'
+import { isPromoActive, promoPrice, formatPrice, PROMO_DISCOUNT } from '@/lib/promo'
 
 interface Props {
   product: Product
@@ -16,6 +17,8 @@ export default function ProductCard({ product, index = 0 }: Props) {
 
   const mainImage = product.images[0]
   const startingPrice = product.prices['40x50'].single
+  const promoActive = isPromoActive()
+  const discountedPrice = promoPrice(startingPrice)
 
   return (
     <motion.div
@@ -27,7 +30,7 @@ export default function ProductCard({ product, index = 0 }: Props) {
       <Link href={`/boutique/${product.slug}`} className="block group">
         <article className="product-card bg-night-deep">
           {/* Image */}
-          <div className="relative aspect-[3/4] overflow-hidden bg-night-deep">
+          <div className="relative aspect-[4/5] overflow-hidden bg-night-deep">
             {!imgLoaded && <div className="absolute inset-0 skeleton" />}
             <Image
               src={mainImage}
@@ -44,6 +47,13 @@ export default function ProductCard({ product, index = 0 }: Props) {
             {product.isBundle && (
               <div className="absolute top-3 left-3 bg-gold/90 text-night px-2.5 py-1 font-cormorant text-xs tracking-widest uppercase font-semibold">
                 {product.bundleSize === 2 ? 'Duo' : 'Trio'}
+              </div>
+            )}
+
+            {/* Badge promo */}
+            {promoActive && !product.prixSurDemande && (
+              <div className="absolute top-3 right-3 bg-red-500 text-white px-2.5 py-1 font-cormorant text-xs tracking-widest uppercase font-semibold">
+                -{Math.round(PROMO_DISCOUNT * 100)}%
               </div>
             )}
 
@@ -84,9 +94,20 @@ export default function ProductCard({ product, index = 0 }: Props) {
                     <p className="font-cormorant text-pearl/40 text-xs tracking-widest uppercase mb-0.5">
                       40 × 50 cm
                     </p>
-                    <p className="font-playfair text-gold text-lg">
-                      {startingPrice.toFixed(2).replace('.', ',')} €
-                    </p>
+                    {promoActive ? (
+                      <div className="text-right">
+                        <p className="font-cormorant text-pearl/35 text-xs line-through">
+                          {formatPrice(startingPrice)} €
+                        </p>
+                        <p className="font-playfair text-red-400 text-lg">
+                          {formatPrice(discountedPrice)} €
+                        </p>
+                      </div>
+                    ) : (
+                      <p className="font-playfair text-gold text-lg">
+                        {formatPrice(startingPrice)} €
+                      </p>
+                    )}
                   </>
                 )}
               </div>

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import { isPromoActive, PROMO_END, PROMO_DISCOUNT } from '@/lib/promo'
 
 export default function AnnouncementBar() {
   const [visible, setVisible] = useState(true)
@@ -30,7 +31,9 @@ export default function AnnouncementBar() {
       <div className="max-w-7xl mx-auto flex items-center justify-center gap-6 text-center">
         <div className="flex items-center gap-4 flex-wrap justify-center">
           <span className="font-cormorant text-sm font-semibold tracking-widest uppercase">
-            🚚 Livraison offerte en Europe
+            {isPromoActive()
+              ? `🎉 -${Math.round(PROMO_DISCOUNT * 100)}% sur toute la boutique — jusqu'au ${PROMO_END.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long' })}`
+              : '🚚 Livraison offerte en Europe'}
           </span>
           <span className="hidden sm:inline text-night/40">·</span>
           <span className="font-cormorant text-sm tracking-wide hidden sm:inline">
