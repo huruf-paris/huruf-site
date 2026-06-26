@@ -87,8 +87,8 @@ export default function SurMesurePage() {
       {/* ── Hero visuel pleine largeur ── */}
       <section className="relative h-[55vh] min-h-[420px] overflow-hidden">
         <Image
-          src="https://images.unsplash.com/photo-1546638008-efbe0b62c730?w=1400&q=85"
-          alt="Calligraphie sur mesure — Hurûf Paris"
+          src="/images/sur-mesure-hero.webp"
+          alt="Calligraphe traçant une calligraphie arabe au qalam — Hurûf Paris"
           fill
           className="object-cover object-center"
           priority
@@ -298,8 +298,8 @@ export default function SurMesurePage() {
             {/* Image calligraphe */}
             <div className="relative aspect-[4/3] overflow-hidden border border-gold/15">
               <Image
-                src="https://images.unsplash.com/photo-1573844851308-2a3ac2622258?w=800&q=85"
-                alt="Calligraphe au travail — Hurûf"
+                src="/images/sur-mesure-atelier.webp"
+                alt="Calame, encrier en laiton et calligraphie arabe sur papier — Hurûf"
                 fill
                 className="object-cover object-center"
                 sizes="(max-width: 1024px) 100vw, 50vw"
