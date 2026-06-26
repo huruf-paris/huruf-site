@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 
 export interface ShowcaseVideo {
@@ -17,10 +17,10 @@ export interface ShowcaseVideo {
 /**
  * Lit la vidéo uniquement quand elle est visible à l'écran (économie data + batterie),
  * en muet, en boucle, sans contrôles — purement décoratif pour visualiser le produit réel.
+ * `preload="none"` : aucun téléchargement tant que la vidéo n'entre pas dans le viewport.
  */
 function LazyVideo({ video, index }: { video: ShowcaseVideo; index: number }) {
   const ref = useRef<HTMLVideoElement>(null)
-  const [activated, setActivated] = useState(false)
 
   useEffect(() => {
     const el = ref.current
@@ -29,14 +29,13 @@ function LazyVideo({ video, index }: { video: ShowcaseVideo; index: number }) {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          // Charge puis lance la lecture seulement à l'entrée dans le viewport
-          setActivated(true)
+          // play() déclenche le chargement (preload="none") puis la lecture
           el.play().catch(() => {})
         } else {
           el.pause()
         }
       },
-      { threshold: 0.35 }
+      { threshold: 0.3 }
     )
 
     observer.observe(el)
@@ -49,22 +48,20 @@ function LazyVideo({ video, index }: { video: ShowcaseVideo; index: number }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-40px' }}
       transition={{ duration: 0.6, delay: index * 0.12, ease: 'easeOut' }}
-      className="group flex-none w-[68vw] max-w-[300px] sm:w-auto"
+      className="group flex-none snap-center w-[70vw] max-w-[280px] sm:w-[260px]"
     >
-      <div className="relative aspect-[9/16] overflow-hidden border border-gold/15 group-hover:border-gold/35 transition-colors duration-400">
+      <div className="relative w-full aspect-[9/16] overflow-hidden border border-gold/15 group-hover:border-gold/35 transition-colors duration-400">
         <video
           ref={ref}
           className="w-full h-full object-cover"
+          src={video.src}
           poster={video.poster}
           muted
           loop
           playsInline
           preload="none"
-          autoPlay
           aria-label={video.caption}
-        >
-          {activated && <source src={video.src} type="video/mp4" />}
-        </video>
+        />
 
         {/* Liseré décoratif au survol */}
         <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-gold/0 group-hover:ring-gold/20 transition-all duration-400" />
@@ -89,9 +86,7 @@ export default function VideoShowcase({ videos }: { videos: ShowcaseVideo[] }) {
       {/* Mobile : carrousel horizontal — Desktop : rangée centrée */}
       <div className="flex gap-5 sm:gap-8 justify-start sm:justify-center overflow-x-auto sm:overflow-visible snap-x snap-mandatory scrollbar-none px-6 sm:px-0 pb-2">
         {videos.map((video, i) => (
-          <div key={video.src} className="snap-center">
-            <LazyVideo video={video} index={i} />
-          </div>
+          <LazyVideo key={video.src} video={video} index={i} />
         ))}
       </div>
 

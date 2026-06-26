@@ -253,6 +253,23 @@ export default function HomePage() {
 
       <SectionDivider />
 
+      {/* ═══════════════════════ LE PRODUIT EN VRAI (VIDÉOS) ═══════════════════════ */}
+      <section className="py-20 px-6 bg-night">
+        <div className="text-center mb-12">
+          <p className="font-cormorant text-gold/60 text-xs tracking-[0.35em] uppercase mb-3">En vidéo</p>
+          <h2 className="font-playfair text-pearl text-3xl md:text-4xl font-light mb-4">
+            Le produit en vrai
+          </h2>
+          <p className="font-cormorant text-pearl/50 text-lg max-w-lg mx-auto leading-relaxed">
+            Au-delà des photos, découvrez la qualité réelle de nos tableaux : l'emballage, le cadre et le rendu une fois accroché.
+          </p>
+        </div>
+
+        <VideoShowcase videos={SHOWCASE_VIDEOS} />
+      </section>
+
+      <SectionDivider />
+
       {/* ═══════════════════════ COLLECTIONS ═══════════════════════ */}
       <section className="py-20 bg-night">
         <div className="max-w-7xl mx-auto px-6">
@@ -323,23 +340,6 @@ export default function HomePage() {
             ))}
           </div>
         </div>
-      </section>
-
-      <SectionDivider />
-
-      {/* ═══════════════════════ LE PRODUIT EN VRAI (VIDÉOS) ═══════════════════════ */}
-      <section className="py-20 px-6 bg-night">
-        <div className="text-center mb-12">
-          <p className="font-cormorant text-gold/60 text-xs tracking-[0.35em] uppercase mb-3">En vidéo</p>
-          <h2 className="font-playfair text-pearl text-3xl md:text-4xl font-light mb-4">
-            Le produit en vrai
-          </h2>
-          <p className="font-cormorant text-pearl/50 text-lg max-w-lg mx-auto leading-relaxed">
-            Au-delà des photos, découvrez la qualité réelle de nos tableaux : l'emballage, le cadre et le rendu une fois accroché.
-          </p>
-        </div>
-
-        <VideoShowcase videos={SHOWCASE_VIDEOS} />
       </section>
 
       <SectionDivider />
