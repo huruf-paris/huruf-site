@@ -61,8 +61,6 @@ function LazyVideo({ video, index }: { video: ShowcaseVideo; index: number }) {
           playsInline
           preload="none"
           autoPlay
-          // @ts-expect-error — attribut non typé mais utile iOS
-          webkit-playsinline="true"
           aria-label={video.caption}
         >
           {activated && <source src={video.src} type="video/mp4" />}
