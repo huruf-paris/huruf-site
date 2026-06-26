@@ -91,8 +91,8 @@ export default function AProposPage() {
           >
             <div className="relative aspect-[4/5] border border-gold/20 overflow-hidden group">
               <Image
-                src="https://images.unsplash.com/photo-1486303954368-398fea0e72cd?w=800&q=85"
-                alt="Atelier de calligraphie — Hurûf Paris"
+                src="/images/a-propos-calligraphie.webp"
+                alt="Main d’un calligraphe traçant une calligraphie arabe au qalam — Hurûf Paris"
                 fill
                 className="object-cover object-center"
                 sizes="(max-width: 768px) 100vw, 50vw"
