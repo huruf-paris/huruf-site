@@ -226,7 +226,49 @@ export const products: Product[] = [
     },
   },
 
+  {
+    id: 'subhanallah-aquarelle',
+    slug: 'subhanallah-aquarelle',
+    nameFr: 'Subhanallah — Edition Aquarelle',
+    nameAr: 'سبحان الله',
+    transliteration: 'Subhanallah',
+    meaning: 'Gloire a Dieu',
+    description:
+      "Subhanallah — « Gloire a Dieu » — dans une composition unique melee de calligraphie arabe et d'eclaboussures d'encre doree. Cette edition aquarelle capture l'emerveillement dans toute sa splendeur. Ses teintes chaleureuses s'harmonisent avec les interieurs naturels, le bois clair et le lin. Ideale pour un salon, une entree ou une chambre. Un cadeau islamique original et elegant pour une naissance, un mariage ou une nouvelle maison. Livree encadree, prete a accrocher.",
+    calligraphyDescription:
+      "La formule Subhanallah est composee dans un style expressif et libre, sublimee par des eclaboussures d'encre doree qui creent un effet aquarelle unique. Le contraste entre la precision des lettres arabes et la spontaneite des taches dorees donne a ce tableau un caractere artistique rare. Imprime sur papier d'art premium, cadre inclus.",
+    images: ['/images/products/subhanallah-aquarelle-1.webp'],
+    featured: true,
+    prices: {
+      '30x40': { single: 35.99, lot3: 95.99 },
+      '40x50': { single: 45.99, lot3: 119.99 },
+      '50x70': { single: 58.99, lot3: 149.99 },
+    },
+  },
+
   /* ──────────────────────────────── PACKS ──────────────────────────────── */
+
+  {
+    id: 'trio-aquarelle',
+    slug: 'trio-aquarelle-bismillah-subhanallah-allahuakbar',
+    nameFr: 'Trio Aquarelle — Bismillah · Subhanallah · Allahu Akbar',
+    nameAr: 'بسم الله · سبحان الله · الله أكبر',
+    transliteration: 'Bismillah · Subhanallah · Allahu Akbar',
+    meaning: 'Au nom de Dieu · Gloire a Dieu · Dieu est le plus Grand',
+    description:
+      "Le Trio Aquarelle Bismillah · Subhanallah · Allahu Akbar reunit trois des formules spirituelles les plus importantes de l'islam dans un style aquarelle unique. Les eclaboussures d'encre doree donnent a chaque piece un caractere artistique exceptionnel. Ensemble, ces trois tableaux transforment n'importe quel mur en un espace charge de sens et de beaute. Parfait pour un salon, une salle a manger ou une salle de priere. Un cadeau islamique fort pour une famille ou une maison. Les trois tableaux sont fournis encadres, dans le meme format.",
+    calligraphyDescription:
+      "Les trois compositions partagent le meme style aquarelle avec eclaboussures dorees — une harmonie visuelle totale pour un rendu mural d'exception. Chaque piece est pensee pour faire partie d'un ensemble. Accrochez-les alignes pour un effet galerie contemporain. Imprimes sur papier d'art premium, cadres inclus.",
+    images: ['/images/products/trio-aquarelle-1.webp'],
+    featured: true,
+    isBundle: true,
+    bundleSize: 3,
+    prices: {
+      '30x40': { single: 89.99, lot3: 89.99 },
+      '40x50': { single: 109.99, lot3: 109.99 },
+      '50x70': { single: 134.99, lot3: 134.99 },
+    },
+  },
 
   {
     id: 'duo-bismillah',
@@ -302,7 +344,7 @@ export const products: Product[] = [
   },
 ]
 
-const FEATURED_ORDER = ['allah-akbar-dore', 'allah-akbar-sombre', 'bismillah-aquarelle', 'bismillah-dore', 'duo-bismillah', 'salam', 'trio-chukr-sabr-hubb', 'subhanallah', 'sabr']
+const FEATURED_ORDER = ['allah-akbar-dore', 'allah-akbar-sombre', 'bismillah-aquarelle', 'bismillah-dore', 'subhanallah-aquarelle', 'duo-bismillah', 'trio-aquarelle', 'salam', 'trio-chukr-sabr-hubb', 'subhanallah', 'sabr']
 export const getFeaturedProducts = () =>
   FEATURED_ORDER.map((id) => products.find((p) => p.id === id)).filter(Boolean) as Product[]
 
