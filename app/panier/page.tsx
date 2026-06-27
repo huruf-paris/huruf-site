@@ -10,23 +10,38 @@ import { FORMATS } from '@/data/products'
 import Button from '@/components/Button'
 import { SectionDivider } from '@/components/IslamicOrnament'
 
-// TODO: Importer et configurer Stripe : voir /lib/stripe.ts
-// TODO: Importer et configurer PayPal : voir /lib/paypal.ts
-
 export default function PanierPage() {
   const { items, removeItem, updateQuantity, subtotal, clearCart } = useCart()
   const [loadingStripe, setLoadingStripe] = useState(false)
-  const [loadingPaypal, setLoadingPaypal] = useState(false)
+  const [error, setError] = useState('')
 
   const handleStripeCheckout = async () => {
     setLoadingStripe(true)
+    setError('')
     try {
-      // TODO: Appeler votre API route /api/checkout/stripe
-      // const stripe = await getStripe()
-      // const res = await fetch('/api/checkout/stripe', { method: 'POST', body: JSON.stringify({ items }) })
-      // const { sessionId } = await res.json()
-      // await stripe?.redirectToCheckout({ sessionId })
-      alert('Intégration Stripe à configurer — voir /lib/stripe.ts et NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY dans .env.local')
+      // On n'envoie QUE de quoi identifier l'article — le prix est
+      // recalculé côté serveur depuis le catalogue (sécurité).
+      const payload = items.map((item) => ({
+        id: item.product.id,
+        format: item.format,
+        isLot: item.isLot,
+        quantity: item.quantity,
+        frameColor: item.frameColor,
+      }))
+
+      const res = await fetch('/api/checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ items: payload }),
+      })
+      const data = await res.json()
+      if (data.url) {
+        window.location.href = data.url
+      } else {
+        setError('Une erreur est survenue. Veuillez réessayer.')
+      }
+    } catch {
+      setError('Une erreur est survenue. Veuillez réessayer.')
     } finally {
       setLoadingStripe(false)
     }
@@ -223,9 +238,8 @@ export default function PanierPage() {
               </span>
             </div>
 
-            {/* Boutons paiement */}
+            {/* Bouton paiement */}
             <div className="space-y-3">
-              {/* Stripe */}
               <Button
                 variant="primary"
                 fullWidth
@@ -236,19 +250,11 @@ export default function PanierPage() {
                 <CreditCard size={18} strokeWidth={1.5} className="mr-2" />
                 Payer par carte
               </Button>
-
-              {/* PayPal */}
-              {/* TODO: Remplacer par le vrai bouton PayPal une fois NEXT_PUBLIC_PAYPAL_CLIENT_ID configuré */}
-              <button
-                onClick={() => alert('Intégration PayPal à configurer — voir /lib/paypal.ts')}
-                className="w-full py-3.5 bg-[#0070ba] hover:bg-[#003087] text-white font-semibold text-sm tracking-wide transition-all duration-300 flex items-center justify-center gap-2"
-              >
-                <svg viewBox="0 0 124 33" className="h-5" aria-label="PayPal">
-                  <path fill="#ffffff" d="M46.2 10.2h-5.1c-.4 0-.7.3-.8.6l-2 12.9c0 .3.2.5.5.5h2.4c.4 0 .7-.3.8-.6l.5-3.3c.1-.4.4-.6.8-.6h1.6c3.3 0 5.2-1.6 5.7-4.8.2-1.4 0-2.5-.6-3.2-.7-.8-1.9-1.5-3.8-1.5zm.6 4.7c-.3 1.8-1.6 1.8-2.9 1.8h-.7l.5-3.2c0-.2.2-.4.4-.4h.3c.9 0 1.7 0 2.1.5.3.3.4.8.3 1.3z"/>
-                </svg>
-                Payer avec PayPal
-              </button>
             </div>
+
+            {error && (
+              <p className="font-cormorant text-red-400 text-sm text-center mt-3">{error}</p>
+            )}
 
             {/* Sécurité */}
             <p className="font-cormorant text-pearl/25 text-xs text-center mt-4 leading-relaxed">

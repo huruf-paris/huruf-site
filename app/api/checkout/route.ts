@@ -1,15 +1,23 @@
 import { NextRequest, NextResponse } from 'next/server'
 import Stripe from 'stripe'
 import { rateLimit } from '@/lib/rateLimit'
+import { products, FORMATS, type Format } from '@/data/products'
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: '2024-06-20',
 })
 
-// Validation stricte côté serveur
-interface CartItemPayload {
+const VALID_FORMATS = Object.keys(FORMATS) as Format[]
+
+/**
+ * Article résolu côté serveur. Le prix N'EST JAMAIS lu depuis le client :
+ * on identifie le produit par son `id` + `format` + `isLot`, puis on
+ * recalcule le prix depuis le catalogue (data/products.ts). Cela empêche
+ * toute manipulation du montant payé depuis le navigateur.
+ */
+interface ResolvedItem {
   name: string
-  format: string
+  format: Format
   isLot: boolean
   quantity: number
   unitPrice: number
@@ -17,36 +25,50 @@ interface CartItemPayload {
   frameColor?: string
 }
 
-function validateItems(items: unknown): CartItemPayload[] {
-  if (!Array.isArray(items) || items.length === 0) {
+function resolveItems(raw: unknown): ResolvedItem[] {
+  if (!Array.isArray(raw) || raw.length === 0) {
     throw new Error('Panier invalide')
   }
-  if (items.length > 20) {
+  if (raw.length > 20) {
     throw new Error('Trop d\'articles dans le panier')
   }
 
-  return items.map((item, index) => {
-    if (typeof item !== 'object' || item === null) throw new Error(`Article ${index} invalide`)
+  return raw.map((entry, index) => {
+    if (typeof entry !== 'object' || entry === null) throw new Error(`Article ${index} invalide`)
+    const i = entry as Record<string, unknown>
 
-    const i = item as Record<string, unknown>
+    // ── Produit (identifié par id, jamais par le prix client) ──
+    if (typeof i.id !== 'string') throw new Error('Produit manquant')
+    const product = products.find((p) => p.id === i.id)
+    if (!product) throw new Error('Produit introuvable')
 
-    if (typeof i.name !== 'string' || i.name.trim().length === 0) throw new Error('Nom manquant')
-    if (typeof i.format !== 'string') throw new Error('Format manquant')
-    if (typeof i.isLot !== 'boolean') throw new Error('isLot invalide')
+    // ── Format ──
+    if (typeof i.format !== 'string' || !VALID_FORMATS.includes(i.format as Format)) {
+      throw new Error('Format invalide')
+    }
+    const format = i.format as Format
+
+    // ── Lot ──
+    const isLot = Boolean(i.isLot)
+
+    // ── Quantité ──
     if (typeof i.quantity !== 'number' || i.quantity < 1 || i.quantity > 10 || !Number.isInteger(i.quantity)) {
       throw new Error('Quantité invalide')
     }
-    if (typeof i.unitPrice !== 'number' || i.unitPrice <= 0 || i.unitPrice > 10000) {
-      throw new Error('Prix invalide')
+
+    // ── PRIX : recalculé côté serveur depuis le catalogue ──
+    const unitPrice = isLot ? product.prices[format].lot3 : product.prices[format].single
+    if (typeof unitPrice !== 'number' || unitPrice <= 0) {
+      throw new Error('Prix indisponible')
     }
 
     return {
-      name: String(i.name).slice(0, 100),
-      format: String(i.format).slice(0, 20),
-      isLot: Boolean(i.isLot),
-      quantity: Number(i.quantity),
-      unitPrice: Number(i.unitPrice),
-      image: typeof i.image === 'string' ? i.image : undefined,
+      name: product.nameFr,
+      format,
+      isLot,
+      quantity: i.quantity,
+      unitPrice,
+      image: product.images[0],
       frameColor: typeof i.frameColor === 'string' ? i.frameColor.slice(0, 30) : undefined,
     }
   })
@@ -80,7 +102,7 @@ export async function POST(req: NextRequest) {
 
   try {
     const body = await req.json()
-    const items = validateItems(body.items)
+    const items = resolveItems(body.items)
 
     const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'
 
@@ -89,8 +111,8 @@ export async function POST(req: NextRequest) {
         currency: 'eur',
         product_data: {
           name: item.isLot
-            ? `${item.name} — Lot de 3 (${item.format})${item.frameColor ? ` · Cadre ${item.frameColor}` : ''}`
-            : `${item.name} — ${item.format}${item.frameColor ? ` · Cadre ${item.frameColor}` : ''}`,
+            ? `${item.name} — Lot de 3 (${FORMATS[item.format]})${item.frameColor ? ` · Cadre ${item.frameColor}` : ''}`
+            : `${item.name} — ${FORMATS[item.format]}${item.frameColor ? ` · Cadre ${item.frameColor}` : ''}`,
           images: item.image ? [`${siteUrl}${item.image}`] : [],
           metadata: {
             format: item.format,
@@ -136,7 +158,12 @@ export async function POST(req: NextRequest) {
   } catch (err) {
     // Ne pas exposer les détails d'erreur en production
     const message = err instanceof Error ? err.message : 'Erreur inconnue'
-    const isValidationError = message.includes('invalide') || message.includes('manquant') || message.includes('Trop')
+    const isValidationError =
+      message.includes('invalide') ||
+      message.includes('manquant') ||
+      message.includes('introuvable') ||
+      message.includes('indisponible') ||
+      message.includes('Trop')
 
     console.error('Checkout error:', err)
 

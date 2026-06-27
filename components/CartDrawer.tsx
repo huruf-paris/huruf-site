@@ -31,13 +31,13 @@ export default function CartDrawer() {
       total: subtotal,
     })
     try {
+      // On n'envoie QUE de quoi identifier l'article — le prix est
+      // recalculé côté serveur depuis le catalogue (sécurité).
       const payload = items.map((item) => ({
-        name: item.product.nameFr,
-        format: FORMATS[item.format],
+        id: item.product.id,
+        format: item.format,
         isLot: item.isLot,
         quantity: item.quantity,
-        unitPrice: item.unitPrice,
-        image: item.product.images[0],
         frameColor: item.frameColor,
       }))
 
