@@ -56,11 +56,22 @@ function AmexLogo() {
   )
 }
 
+/* Tableaux mis en avant dans le footer — liens internes présents sur
+   toutes les pages (aide la découverte/indexation Google). */
+const FOOTER_PRODUCTS = [
+  { href: '/boutique/allahu-akbar-fond-dore', label: 'Allahu Akbar — Doré' },
+  { href: '/boutique/bismillah-fond-dore', label: 'Bismillah — Doré' },
+  { href: '/boutique/subhanallah-gloire', label: 'Subhanallah' },
+  { href: '/boutique/sabr-patience', label: 'Sabr — Patience' },
+  { href: '/boutique/salam-paix', label: 'Salam — Paix' },
+  { href: '/boutique/hubb-amour', label: 'Hubb — Amour' },
+]
+
 export default function Footer() {
   return (
     <footer className="bg-night-deep border-t border-gold/10 pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-10 mb-12">
           {/* Marque */}
           <div className="md:col-span-2">
             <div className="flex flex-col mb-4">
@@ -142,6 +153,25 @@ export default function Footer() {
                   75008 Paris, France
                 </p>
               </li>
+            </ul>
+          </div>
+
+          {/* Nos tableaux */}
+          <div>
+            <h3 className="font-playfair text-pearl text-sm tracking-widest uppercase mb-4">
+              Nos tableaux
+            </h3>
+            <ul className="space-y-3">
+              {FOOTER_PRODUCTS.map(({ href, label }) => (
+                <li key={href}>
+                  <Link
+                    href={href}
+                    className="font-cormorant text-pearl/50 hover:text-gold transition-colors duration-300 text-base"
+                  >
+                    {label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
         </div>

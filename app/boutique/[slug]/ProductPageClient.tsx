@@ -97,9 +97,11 @@ export default function ProductPageClient({ params }: PageProps) {
     }, 800)
   }
 
-  const related = products
-    .filter((p) => p.id !== product.id && !p.isBundle)
-    .slice(0, 3)
+  // Produits liés — on prend les 3 suivants dans le catalogue (en bouclant),
+  // pour que CHAQUE produit (y compris les packs) reçoive des liens internes.
+  // Maillage homogène = meilleure découverte/indexation par Google.
+  const relatedStart = products.findIndex((p) => p.id === product.id)
+  const related = [1, 2, 3].map((k) => products[(relatedStart + k) % products.length])
 
   return (
     <>
