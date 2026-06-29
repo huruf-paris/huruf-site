@@ -4,11 +4,12 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
-import { X, Trash2, ShoppingBag, Lock, Tag, ChevronRight } from 'lucide-react'
+import { X, Trash2, ShoppingBag, Lock, Tag, ChevronRight, Truck, RotateCcw } from 'lucide-react'
 import { useCart } from '@/context/CartContext'
 import { FORMATS } from '@/data/products'
 import Button from './Button'
 import { trackBeginCheckout } from '@/lib/analytics'
+import { isPromoActive, PROMO_CODE, PROMO_DISCOUNT } from '@/lib/promo'
 
 export default function CartDrawer() {
   const { items, isOpen, closeCart, removeItem, updateQuantity, subtotal, itemCount } = useCart()
@@ -110,16 +111,13 @@ export default function CartDrawer() {
               </button>
             </div>
 
-            {/* ── Code promo HURUF10 ── */}
-            {items.length > 0 && (
-              <div className="mx-4 mt-3 flex items-center gap-3 bg-gold/8 border border-gold/25 px-4 py-2.5">
-                <Tag size={14} strokeWidth={1.5} className="text-gold flex-shrink-0" />
-                <div className="flex-1 min-w-0">
-                  <p className="font-cormorant text-gold text-sm tracking-wide">
-                    Code <span className="font-semibold">HURUF10</span> — −10% sur votre commande
-                  </p>
-                  <p className="font-cormorant text-pearl/35 text-xs">À saisir lors du paiement</p>
-                </div>
+            {/* ── Code promo — affiché uniquement si la promo est active ── */}
+            {items.length > 0 && isPromoActive() && (
+              <div className="mx-4 mt-3 flex items-center gap-2.5 bg-gold/8 border border-gold/25 px-4 py-2.5">
+                <Tag size={13} strokeWidth={1.5} className="text-gold flex-shrink-0" />
+                <p className="font-cormorant text-gold text-sm tracking-wide">
+                  Code <span className="font-semibold">{PROMO_CODE}</span> · −{Math.round(PROMO_DISCOUNT * 100)}% au paiement
+                </p>
               </div>
             )}
 
@@ -205,28 +203,22 @@ export default function CartDrawer() {
                     ))}
                   </ul>
 
-                  {/* ── Upsell : Lot de 3 ── */}
+                  {/* ── Upsell discret : Lot de 3 ── */}
                   {hasUpsell && (
-                    <div className="mx-4 mt-3 bg-night border border-gold/20 p-4">
-                      <p className="font-cormorant text-gold text-xs tracking-widest uppercase mb-1">
-                        Offre groupée
-                      </p>
-                      <p className="font-playfair text-pearl text-sm mb-1">
-                        Prenez 3 tableaux et économisez
-                      </p>
-                      <p className="font-cormorant text-pearl/50 text-xs leading-relaxed mb-3">
-                        Le lot de 3 tableaux est disponible à prix réduit sur chaque page produit.
-                        Parfait pour décorer un mur ou offrir en cadeau.
-                      </p>
-                      <Link
-                        href="/boutique"
-                        onClick={closeCart}
-                        className="flex items-center justify-between font-cormorant text-gold text-xs tracking-widest uppercase hover:text-gold/70 transition-colors"
-                      >
-                        Voir les offres groupées
-                        <ChevronRight size={13} strokeWidth={1.5} />
-                      </Link>
-                    </div>
+                    <Link
+                      href="/boutique"
+                      onClick={closeCart}
+                      className="group mx-4 mt-3 flex items-center justify-between gap-2 border border-gold/15 px-4 py-3 hover:border-gold/35 transition-colors duration-300"
+                    >
+                      <span className="font-cormorant text-pearl/65 text-sm">
+                        <span className="text-gold">Lot de 3</span> — prix réduit, idéal en cadeau
+                      </span>
+                      <ChevronRight
+                        size={14}
+                        strokeWidth={1.5}
+                        className="text-gold/60 flex-shrink-0 group-hover:translate-x-0.5 transition-transform duration-300"
+                      />
+                    </Link>
                   )}
                 </>
               )}
@@ -254,15 +246,15 @@ export default function CartDrawer() {
                 <div className="h-px bg-gold/10" />
 
                 {/* Garanties */}
-                <div className="grid grid-cols-3 gap-2">
+                <div className="grid grid-cols-3 gap-2 text-center">
                   {[
-                    { icon: '🔒', text: 'Paiement\nsécurisé' },
-                    { icon: '📦', text: 'Livraison\nofferte' },
-                    { icon: '↩', text: 'Retour\n14 jours' },
+                    { icon: <Lock size={14} strokeWidth={1.5} />, text: 'Paiement sécurisé' },
+                    { icon: <Truck size={14} strokeWidth={1.5} />, text: 'Livraison offerte' },
+                    { icon: <RotateCcw size={14} strokeWidth={1.5} />, text: 'Retour 14 jours' },
                   ].map(({ icon, text }) => (
-                    <div key={text} className="flex flex-col items-center gap-1 bg-night/60 border border-gold/8 py-2 px-1">
-                      <span className="text-base">{icon}</span>
-                      <span className="font-cormorant text-pearl/40 text-[10px] tracking-wide text-center leading-tight whitespace-pre-line">{text}</span>
+                    <div key={text} className="flex flex-col items-center gap-1.5 text-pearl/45">
+                      <span className="text-gold/55">{icon}</span>
+                      <span className="font-cormorant text-[10px] tracking-wide leading-tight">{text}</span>
                     </div>
                   ))}
                 </div>
