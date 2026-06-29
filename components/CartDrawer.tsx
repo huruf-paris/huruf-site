@@ -3,16 +3,15 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
-import Link from 'next/link'
-import { X, Trash2, ShoppingBag, Lock, Tag, ChevronRight, Truck, RotateCcw } from 'lucide-react'
+import { X, Trash2, ShoppingBag, Lock, Tag, Truck, RotateCcw, Plus } from 'lucide-react'
 import { useCart } from '@/context/CartContext'
-import { FORMATS } from '@/data/products'
+import { FORMATS, products, type Format, type Product } from '@/data/products'
 import Button from './Button'
 import { trackBeginCheckout } from '@/lib/analytics'
 import { isPromoActive, PROMO_CODE, PROMO_DISCOUNT } from '@/lib/promo'
 
 export default function CartDrawer() {
-  const { items, isOpen, closeCart, removeItem, updateQuantity, subtotal, itemCount } = useCart()
+  const { items, isOpen, closeCart, removeItem, updateQuantity, subtotal, itemCount, addItem } = useCart()
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
 
@@ -61,9 +60,25 @@ export default function CartDrawer() {
     }
   }
 
-  // Articles éligibles à l'upsell lot de 3 (tableau simple, non-bundle)
-  const upsellItems = items.filter((item) => !item.isLot && !item.product.isBundle && !item.product.prixSurDemande)
-  const hasUpsell = upsellItems.length > 0
+  // ── Cross-sell « Complétez votre mur » : bestsellers absents du panier ──
+  const BESTSELLERS = ['allah-akbar-dore', 'bismillah-dore', 'sabr', 'subhanallah', 'salam', 'hubb']
+  const inCart = new Set(items.map((i) => i.product.id))
+  const suggestions = BESTSELLERS
+    .map((id) => products.find((p) => p.id === id))
+    .filter((p): p is Product => !!p && !inCart.has(p.id))
+    .slice(0, 2)
+
+  const SUGGEST_FORMAT: Format = '40x50'
+  const quickAdd = (product: Product) => {
+    addItem({
+      product,
+      format: SUGGEST_FORMAT,
+      isLot: false,
+      quantity: 1,
+      unitPrice: product.prices[SUGGEST_FORMAT].single,
+      frameColor: 'Bois naturel',
+    })
+  }
 
   return (
     <>
@@ -203,22 +218,39 @@ export default function CartDrawer() {
                     ))}
                   </ul>
 
-                  {/* ── Upsell discret : Lot de 3 ── */}
-                  {hasUpsell && (
-                    <Link
-                      href="/boutique"
-                      onClick={closeCart}
-                      className="group mx-4 mt-3 flex items-center justify-between gap-2 border border-gold/15 px-4 py-3 hover:border-gold/35 transition-colors duration-300"
-                    >
-                      <span className="font-cormorant text-pearl/65 text-sm">
-                        <span className="text-gold">Lot de 3</span> — prix réduit, idéal en cadeau
-                      </span>
-                      <ChevronRight
-                        size={14}
-                        strokeWidth={1.5}
-                        className="text-gold/60 flex-shrink-0 group-hover:translate-x-0.5 transition-transform duration-300"
-                      />
-                    </Link>
+                  {/* ── Cross-sell : Complétez votre mur ── */}
+                  {suggestions.length > 0 && (
+                    <div className="mx-4 mt-4">
+                      <p className="font-cormorant text-gold/70 text-xs tracking-[0.2em] uppercase mb-2.5">
+                        Complétez votre mur
+                      </p>
+                      <div className="space-y-2">
+                        {suggestions.map((p) => (
+                          <div
+                            key={p.id}
+                            className="flex items-center gap-3 border border-gold/10 p-2 hover:border-gold/25 transition-colors duration-300"
+                          >
+                            <div className="relative w-11 h-14 flex-shrink-0 overflow-hidden border border-gold/10">
+                              <Image src={p.images[0]} alt={p.nameFr} fill className="object-cover" sizes="44px" />
+                            </div>
+                            <div className="flex-1 min-w-0">
+                              <p className="font-playfair text-pearl text-sm truncate">{p.nameFr}</p>
+                              <p className="font-cormorant text-gold/80 text-xs">
+                                {p.prices[SUGGEST_FORMAT].single.toFixed(2).replace('.', ',')} €
+                              </p>
+                            </div>
+                            <button
+                              onClick={() => quickAdd(p)}
+                              className="flex items-center gap-1 flex-shrink-0 border border-gold/30 text-gold/90 hover:bg-gold/10 hover:border-gold/60 px-3 py-1.5 transition-all duration-300"
+                              aria-label={`Ajouter ${p.nameFr} au panier`}
+                            >
+                              <Plus size={13} strokeWidth={2} />
+                              <span className="font-cormorant text-xs tracking-wide uppercase">Ajouter</span>
+                            </button>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
                   )}
                 </>
               )}
