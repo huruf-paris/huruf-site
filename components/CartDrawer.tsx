@@ -9,6 +9,7 @@ import { FORMATS, products, type Format, type Product } from '@/data/products'
 import Button from './Button'
 import { trackBeginCheckout } from '@/lib/analytics'
 import { isPromoActive, PROMO_CODE, PROMO_DISCOUNT } from '@/lib/promo'
+import { aovDiscountActive, aovPercent } from '@/lib/aov'
 
 export default function CartDrawer() {
   const { items, isOpen, closeCart, removeItem, updateQuantity, subtotal, itemCount, addItem } = useCart()
@@ -79,6 +80,11 @@ export default function CartDrawer() {
       frameColor: 'Bois naturel',
     })
   }
+
+  // ── Remise automatique multi-tableaux ──
+  const aovActive = aovDiscountActive(itemCount)
+  const aovAmount = aovActive ? Math.round(subtotal * (aovPercent() / 100) * 100) / 100 : 0
+  const total = subtotal - aovAmount
 
   return (
     <>
@@ -260,18 +266,48 @@ export default function CartDrawer() {
             {items.length > 0 && (
               <div className="border-t border-gold/10 px-5 pt-4 pb-5 space-y-3">
 
+                {/* Nudge : un tableau de plus pour débloquer la remise */}
+                {itemCount === 1 && (
+                  <div className="flex items-center gap-2 bg-gold/8 border border-gold/20 px-3 py-2">
+                    <Plus size={13} strokeWidth={2} className="text-gold flex-shrink-0" />
+                    <p className="font-cormorant text-gold/90 text-xs tracking-wide leading-snug">
+                      Ajoutez un 2ᵉ tableau et profitez de <span className="font-semibold">−{aovPercent()}%</span> sur tout le panier
+                    </p>
+                  </div>
+                )}
+
                 {/* Sous-total */}
                 <div className="flex justify-between items-center">
                   <span className="font-cormorant text-pearl/55 text-base tracking-wide">Sous-total</span>
-                  <span className="font-playfair text-pearl text-xl">
+                  <span className="font-cormorant text-pearl/70 text-base">
                     {subtotal.toFixed(2).replace('.', ',')} €
                   </span>
                 </div>
+
+                {/* Remise multi-tableaux */}
+                {aovActive && (
+                  <div className="flex justify-between items-center">
+                    <span className="font-cormorant text-teal/80 text-sm tracking-wide">
+                      Remise −{aovPercent()}% · multi-tableaux
+                    </span>
+                    <span className="font-cormorant text-teal/80 text-sm">
+                      −{aovAmount.toFixed(2).replace('.', ',')} €
+                    </span>
+                  </div>
+                )}
 
                 {/* Livraison */}
                 <div className="flex justify-between items-center">
                   <span className="font-cormorant text-pearl/40 text-sm">Livraison</span>
                   <span className="font-cormorant text-teal/70 text-sm font-semibold">Offerte</span>
+                </div>
+
+                {/* Total */}
+                <div className="flex justify-between items-center pt-1">
+                  <span className="font-playfair text-pearl text-base">Total</span>
+                  <span className="font-playfair text-gold text-2xl">
+                    {total.toFixed(2).replace('.', ',')} €
+                  </span>
                 </div>
 
                 {/* Séparateur */}

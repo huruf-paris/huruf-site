@@ -2,12 +2,32 @@ import { NextRequest, NextResponse } from 'next/server'
 import Stripe from 'stripe'
 import { rateLimit } from '@/lib/rateLimit'
 import { products, FORMATS, type Format } from '@/data/products'
+import { aovDiscountActive, aovPercent } from '@/lib/aov'
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: '2024-06-20',
 })
 
 const VALID_FORMATS = Object.keys(FORMATS) as Format[]
+
+/**
+ * Coupon Stripe réutilisable pour la remise multi-tableaux.
+ * On le récupère s'il existe déjà, sinon on le crée une seule fois.
+ */
+async function getAovCoupon(): Promise<string> {
+  const id = `AOV${aovPercent()}`
+  try {
+    await stripe.coupons.retrieve(id)
+  } catch {
+    await stripe.coupons.create({
+      id,
+      percent_off: aovPercent(),
+      duration: 'once',
+      name: `Remise multi-tableaux -${aovPercent()}%`,
+    })
+  }
+  return id
+}
 
 /**
  * Article résolu côté serveur. Le prix N'EST JAMAIS lu depuis le client :
@@ -124,12 +144,14 @@ export async function POST(req: NextRequest) {
       quantity: item.quantity,
     }))
 
-    const session = await stripe.checkout.sessions.create({
+    // ── Remise automatique multi-tableaux (nb d'articles calculé serveur) ──
+    const totalQty = items.reduce((sum, item) => sum + item.quantity, 0)
+
+    const sessionParams: Stripe.Checkout.SessionCreateParams = {
       payment_method_types: ['card'],
       line_items: lineItems,
       mode: 'payment',
       locale: 'fr',
-      allow_promotion_codes: true,
       shipping_address_collection: {
         allowed_countries: ['FR', 'BE', 'CH', 'LU', 'MC'],
       },
@@ -152,7 +174,24 @@ export async function POST(req: NextRequest) {
         source: 'huruf-site',
         ip: ip.slice(0, 45), // anonymisé
       },
-    })
+    }
+
+    // Remise auto si éligible ; sinon champ code promo. Si le coupon échoue,
+    // on NE casse PAS le paiement (repli sans remise).
+    let discountApplied = false
+    if (aovDiscountActive(totalQty)) {
+      try {
+        sessionParams.discounts = [{ coupon: await getAovCoupon() }]
+        discountApplied = true
+      } catch (couponErr) {
+        console.error('Remise AOV non appliquée:', couponErr)
+      }
+    }
+    if (!discountApplied) {
+      sessionParams.allow_promotion_codes = true
+    }
+
+    const session = await stripe.checkout.sessions.create(sessionParams)
 
     return NextResponse.json({ url: session.url })
   } catch (err) {
