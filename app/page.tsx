@@ -28,12 +28,12 @@ const SHOWCASE_VIDEOS: ShowcaseVideo[] = [
 ]
 
 const TESTIMONIALS = [
-  { quote: "Très beau tableau, rapport qualité prix très intéressant.", author: 'N.', location: 'France', date: 'Il y a 2 jours', stars: 5, initial: 'N' },
-  { quote: "Parfait, très satisfait, professionnel et soigné, envoi rapide.", author: 'Naomie P.', location: 'France', date: 'Il y a 4 mois', stars: 5, initial: 'N' },
-  { quote: "Merci parfait et très bien emballé !", author: 'Z.', location: 'France', date: 'Il y a 3 mois', stars: 5, initial: 'Z' },
-  { quote: "Impec, arrivé avant le délai prévu. Je recommande !", author: 'P.', location: 'France', date: 'Il y a 4 mois', stars: 5, initial: 'P' },
-  { quote: "Magnifique tableau, le cadre est de très bonne qualité. Un cadeau parfait !", author: 'Fatima A.', location: 'France', date: 'Il y a 1 mois', stars: 5, initial: 'F' },
-  { quote: "Acheté en cadeau pour ma mère, elle a adoré. La calligraphie est vraiment belle.", author: 'Karim M.', location: 'France', date: 'Il y a 2 semaines', stars: 5, initial: 'K' },
+  { quote: "Très beau tableau, rapport qualité prix très intéressant.", author: 'N.', location: 'France', date: 'Juin 2026', stars: 5, initial: 'N' },
+  { quote: "Parfait, très satisfait, professionnel et soigné, envoi rapide.", author: 'Naomie P.', location: 'France', date: 'Mars 2026', stars: 5, initial: 'N' },
+  { quote: "Merci parfait et très bien emballé !", author: 'Z.', location: 'France', date: 'Avril 2026', stars: 5, initial: 'Z' },
+  { quote: "Impec, arrivé avant le délai prévu. Je recommande !", author: 'P.', location: 'France', date: 'Mars 2026', stars: 5, initial: 'P' },
+  { quote: "Magnifique tableau, le cadre est de très bonne qualité. Un cadeau parfait !", author: 'Fatima A.', location: 'France', date: 'Juin 2026', stars: 5, initial: 'F' },
+  { quote: "Acheté en cadeau pour ma mère, elle a adoré. La calligraphie est vraiment belle.", author: 'Karim M.', location: 'France', date: 'Juin 2026', stars: 5, initial: 'K' },
   { quote: "Jolie tableau, livraison rapide, très contente de ma commande. Je vous le recommande…", author: 'Anlabati Moussa', location: 'France', date: 'Juin 2026', stars: 5, initial: 'A', source: 'Google' as const, verified: true },
   { quote: "Parfait, merci pour l’envoi rapide.", author: 'sewiwine95', location: 'France', date: '2025', stars: 5, initial: 'S', source: 'Vinted' as const, verified: true },
   { quote: "Vendeur sympa et réactif. Produit parfaitement conforme.", author: 'clem4475', location: 'France', date: '2025', stars: 5, initial: 'C', source: 'Vinted' as const, verified: true },

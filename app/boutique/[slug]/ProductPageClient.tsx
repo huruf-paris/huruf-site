@@ -26,10 +26,10 @@ const FRAMES = [
 type FrameId = typeof FRAMES[number]['id']
 
 const PRODUCT_TESTIMONIALS = [
-  { quote: "Magnifique tableau, le cadre est de très bonne qualité. Livraison rapide et bien emballé. Je recommande !", author: 'Fatima A.', location: 'France', date: 'Il y a 1 mois', stars: 5, initial: 'F' },
-  { quote: "Acheté en cadeau pour ma mère, elle a adoré. La calligraphie est vraiment belle.", author: 'Karim M.', location: 'France', date: 'Il y a 2 semaines', stars: 5, initial: 'K' },
-  { quote: "Parfait, très satisfait, professionnel et soigné, envoi rapide.", author: 'Naomie P.', location: 'France', date: 'Il y a 4 mois', stars: 5, initial: 'N' },
-  { quote: "Impec, arrivé avant le délai prévu. Très beau rendu, ça fait un super cadeau !", author: 'P.', location: 'France', date: 'Il y a 3 mois', stars: 5, initial: 'P' },
+  { quote: "Magnifique tableau, le cadre est de très bonne qualité. Livraison rapide et bien emballé. Je recommande !", author: 'Fatima A.', location: 'France', date: 'Juin 2026', stars: 5, initial: 'F' },
+  { quote: "Acheté en cadeau pour ma mère, elle a adoré. La calligraphie est vraiment belle.", author: 'Karim M.', location: 'France', date: 'Juin 2026', stars: 5, initial: 'K' },
+  { quote: "Parfait, très satisfait, professionnel et soigné, envoi rapide.", author: 'Naomie P.', location: 'France', date: 'Mars 2026', stars: 5, initial: 'N' },
+  { quote: "Impec, arrivé avant le délai prévu. Très beau rendu, ça fait un super cadeau !", author: 'P.', location: 'France', date: 'Avril 2026', stars: 5, initial: 'P' },
   { quote: "Jolie tableau, livraison rapide, très contente de ma commande. Je vous le recommande…", author: 'Anlabati Moussa', location: 'France', date: 'Juin 2026', stars: 5, initial: 'A', source: 'Google' as const },
 ]
 

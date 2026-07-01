@@ -97,6 +97,8 @@ export const metadata: Metadata = {
     },
   },
   verification: {
+    // Coller ici, entre les guillemets, le code donné par Google Search Console
+    // (méthode « Balise HTML » : uniquement la valeur de content="...")
     google: '',
     other: {
       'p:domain_verify': 'f7600052ddaa9dfbd47079dce9c7750c',

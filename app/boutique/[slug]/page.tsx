@@ -74,13 +74,6 @@ export default function ProductPage({ params }: PageProps) {
       '@type': 'Brand',
       name: 'Hurûf Paris',
     },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '5',
-      reviewCount: '28',
-      bestRating: '5',
-      worstRating: '1',
-    },
     offers: [
       {
         '@type': 'Offer',

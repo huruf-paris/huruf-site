@@ -12,10 +12,11 @@ export function middleware(req: NextRequest) {
     return new NextResponse('Not Found', { status: 404 })
   }
 
-  // ── Forcer HTTPS en production ──
+  // ── Forcer HTTPS en production (sauf en local) ──
   if (
     process.env.NODE_ENV === 'production' &&
-    req.headers.get('x-forwarded-proto') === 'http'
+    req.headers.get('x-forwarded-proto') === 'http' &&
+    !['localhost', '127.0.0.1'].includes(req.nextUrl.hostname)
   ) {
     return NextResponse.redirect(
       `https://${req.headers.get('host')}${pathname}`,
