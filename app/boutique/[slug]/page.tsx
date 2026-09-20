@@ -13,19 +13,32 @@ export async function generateStaticParams() {
   }))
 }
 
+/** Coupe proprement au dernier mot entier avant maxLength (jamais en plein milieu d'un mot). */
+function truncateAtWord(text: string, maxLength: number): string {
+  if (text.length <= maxLength) return text
+  const cut = text.slice(0, maxLength)
+  const lastSpace = cut.lastIndexOf(' ')
+  return (lastSpace > 0 ? cut.slice(0, lastSpace) : cut).trim()
+}
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const product = getProductBySlug(params.slug)
   if (!product) return {}
 
   const price = product.prices['40x50'].single
-  const title = `${product.nameFr} — Tableau Calligraphie Arabe`
-  const description = `${product.description.slice(0, 150)}... Composition calligraphique arabe imprimée sur papier d'art, encadrée et livrée en France. À partir de ${price.toFixed(2).replace('.', ',')} €.`
+  // Translittération pure (ex. "Allahu Akbar") plutôt que le nom complet
+  // (ex. "Allahu Akbar — Édition Dorée") : titre plus court, jamais tronqué
+  // par Google (~60 car. max), et concentré sur le mot-clé réellement recherché.
+  const title = `${product.transliteration} — Tableau Calligraphie Arabe`
+  // Description coupée à ~150 car. pour rester sous la limite d'affichage Google
+  // (~155-160 car.) et ne jamais être tronquée en plein milieu de phrase.
+  const description = `${truncateAtWord(product.description, 100)}… À partir de ${price.toFixed(2).replace('.', ',')} € — Cadre inclus, livraison offerte.`
 
   return {
     title,
     description,
     keywords: [
-      `tableau ${product.nameFr}`,
+      `tableau ${product.transliteration}`,
       `calligraphie ${product.transliteration}`,
       `${product.meaning} calligraphie`,
       'tableau arabe encadré',
