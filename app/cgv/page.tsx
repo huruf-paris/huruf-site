@@ -36,7 +36,7 @@ export default function CGVPage() {
               Les tableaux de calligraphie arabe proposés à la vente sont des oeuvres artisanales tracées à la main. Chaque oeuvre est unique — de légères variations par rapport aux photos peuvent exister, ce qui constitue la richesse de l'artisanat.
             </p>
             <p className="mt-3">
-              Les tableaux sont livrés encadrés, prêts à être accrochés. Les formats disponibles sont : 30 × 40 cm, 40 × 50 cm et 50 × 70 cm.
+              Les tableaux sont livrés encadrés, prêts à être accrochés. Les formats disponibles sont : 30 × 40 cm, 40 × 60 cm et 50 × 70 cm.
             </p>
           </section>
 

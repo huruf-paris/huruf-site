@@ -69,7 +69,7 @@ export default function CartDrawer() {
     .filter((p): p is Product => !!p && !inCart.has(p.id))
     .slice(0, 2)
 
-  const SUGGEST_FORMAT: Format = '40x50'
+  const SUGGEST_FORMAT: Format = '40x60'
   const quickAdd = (product: Product) => {
     addItem({
       product,

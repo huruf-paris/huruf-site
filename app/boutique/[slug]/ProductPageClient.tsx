@@ -37,13 +37,13 @@ interface PageProps {
   params: { slug: string }
 }
 
-const FORMAT_ORDER: Format[] = ['30x40', '40x50', '50x70']
+const FORMAT_ORDER: Format[] = ['30x40', '40x60', '50x70']
 
 export default function ProductPageClient({ params }: PageProps) {
   const product = getProductBySlug(params.slug)
   if (!product) notFound()
 
-  const [selectedFormat, setSelectedFormat] = useState<Format>('40x50')
+  const [selectedFormat, setSelectedFormat] = useState<Format>('40x60')
   const [isLot, setIsLot] = useState(false)
   const [qty, setQty] = useState(1)
   const [activeImg, setActiveImg] = useState(0)
@@ -574,7 +574,7 @@ export default function ProductPageClient({ params }: PageProps) {
                 },
                 {
                   q: "Quelle est la différence entre les formats ?",
-                  a: "Le 30×40 cm est idéal pour une petite surface ou un bureau. Le 40×50 cm est notre format le plus populaire — parfait au-dessus d'un canapé ou dans un couloir. Le 50×70 cm crée un effet statement dans un salon ou une chambre.",
+                  a: "Le 30×40 cm est idéal pour une petite surface ou un bureau. Le 40×60 cm est notre format le plus populaire — parfait au-dessus d'un canapé ou dans un couloir. Le 50×70 cm crée un effet statement dans un salon ou une chambre.",
                 },
                 {
                   q: "Puis-je retourner mon tableau si je ne suis pas satisfait ?",

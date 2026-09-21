@@ -16,7 +16,7 @@ const FAQ_ITEMS = [
       },
       {
         q: 'Quels formats sont disponibles ?',
-        a: 'Nos tableaux sont disponibles en trois formats : 30 × 40 cm, 40 × 50 cm et 50 × 70 cm. Pour un format personnalisé, rendez-vous sur notre page Commande sur mesure.',
+        a: 'Nos tableaux sont disponibles en trois formats : 30 × 40 cm, 40 × 60 cm et 50 × 70 cm. Pour un format personnalisé, rendez-vous sur notre page Commande sur mesure.',
       },
       {
         q: 'Le cadre est-il inclus dans le prix ?',

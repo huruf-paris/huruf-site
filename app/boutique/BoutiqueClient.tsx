@@ -9,7 +9,7 @@ import { products, type Format } from '@/data/products'
 const ALL_FORMATS: { value: Format | 'all'; label: string }[] = [
   { value: 'all', label: 'Tous les formats' },
   { value: '30x40', label: '30 × 40 cm' },
-  { value: '40x50', label: '40 × 50 cm' },
+  { value: '40x60', label: '40 × 60 cm' },
   { value: '50x70', label: '50 × 70 cm' },
 ]
 

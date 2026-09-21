@@ -14,7 +14,7 @@ const schema = z.object({
   prenom: z.string().min(2, 'Prénom requis'),
   email: z.string().email('Email invalide'),
   mot: z.string().min(1, 'Veuillez indiquer le mot souhaité'),
-  format: z.enum(['30x40', '40x50', '50x70', 'duo', 'autre']),
+  format: z.enum(['30x40', '40x60', '50x70', 'duo', 'autre']),
   message: z.string().optional(),
 })
 
@@ -59,7 +59,7 @@ export default function SurMesurePage() {
     formState: { errors, isSubmitting },
   } = useForm<FormData>({
     resolver: zodResolver(schema),
-    defaultValues: { format: '40x50' },
+    defaultValues: { format: '40x60' },
   })
 
   const onSubmit = async (data: FormData) => {
@@ -250,7 +250,7 @@ export default function SurMesurePage() {
                     </label>
                     <select {...register('format')} className="luxury-input bg-night">
                       <option value="30x40">30 × 40 cm — Format intimiste</option>
-                      <option value="40x50">40 × 50 cm — Le plus demandé</option>
+                      <option value="40x60">40 × 60 cm — Le plus demandé</option>
                       <option value="50x70">50 × 70 cm — Format imposant</option>
                       <option value="duo">Format Duo (deux tableaux assortis)</option>
                       <option value="autre">Autre format (à préciser ci-dessous)</option>

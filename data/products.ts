@@ -1,4 +1,4 @@
-export type Format = '30x40' | '40x50' | '50x70'
+export type Format = '30x40' | '40x60' | '50x70'
 
 export interface FormatPrice {
   single: number
@@ -30,7 +30,7 @@ export interface Product {
 
 export const FORMATS: Record<Format, string> = {
   '30x40': '30 × 40 cm',
-  '40x50': '40 × 50 cm',
+  '40x60': '40 × 60 cm',
   '50x70': '50 × 70 cm',
 }
 
@@ -52,7 +52,7 @@ export const products: Product[] = [
     featured: true,
     prices: {
       '30x40': { single: 37.99, lot3: 99.99 },
-      '40x50': { single: 47.99, lot3: 124.99 },
+      '40x60': { single: 47.99, lot3: 124.99 },
       '50x70': { single: 61.99, lot3: 159.99 },
     },
   },
@@ -72,7 +72,7 @@ export const products: Product[] = [
     featured: true,
     prices: {
       '30x40': { single: 37.99, lot3: 99.99 },
-      '40x50': { single: 47.99, lot3: 124.99 },
+      '40x60': { single: 47.99, lot3: 124.99 },
       '50x70': { single: 61.99, lot3: 159.99 },
     },
   },
@@ -96,7 +96,7 @@ export const products: Product[] = [
     featured: true,
     prices: {
       '30x40': { single: 35.99, lot3: 95.99 },
-      '40x50': { single: 45.99, lot3: 119.99 },
+      '40x60': { single: 45.99, lot3: 119.99 },
       '50x70': { single: 58.99, lot3: 149.99 },
     },
   },
@@ -116,7 +116,7 @@ export const products: Product[] = [
     featured: true,
     prices: {
       '30x40': { single: 34.99, lot3: 92.99 },
-      '40x50': { single: 44.99, lot3: 116.99 },
+      '40x60': { single: 44.99, lot3: 116.99 },
       '50x70': { single: 56.99, lot3: 144.99 },
     },
   },
@@ -136,7 +136,7 @@ export const products: Product[] = [
     featured: true,
     prices: {
       '30x40': { single: 35.99, lot3: 95.99 },
-      '40x50': { single: 45.99, lot3: 119.99 },
+      '40x60': { single: 45.99, lot3: 119.99 },
       '50x70': { single: 58.99, lot3: 149.99 },
     },
   },
@@ -156,7 +156,7 @@ export const products: Product[] = [
     featured: true,
     prices: {
       '30x40': { single: 34.99, lot3: 92.99 },
-      '40x50': { single: 44.99, lot3: 116.99 },
+      '40x60': { single: 44.99, lot3: 116.99 },
       '50x70': { single: 57.99, lot3: 146.99 },
     },
   },
@@ -176,7 +176,7 @@ export const products: Product[] = [
     featured: false,
     prices: {
       '30x40': { single: 36.99, lot3: 98.99 },
-      '40x50': { single: 46.99, lot3: 122.99 },
+      '40x60': { single: 46.99, lot3: 122.99 },
       '50x70': { single: 59.99, lot3: 152.99 },
     },
   },
@@ -198,7 +198,7 @@ export const products: Product[] = [
     featured: true,
     prices: {
       '30x40': { single: 35.99, lot3: 95.99 },
-      '40x50': { single: 45.99, lot3: 119.99 },
+      '40x60': { single: 45.99, lot3: 119.99 },
       '50x70': { single: 58.99, lot3: 149.99 },
     },
   },
@@ -221,7 +221,7 @@ export const products: Product[] = [
     featured: true,
     prices: {
       '30x40': { single: 35.99, lot3: 95.99 },
-      '40x50': { single: 45.99, lot3: 119.99 },
+      '40x60': { single: 45.99, lot3: 119.99 },
       '50x70': { single: 58.99, lot3: 149.99 },
     },
   },
@@ -241,7 +241,7 @@ export const products: Product[] = [
     featured: true,
     prices: {
       '30x40': { single: 35.99, lot3: 95.99 },
-      '40x50': { single: 45.99, lot3: 119.99 },
+      '40x60': { single: 45.99, lot3: 119.99 },
       '50x70': { single: 58.99, lot3: 149.99 },
     },
   },
@@ -265,7 +265,7 @@ export const products: Product[] = [
     bundleSize: 3,
     prices: {
       '30x40': { single: 89.99, lot3: 89.99 },
-      '40x50': { single: 109.99, lot3: 109.99 },
+      '40x60': { single: 109.99, lot3: 109.99 },
       '50x70': { single: 134.99, lot3: 134.99 },
     },
   },
@@ -291,7 +291,7 @@ export const products: Product[] = [
     bundleSize: 2,
     prices: {
       '30x40': { single: 64.99, lot3: 64.99 },
-      '40x50': { single: 79.99, lot3: 79.99 },
+      '40x60': { single: 79.99, lot3: 79.99 },
       '50x70': { single: 99.99, lot3: 99.99 },
     },
   },
@@ -316,7 +316,7 @@ export const products: Product[] = [
     bundleSize: 3,
     prices: {
       '30x40': { single: 89.99, lot3: 89.99 },
-      '40x50': { single: 109.99, lot3: 109.99 },
+      '40x60': { single: 109.99, lot3: 109.99 },
       '50x70': { single: 134.99, lot3: 134.99 },
     },
   },
@@ -338,7 +338,7 @@ export const products: Product[] = [
     bundleSize: 3,
     prices: {
       '30x40': { single: 89.99, lot3: 89.99 },
-      '40x50': { single: 109.99, lot3: 109.99 },
+      '40x60': { single: 109.99, lot3: 109.99 },
       '50x70': { single: 134.99, lot3: 134.99 },
     },
   },

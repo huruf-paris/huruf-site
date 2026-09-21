@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const product = getProductBySlug(params.slug)
   if (!product) return {}
 
-  const price = product.prices['40x50'].single
+  const price = product.prices['40x60'].single
   // Translittération pure (ex. "Allahu Akbar") plutôt que le nom complet
   // (ex. "Allahu Akbar — Édition Dorée") : titre plus court, jamais tronqué
   // par Google (~60 car. max), et concentré sur le mot-clé réellement recherché.
@@ -74,7 +74,7 @@ export default function ProductPage({ params }: PageProps) {
   const product = getProductBySlug(params.slug)
   if (!product) notFound()
 
-  const price = product.prices['40x50'].single
+  const price = product.prices['40x60'].single
 
   // Schema.org JSON-LD pour le produit
   const jsonLd = {
@@ -134,9 +134,9 @@ export default function ProductPage({ params }: PageProps) {
       },
       {
         '@type': 'Offer',
-        name: '40 × 50 cm',
+        name: '40 × 60 cm',
         priceCurrency: 'EUR',
-        price: product.prices['40x50'].single.toFixed(2),
+        price: product.prices['40x60'].single.toFixed(2),
         availability: 'https://schema.org/InStock',
         url: `https://www.huruf-paris.fr/boutique/${product.slug}`,
         seller: { '@type': 'Organization', name: 'Hurûf Paris' },
