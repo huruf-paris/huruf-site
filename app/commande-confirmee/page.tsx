@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { CheckCircle, Package, Mail, ArrowRight, Star } from 'lucide-react'
 import { trackPurchase } from '@/lib/analytics'
+import { useCart } from '@/context/CartContext'
 
 // 👉 Remplace ce lien par ton vrai lien Google Reviews une fois ta fiche créée
 // Va sur business.google.com → ton établissement → "Demander des avis"
@@ -40,6 +41,7 @@ function StarRating({ onSelect, selected }: { onSelect: (n: number) => void; sel
 function CommandeConfirmeeContent() {
   const searchParams = useSearchParams()
   const sessionId = searchParams.get('session_id')
+  const { clearCart } = useCart()
   const [visible, setVisible] = useState(false)
   const [stars, setStars] = useState(0)
   const [reviewSent, setReviewSent] = useState(false)
@@ -53,7 +55,11 @@ function CommandeConfirmeeContent() {
         items: [], // items non disponibles côté client après redirect Stripe
         total: 0,  // total non disponible côté client — à améliorer via webhook Stripe
       })
+      // Le paiement est confirmé (retour Stripe avec session_id) : on vide le panier
+      // pour éviter qu'un client ne repaie les mêmes articles par erreur.
+      clearCart()
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sessionId])
 
   const handleStarSelect = (n: number) => {

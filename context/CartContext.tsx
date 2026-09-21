@@ -1,6 +1,6 @@
 'use client'
 
-import React, { createContext, useContext, useReducer, useCallback } from 'react'
+import React, { createContext, useContext, useReducer, useCallback, useEffect } from 'react'
 import type { Format, Product } from '@/data/products'
 
 export interface CartItem {
@@ -15,6 +15,10 @@ export interface CartItem {
 interface CartState {
   items: CartItem[]
   isOpen: boolean
+  // Devient true une fois la lecture du panier sauvegardé (localStorage) terminée.
+  // Tant que c'est false, on n'écrit rien pour éviter d'écraser un panier existant
+  // avec le tableau vide de l'état initial.
+  hydrated: boolean
 }
 
 type CartAction =
@@ -24,6 +28,7 @@ type CartAction =
   | { type: 'CLEAR_CART' }
   | { type: 'TOGGLE_CART' }
   | { type: 'CLOSE_CART' }
+  | { type: 'HYDRATE'; payload: CartItem[] }
 
 const cartReducer = (state: CartState, action: CartAction): CartState => {
   switch (action.type) {
@@ -73,10 +78,14 @@ const cartReducer = (state: CartState, action: CartAction): CartState => {
       return { ...state, isOpen: !state.isOpen }
     case 'CLOSE_CART':
       return { ...state, isOpen: false }
+    case 'HYDRATE':
+      return { ...state, items: action.payload, hydrated: true }
     default:
       return state
   }
 }
+
+const CART_STORAGE_KEY = 'huruf_cart'
 
 interface CartContextValue {
   items: CartItem[]
@@ -94,7 +103,30 @@ interface CartContextValue {
 const CartContext = createContext<CartContextValue | null>(null)
 
 export const CartProvider = ({ children }: { children: React.ReactNode }) => {
-  const [state, dispatch] = useReducer(cartReducer, { items: [], isOpen: false })
+  const [state, dispatch] = useReducer(cartReducer, { items: [], isOpen: false, hydrated: false })
+
+  // Restaure le panier sauvegardé au premier chargement (une seule fois).
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem(CART_STORAGE_KEY)
+      const items = saved ? JSON.parse(saved) : []
+      dispatch({ type: 'HYDRATE', payload: Array.isArray(items) ? items : [] })
+    } catch {
+      // Navigation privée / stockage bloqué / données corrompues : on repart d'un panier vide.
+      dispatch({ type: 'HYDRATE', payload: [] })
+    }
+  }, [])
+
+  // Sauvegarde à chaque changement, mais seulement après la restauration ci-dessus
+  // (sinon on écraserait un panier existant avec le tableau vide de l'état initial).
+  useEffect(() => {
+    if (!state.hydrated) return
+    try {
+      localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(state.items))
+    } catch {
+      // Navigation privée / stockage plein ou bloqué : le panier reste utilisable pour la session.
+    }
+  }, [state.items, state.hydrated])
 
   const addItem = useCallback((item: CartItem) => dispatch({ type: 'ADD_ITEM', payload: item }), [])
   const removeItem = useCallback(
