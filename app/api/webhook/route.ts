@@ -8,6 +8,9 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
 
 const resend = new Resend(process.env.RESEND_API_KEY || 'placeholder')
 
+// Lien "Demander des avis" — business.google.com → ton établissement.
+const GOOGLE_REVIEWS_URL = 'https://g.page/r/CQlXNwRFGLZKEBM/review'
+
 // Désactiver le body parsing automatique de Next.js (Stripe a besoin du raw body)
 export const runtime = 'nodejs'
 
@@ -233,6 +236,71 @@ export async function POST(req: NextRequest) {
         </div>
       `,
     })
+
+    // ── Demande d'avis, programmée à J+10 ──
+    // Envoyée automatiquement 10 jours après la commande (le temps que la
+    // livraison ait eu lieu) plutôt que demandée sur la page de confirmation
+    // juste après paiement, quand le client n'a pas encore reçu son tableau.
+    if (customerEmail) {
+      const reviewScheduledAt = new Date(Date.now() + 10 * 24 * 60 * 60 * 1000).toISOString()
+      const { error: reviewEmailError } = await resend.emails.send({
+        from: 'Hurûf Paris <contact@huruf-paris.fr>',
+        to: [customerEmail],
+        subject: 'Votre tableau vous plaît ? — Hurûf Paris',
+        scheduledAt: reviewScheduledAt,
+        html: `
+          <!DOCTYPE html>
+          <html lang="fr">
+          <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"></head>
+          <body style="margin: 0; padding: 0; background: #f7f4ee; font-family: Georgia, 'Times New Roman', serif;">
+            <div style="max-width: 600px; margin: 40px auto; background: #ffffff; box-shadow: 0 4px 24px rgba(0,0,0,0.08);">
+
+              <!-- Header -->
+              <div style="background: #0d0d0d; padding: 40px 32px; text-align: center;">
+                <h1 style="color: #c9a84c; font-size: 32px; margin: 0; letter-spacing: 0.15em; font-weight: normal;">Hurûf</h1>
+                <p style="color: #c9a84c; font-size: 16px; margin: 6px 0 0; font-style: italic; opacity: 0.7;">حروف</p>
+                <p style="color: #ffffff; font-size: 11px; margin: 16px 0 0; letter-spacing: 0.3em; text-transform: uppercase; opacity: 0.5;">Paris</p>
+              </div>
+
+              <!-- Corps -->
+              <div style="padding: 40px 40px 32px; text-align: center;">
+                <p style="font-size: 11px; color: #c9a84c; letter-spacing: 0.3em; text-transform: uppercase; margin: 0 0 12px;">Votre avis compte</p>
+                <h2 style="font-size: 26px; color: #1a1a1a; font-weight: normal; margin: 0 0 16px;">Bonjour${customerName && customerName !== 'Client' ? ' ' + customerName : ''},</h2>
+                <p style="font-size: 16px; color: #555; line-height: 1.7; margin: 0 0 32px;">
+                  Votre tableau Hurûf Paris devrait maintenant avoir trouvé sa place chez vous.
+                  Nous espérons qu'il vous plaît autant que nous avons aimé le préparer.
+                  Deux minutes pour partager votre avis aideraient énormément d'autres personnes à nous découvrir.
+                </p>
+
+                <!-- CTA -->
+                <div style="margin-bottom: 32px;">
+                  <a href="${GOOGLE_REVIEWS_URL}" style="display: inline-block; background: #c9a84c; color: #0d0d0d; padding: 16px 40px; font-size: 13px; text-decoration: none; letter-spacing: 0.2em; text-transform: uppercase; font-weight: bold;">
+                    Laisser un avis Google
+                  </a>
+                </div>
+
+                <div style="border-top: 1px solid #f0e8d0; padding-top: 24px;">
+                  <p style="font-size: 14px; color: #888; margin: 0 0 8px;">Un souci avec votre commande ? Nous vous répondons sous 48h.</p>
+                  <a href="mailto:contact@huruf-paris.fr" style="color: #c9a84c; font-size: 14px; text-decoration: none;">contact@huruf-paris.fr</a>
+                </div>
+              </div>
+
+              <!-- Footer -->
+              <div style="background: #0d0d0d; padding: 24px 32px; text-align: center;">
+                <p style="color: #c9a84c; font-size: 18px; margin: 0 0 4px; font-style: italic;">حروف</p>
+                <p style="color: #ffffff; font-size: 11px; margin: 0; letter-spacing: 0.2em; text-transform: uppercase; opacity: 0.3;">huruf-paris.fr</p>
+              </div>
+
+            </div>
+          </body>
+          </html>
+        `,
+      })
+
+      if (reviewEmailError) {
+        console.error('Demande avis J+10 — échec de la programmation:', reviewEmailError)
+      }
+    }
   } else if (event.type === 'checkout.session.expired') {
     // ── Panier abandonné : le client a commencé le paiement (Stripe connaît
     // son email) mais n'a pas terminé avant l'expiration de la session (3h,
