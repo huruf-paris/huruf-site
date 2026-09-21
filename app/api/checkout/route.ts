@@ -174,6 +174,10 @@ export async function POST(req: NextRequest) {
         source: 'huruf-site',
         ip: ip.slice(0, 45), // anonymisé
       },
+      // Expire après 3h (au lieu des 24h par défaut) : assez court pour qu'une
+      // relance panier-abandonné (voir /api/webhook) reste pertinente, assez
+      // long pour qu'un client distrait puisse revenir finaliser normalement.
+      expires_at: Math.floor(Date.now() / 1000) + 3 * 60 * 60,
     }
 
     // Remise auto si éligible ; sinon champ code promo. Si le coupon échoue,

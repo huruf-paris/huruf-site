@@ -233,6 +233,100 @@ export async function POST(req: NextRequest) {
         </div>
       `,
     })
+  } else if (event.type === 'checkout.session.expired') {
+    // ── Panier abandonné : le client a commencé le paiement (Stripe connaît
+    // son email) mais n'a pas terminé avant l'expiration de la session (3h,
+    // voir /api/checkout). On lui envoie une relance unique et douce.
+    const session = event.data.object as Stripe.Checkout.Session
+    const customerEmail = session.customer_details?.email
+    const customerName = session.customer_details?.name || ''
+
+    if (customerEmail) {
+      let articlesHtml = ''
+      try {
+        const lineItems = await stripe.checkout.sessions.listLineItems(session.id, { limit: 20 })
+        articlesHtml = lineItems.data
+          .map(
+            (item) => `
+          <tr>
+            <td style="padding: 12px 16px; border-bottom: 1px solid #f0e8d0; font-size: 15px; color: #1a1a1a;">${item.description}</td>
+            <td style="padding: 12px 16px; border-bottom: 1px solid #f0e8d0; font-size: 15px; color: #1a1a1a; text-align: center;">${item.quantity}</td>
+          </tr>`
+          )
+          .join('')
+      } catch {
+        articlesHtml = ''
+      }
+
+      const { error: resendError } = await resend.emails.send({
+        from: 'Hurûf Paris <contact@huruf-paris.fr>',
+        to: [customerEmail],
+        subject: 'Votre sélection vous attend — Hurûf Paris',
+        html: `
+          <!DOCTYPE html>
+          <html lang="fr">
+          <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"></head>
+          <body style="margin: 0; padding: 0; background: #f7f4ee; font-family: Georgia, 'Times New Roman', serif;">
+            <div style="max-width: 600px; margin: 40px auto; background: #ffffff; box-shadow: 0 4px 24px rgba(0,0,0,0.08);">
+
+              <!-- Header -->
+              <div style="background: #0d0d0d; padding: 40px 32px; text-align: center;">
+                <h1 style="color: #c9a84c; font-size: 32px; margin: 0; letter-spacing: 0.15em; font-weight: normal;">Hurûf</h1>
+                <p style="color: #c9a84c; font-size: 16px; margin: 6px 0 0; font-style: italic; opacity: 0.7;">حروف</p>
+                <p style="color: #ffffff; font-size: 11px; margin: 16px 0 0; letter-spacing: 0.3em; text-transform: uppercase; opacity: 0.5;">Paris</p>
+              </div>
+
+              <!-- Corps -->
+              <div style="padding: 40px 40px 32px;">
+                <p style="font-size: 11px; color: #c9a84c; letter-spacing: 0.3em; text-transform: uppercase; margin: 0 0 12px;">Commande non finalisée</p>
+                <h2 style="font-size: 26px; color: #1a1a1a; font-weight: normal; margin: 0 0 16px;">Bonjour${customerName ? ' ' + customerName : ''},</h2>
+                <p style="font-size: 16px; color: #555; line-height: 1.7; margin: 0 0 28px;">
+                  Vous avez commencé une commande sur Hurûf Paris, mais elle n'a pas été finalisée.
+                  Pas d'inquiétude : rien ne vous a été facturé, et votre sélection reste disponible.
+                </p>
+
+                ${
+                  articlesHtml
+                    ? `<div style="background: #faf8f4; border: 1px solid #f0e8d0; margin-bottom: 28px;">
+                  <div style="padding: 16px 20px; border-bottom: 1px solid #f0e8d0; background: #f5f0e8;">
+                    <p style="margin: 0; font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase; color: #8a7a5a; font-weight: bold;">Votre sélection</p>
+                  </div>
+                  <table style="width: 100%; border-collapse: collapse;">
+                    <tbody>${articlesHtml}</tbody>
+                  </table>
+                </div>`
+                    : ''
+                }
+
+                <!-- CTA -->
+                <div style="text-align: center; margin-bottom: 32px;">
+                  <a href="https://www.huruf-paris.fr/boutique" style="display: inline-block; background: #c9a84c; color: #0d0d0d; padding: 16px 40px; font-size: 13px; text-decoration: none; letter-spacing: 0.2em; text-transform: uppercase; font-weight: bold;">
+                    Finaliser ma commande
+                  </a>
+                </div>
+
+                <div style="border-top: 1px solid #f0e8d0; padding-top: 24px; text-align: center;">
+                  <p style="font-size: 14px; color: #888; margin: 0 0 8px;">Une question avant de commander ? Nous vous répondons sous 48h.</p>
+                  <a href="mailto:contact@huruf-paris.fr" style="color: #c9a84c; font-size: 14px; text-decoration: none;">contact@huruf-paris.fr</a>
+                </div>
+              </div>
+
+              <!-- Footer -->
+              <div style="background: #0d0d0d; padding: 24px 32px; text-align: center;">
+                <p style="color: #c9a84c; font-size: 18px; margin: 0 0 4px; font-style: italic;">حروف</p>
+                <p style="color: #ffffff; font-size: 11px; margin: 0; letter-spacing: 0.2em; text-transform: uppercase; opacity: 0.3;">huruf-paris.fr</p>
+              </div>
+
+            </div>
+          </body>
+          </html>
+        `,
+      })
+
+      if (resendError) {
+        console.error('Relance panier abandonné — échec envoi email:', resendError)
+      }
+    }
   }
 
   return NextResponse.json({ received: true })
