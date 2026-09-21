@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 import ContactClient from './ContactClient'
 
 export const metadata: Metadata = {
-  title: 'Contact — Hurûf Paris',
+  title: 'Contact',
   description:
     'Contactez Hurûf Paris pour toute question sur nos tableaux de calligraphie arabe. Réponse sous 48h. Email : contact@huruf-paris.fr',
   alternates: { canonical: '/contact' },

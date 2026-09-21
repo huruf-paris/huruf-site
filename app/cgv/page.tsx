@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Conditions Générales de Vente — Hurûf',
+  title: 'Conditions Générales de Vente',
   description: 'Conditions générales de vente du site Hurûf.',
 }
 

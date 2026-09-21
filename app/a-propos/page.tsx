@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 import AProposClient from './AProposClient'
 
 export const metadata: Metadata = {
-  title: 'À propos — Hurûf Paris | Calligraphie arabe encadrée',
+  title: 'À propos — Calligraphie Arabe Encadrée',
   description:
     'Découvrez l\'histoire de Hurûf Paris : une marque française née pour partager la beauté de la calligraphie arabe. Tableaux encadrés, conçus avec soin, livrés partout en France.',
   keywords: [
