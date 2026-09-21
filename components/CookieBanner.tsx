@@ -17,6 +17,9 @@ export default function CookieBanner() {
   const accept = () => {
     localStorage.setItem(STORAGE_KEY, 'true')
     setVisible(false)
+    // Permet à d'autres éléments flottants (ex. ChatWidget) de se repositionner
+    // dès que le bandeau disparaît, sans attendre un rechargement de page.
+    window.dispatchEvent(new Event('huruf:cookies-accepted'))
   }
 
   return (
