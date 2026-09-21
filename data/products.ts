@@ -229,14 +229,14 @@ export const products: Product[] = [
   {
     id: 'subhanallah-aquarelle',
     slug: 'subhanallah-aquarelle',
-    nameFr: 'Subhanallah — Edition Aquarelle',
+    nameFr: 'Subhanallah — Édition Aquarelle',
     nameAr: 'سبحان الله',
     transliteration: 'Subhanallah',
-    meaning: 'Gloire a Dieu',
+    meaning: 'Gloire à Dieu',
     description:
-      "Subhanallah — « Gloire a Dieu » — dans une composition unique melee de calligraphie arabe et d'eclaboussures d'encre doree. Cette edition aquarelle capture l'emerveillement dans toute sa splendeur. Ses teintes chaleureuses s'harmonisent avec les interieurs naturels, le bois clair et le lin. Ideale pour un salon, une entree ou une chambre. Un cadeau islamique original et elegant pour une naissance, un mariage ou une nouvelle maison. Livree encadree, prete a accrocher.",
+      "Subhanallah — « Gloire à Dieu » — dans une composition unique mêlée de calligraphie arabe et d'éclaboussures d'encre dorée. Cette édition aquarelle capture l'émerveillement dans toute sa splendeur. Ses teintes chaleureuses s'harmonisent avec les intérieurs naturels, le bois clair et le lin. Idéale pour un salon, une entrée ou une chambre. Un cadeau islamique original et élégant pour une naissance, un mariage ou une nouvelle maison. Livrée encadrée, prête à accrocher.",
     calligraphyDescription:
-      "La formule Subhanallah est composee dans un style expressif et libre, sublimee par des eclaboussures d'encre doree qui creent un effet aquarelle unique. Le contraste entre la precision des lettres arabes et la spontaneite des taches dorees donne a ce tableau un caractere artistique rare. Imprime sur papier d'art premium, cadre inclus.",
+      "La formule Subhanallah est composée dans un style expressif et libre, sublimée par des éclaboussures d'encre dorée qui créent un effet aquarelle unique. Le contraste entre la précision des lettres arabes et la spontanéité des taches dorées donne à ce tableau un caractère artistique rare. Imprimé sur papier d'art premium, cadre inclus.",
     images: ['/images/products/subhanallah-aquarelle-1.webp'],
     featured: true,
     prices: {
@@ -254,11 +254,11 @@ export const products: Product[] = [
     nameFr: 'Trio Aquarelle — Bismillah · Subhanallah · Allahu Akbar',
     nameAr: 'بسم الله · سبحان الله · الله أكبر',
     transliteration: 'Bismillah · Subhanallah · Allahu Akbar',
-    meaning: 'Au nom de Dieu · Gloire a Dieu · Dieu est le plus Grand',
+    meaning: 'Au nom de Dieu · Gloire à Dieu · Dieu est le plus Grand',
     description:
-      "Le Trio Aquarelle Bismillah · Subhanallah · Allahu Akbar reunit trois des formules spirituelles les plus importantes de l'islam dans un style aquarelle unique. Les eclaboussures d'encre doree donnent a chaque piece un caractere artistique exceptionnel. Ensemble, ces trois tableaux transforment n'importe quel mur en un espace charge de sens et de beaute. Parfait pour un salon, une salle a manger ou une salle de priere. Un cadeau islamique fort pour une famille ou une maison. Les trois tableaux sont fournis encadres, dans le meme format.",
+      "Le Trio Aquarelle Bismillah · Subhanallah · Allahu Akbar réunit trois des formules spirituelles les plus importantes de l'islam dans un style aquarelle unique. Les éclaboussures d'encre dorée donnent à chaque pièce un caractère artistique exceptionnel. Ensemble, ces trois tableaux transforment n'importe quel mur en un espace chargé de sens et de beauté. Parfait pour un salon, une salle à manger ou une salle de prière. Un cadeau islamique fort pour une famille ou une maison. Les trois tableaux sont fournis encadrés, dans le même format.",
     calligraphyDescription:
-      "Les trois compositions partagent le meme style aquarelle avec eclaboussures dorees — une harmonie visuelle totale pour un rendu mural d'exception. Chaque piece est pensee pour faire partie d'un ensemble. Accrochez-les alignes pour un effet galerie contemporain. Imprimes sur papier d'art premium, cadres inclus.",
+      "Les trois compositions partagent le même style aquarelle avec éclaboussures dorées — une harmonie visuelle totale pour un rendu mural d'exception. Chaque pièce est pensée pour faire partie d'un ensemble. Accrochez-les alignés pour un effet galerie contemporain. Imprimés sur papier d'art premium, cadres inclus.",
     images: ['/images/products/trio-aquarelle-1.webp'],
     featured: true,
     isBundle: true,
