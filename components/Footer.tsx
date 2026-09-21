@@ -20,14 +20,6 @@ function StripeLogo() {
   )
 }
 
-function PayPalLogo() {
-  return (
-    <svg viewBox="0 0 80 22" className="h-5 w-auto" aria-label="PayPal" fill="none">
-      <text x="0" y="16" fontFamily="Arial" fontSize="13" fill="#fff" opacity="0.7" fontWeight="700">PayPal</text>
-    </svg>
-  )
-}
-
 function VisaLogo() {
   return (
     <svg viewBox="0 0 50 16" className="h-4 w-auto" aria-label="Visa">
@@ -187,12 +179,6 @@ export default function Footer() {
               <div className="flex items-center gap-1.5 bg-white/5 border border-white/10 px-3 py-1.5 rounded">
                 <svg viewBox="0 0 32 14" className="h-4 w-auto" aria-label="Stripe">
                   <text x="0" y="11" fontFamily="Arial" fontSize="11" fill="#fff" opacity="0.75" fontWeight="600">stripe</text>
-                </svg>
-              </div>
-              {/* PayPal */}
-              <div className="flex items-center gap-1.5 bg-white/5 border border-white/10 px-3 py-1.5 rounded">
-                <svg viewBox="0 0 46 14" className="h-4 w-auto" aria-label="PayPal">
-                  <text x="0" y="11" fontFamily="Arial" fontSize="11" fill="#fff" opacity="0.75" fontWeight="700">PayPal</text>
                 </svg>
               </div>
               {/* Visa */}
