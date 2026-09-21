@@ -468,7 +468,7 @@ export default function ProductPageClient({ params }: PageProps) {
                     </svg>
                   ),
                   titre: "Impression de qualité supérieure",
-                  texte: "Imprimé sur papier d\"art épais, les couleurs sont profondes et durables. Un rendu premium visible dès la réception."
+                  texte: "Imprimé sur papier d'art épais, les couleurs sont profondes et durables. Un rendu premium visible dès la réception."
                 },
                 {
                   icon: (
@@ -480,7 +480,7 @@ export default function ProductPageClient({ params }: PageProps) {
                     </svg>
                   ),
                   titre: "Cadre inclus, prêt à accrocher",
-                  texte: "Chaque tableau est livré encadré avec son système d\"accroche. Aucun accessoire supplémentaire nécessaire."
+                  texte: "Chaque tableau est livré encadré avec son système d'accroche. Aucun accessoire supplémentaire nécessaire."
                 },
                 {
                   icon: (
@@ -492,7 +492,7 @@ export default function ProductPageClient({ params }: PageProps) {
                     </svg>
                   ),
                   titre: "Composition raffinée",
-                  texte: "Contraste soigné, équilibre visuel travaillé — chaque détail est pensé pour sublimer votre intérieur sans l\"alourdir."
+                  texte: "Contraste soigné, équilibre visuel travaillé — chaque détail est pensé pour sublimer votre intérieur sans l'alourdir."
                 },
                 {
                   icon: (

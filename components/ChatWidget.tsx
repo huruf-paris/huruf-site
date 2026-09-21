@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { usePathname } from 'next/navigation'
 import { AnimatePresence, motion } from 'framer-motion'
 import { MessageCircle, X, Send } from 'lucide-react'
 
@@ -12,6 +13,11 @@ import { MessageCircle, X, Send } from 'lucide-react'
  * annoncée clairement pour ne pas créer d'attente d'instantanéité.
  */
 export default function ChatWidget() {
+  const pathname = usePathname()
+  // Les fiches produit ont leur propre barre "Ajouter au panier" sticky sur
+  // mobile/tablette (cf. ProductPageClient) : la bulle doit se décaler pour
+  // ne pas la recouvrir, comme elle le fait déjà avec le bandeau cookie.
+  const onProductPage = Boolean(pathname && pathname !== '/boutique' && pathname.startsWith('/boutique/'))
   const [open, setOpen] = useState(false)
   // Tant qu'on ne sait pas si le bandeau cookie est déjà accepté, on suppose
   // qu'il est visible (cas du tout premier chargement) pour éviter tout chevauchement.
@@ -61,6 +67,15 @@ export default function ChatWidget() {
     }
   }
 
+  // Le bandeau cookie est prioritaire (il masque de toute façon la barre sticky
+  // produit quand les deux sont présents) ; sinon on tient compte de la barre
+  // "Ajouter au panier" sur les fiches produit.
+  const buttonBottomClass = liftedByBanner
+    ? 'bottom-28 sm:bottom-6'
+    : onProductPage
+      ? 'bottom-28 lg:bottom-6'
+      : 'bottom-6'
+
   return (
     <>
       {/* Bouton flottant */}
@@ -68,9 +83,7 @@ export default function ChatWidget() {
         onClick={() => setOpen((o) => !o)}
         aria-label={open ? 'Fermer la fenêtre de question' : 'Poser une question rapide'}
         aria-expanded={open}
-        className={`fixed right-5 z-[90] w-14 h-14 rounded-full bg-gold text-night flex items-center justify-center shadow-lg shadow-gold/20 hover:bg-gold/90 hover:scale-105 transition-all duration-300 ${
-          liftedByBanner ? 'bottom-28 sm:bottom-6' : 'bottom-6'
-        }`}
+        className={`fixed right-5 z-[90] w-14 h-14 rounded-full bg-gold text-night flex items-center justify-center shadow-lg shadow-gold/20 hover:bg-gold/90 hover:scale-105 transition-all duration-300 ${buttonBottomClass}`}
       >
         {open ? <X size={22} strokeWidth={1.75} /> : <MessageCircle size={22} strokeWidth={1.75} />}
       </button>
