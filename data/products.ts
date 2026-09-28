@@ -342,6 +342,31 @@ export const products: Product[] = [
       '50x70': { single: 134.99, lot3: 134.99 },
     },
   },
+
+  {
+    id: 'trio-sabr-chukr-tawakkul',
+    slug: 'trio-sabr-chukr-tawakkul',
+    nameFr: 'Trio Sabr · Chukr · Tawakkul',
+    nameAr: 'صبر · شكر · توكل',
+    transliteration: 'Sabr · Chukr · Tawakkul',
+    meaning: 'Patience · Gratitude · Confiance en Dieu',
+    description:
+      "Le Trio Sabr · Chukr · Tawakkul réunit trois valeurs spirituelles fortes dans un style unique inspiré des tapis persans traditionnels. Sur un fond bordeaux richement orné, la calligraphie blanche se détache avec élégance. Exposés ensemble, ces trois tableaux créent une composition murale raffinée et chargée de sens, parfaite pour un salon ou une salle à manger. Un cadeau islamique original pour une famille ou une maison. Les trois tableaux sont fournis encadrés, dans le même format, prêts à accrocher.",
+    calligraphyDescription:
+      "Les trois compositions partagent le même fond inspiré des tapis persans traditionnels — motifs géométriques et floraux en dégradés de bordeaux — sur lequel la calligraphie blanche vient trancher avec force. Un style résolument différent du reste de la collection, entre héritage oriental et modernité. Imprimés sur papier d'art premium, cadres inclus.",
+    images: [
+      '/images/products/trio-sabr-chukr-tawakkul-1.webp',
+      '/images/products/trio-sabr-chukr-tawakkul-2.webp',
+    ],
+    featured: false,
+    isBundle: true,
+    bundleSize: 3,
+    prices: {
+      '30x40': { single: 89.99, lot3: 89.99 },
+      '40x60': { single: 109.99, lot3: 109.99 },
+      '50x70': { single: 134.99, lot3: 134.99 },
+    },
+  },
 ]
 
 const FEATURED_ORDER = ['allah-akbar-dore', 'allah-akbar-sombre', 'bismillah-aquarelle', 'bismillah-dore', 'subhanallah-aquarelle', 'duo-bismillah', 'trio-aquarelle', 'salam', 'trio-chukr-sabr-hubb', 'subhanallah', 'sabr']
