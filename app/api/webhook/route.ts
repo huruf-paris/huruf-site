@@ -184,7 +184,7 @@ export async function POST(req: NextRequest) {
     // ── Email à VOUS (notification interne) ──
     await resend.emails.send({
       from: 'Hurûf Paris <contact@huruf-paris.fr>',
-      to: ['fashiontrendyfemme@gmail.com'],
+      to: ['contact@huruf-paris.fr'],
       subject: `🛍️ Nouvelle commande — ${amountTotal} € — ${customerName}`,
       html: `
         <div style="font-family: Georgia, serif; max-width: 600px; margin: 0 auto; color: #1a1a1a;">

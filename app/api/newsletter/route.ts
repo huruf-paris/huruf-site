@@ -91,7 +91,7 @@ export async function POST(req: NextRequest) {
     // ── Notification interne ──
     await resend.emails.send({
       from: 'Hurûf Paris <contact@huruf-paris.fr>',
-      to: ['fashiontrendyfemme@gmail.com'],
+      to: ['contact@huruf-paris.fr'],
       subject: `📧 Nouvel abonné newsletter — ${sanitizedEmail}`,
       html: `
         <div style="font-family: Georgia, serif; max-width: 500px; margin: 0 auto;">
